@@ -17,7 +17,10 @@ $row = mysql_fetch_array($result);
 
 // If result matched $myusername and $mypassword, table row must be 1 row
 if($count==1){
+  $_SESSION['logged_in'] = 1;
+  $_SESSION['id'] = $row['id'];
 $priv = $row['priviledge'];
+  $_SESSION['priv'] = $priv;
 switch ($priv) {
   case '0':
     redirect('/admin/index.php');

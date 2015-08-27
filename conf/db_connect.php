@@ -1,4 +1,5 @@
 <?php
+$link = '';
 function connect(){
 $link = mysql_connect("localhost", "root", "me")
 or die(mysql_error());
@@ -8,6 +9,9 @@ or die(mysql_error());
 function query($string){
 $rs = mysql_query($string) or die(mysql_error());
 return $rs;
+}
+function return_connection(){
+  return $link;
 }
 function redirect($string){
 header("Location:$string");

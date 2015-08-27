@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <?php
-include('../conf/db_connect.php');
-include ('../conf/misc.php');
-session_start();
+include('conf/db_connect.php');
+include ('conf/misc.php');
+session_start();/*
+if(!isset($_SESSION['logged_in'])){
+    redirect("login.php");
+}*/
+
 ?>
 <html>
   <head>
@@ -12,18 +16,18 @@ session_start();
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,7 +114,6 @@ session_start();
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
             <li><a href="index.php?page=../acct_form"><i class="fa fa-link"></i> <span>Create Account</span></a></li>
-            <li class="active"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
@@ -118,9 +121,7 @@ session_start();
                 <li><a href="#">Withdraw</a></li>
               </ul>
             </li>
-
-            <li><a href="#"><i class="fa fa-link"></i> <span>Reports</span></a></li>
-                      </ul><!-- /.sidebar-menu -->
+                  </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
       </aside>
@@ -139,10 +140,6 @@ session_start();
         <section class="content">
 
           <?php
-
-      /*if(!isset($_SESSION['logged_in'])){
-          redirect("sign-in.html");
-      }*/
       $page = '';/* gets the variable $page */
           if (!empty($_GET['page'])) {
           $page .= $_GET['page'] . '.php';
@@ -150,7 +147,7 @@ session_start();
           include($page);
           }   /* if $page has a value, include it */
       else{
-      include('../new_user.php');
+      include('new_user.php');
       }
       ?>
 
@@ -234,12 +231,13 @@ session_start();
     <!-- REQUIRED JS SCRIPTS -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../dist/js/app.min.js"></script>
+    <script src="dist/js/app.min.js"></script>
     <script src="../user.js"></script>
+
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the

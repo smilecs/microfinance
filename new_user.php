@@ -8,6 +8,8 @@
 <div class="form-group">
     <label for="username">Username</label>
     <input type="text" name="username" class="form-control" id="username" placeholder="username">
+  <div id="msg">
+  </div>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>

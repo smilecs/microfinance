@@ -2,10 +2,10 @@
 <?php
 include('conf/db_connect.php');
 include ('conf/misc.php');
-session_start();
+session_start();/*
 if(!isset($_SESSION['logged_in'])){
     redirect("login.php");
-}
+}*/
 
 ?>
 <html>
