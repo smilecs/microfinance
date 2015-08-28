@@ -6,6 +6,8 @@
 <div class="form-group">
 <label for="acct">Account Number</label>
 <input type="text" name="acct_no" class="form-control" id="acct" placeholder="Account no">
+<div id="msg">
+</div>
 </div>
 <div class="form-group">
 <label for="amt">Deposit Amount</label>
