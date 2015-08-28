@@ -5,15 +5,24 @@ $acct_name = $_POST['acct_name'];
 $emp_id = $_POST['emp_id'];
 $acct_type = $_POST['acct_type'];
 $prefix = "TSA";
-if($acct_type == '2'){
-  $prefix = "SSA";
+$duration = '';
+if($acct_type == 1){
+  $result = query("SELECT value from percent WHERE p_name='duration'");
+  $row = mysql_fetch_array($result);
+  $duration = $row['value'];
+}else{
+$duration = $_POST['duration'];
+$prefix = "SSA";
 }
 //$prefix = str_split($acct_type, 3);
 $k = $prefix;
 for($i=0; $i<7; $i++){
   $k .= rand(0, 9);
 }
-$date = date('y-m-d');
-query("INSERT INTO account(acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$acct_name', '$emp_id', '$acct_type', '$date', '$k')")
+$date = date('Y-m-d');
+
+$end = date('Y-m-d', strtotime('+'.$duration .'years'));
+query("INSERT INTO account(duration, acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$end', '$acct_name', '$emp_id', '$acct_type', '$date', '$k')")
 redirect(index.php?page=acct_suc&no=$k&type=$acct_type);
+
 ?>

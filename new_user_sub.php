@@ -27,5 +27,5 @@ query("INSERT INTO customer(state, lga, middle_name, surname, reg_date, firstnam
 $rs = query("SELECT * FROM customer WHERE uname='$uname'");
 $row = mysql_fetch_array($rs);
 $id = $row['id'];
-redirect("index.php?page=confirmation&id=$id");
+redirect("index.php?page=../confirmation&id=$id");
 ?>

@@ -10,4 +10,11 @@ if($string == $page){
 }
    return $class;
 }
+function folder($priv){
+  if($priv = 0){
+    redirect("teller/index.php");
+  }
+  redirect("admin/index.php");
+}
+
 ?>

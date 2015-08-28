@@ -17,6 +17,18 @@ function redirect($string){
 header("Location:$string");
 
 }
+function acct_check($acct_no){
+  $rs = query("SELECT duration FROM account WHERE acct_no='$acct_no'");
+  $row = mysql_fetch_array($rs);
+  $expiry_date = $row['duration'];
+  $current_date = date('Y-m-d');
+  if(strtotime($expiry_date) <= strtotime($current_date)){
+    redirect("index.php?page=../bad_account");
+  }
+
+
+}
+
 function db_pic($id){
 $query ="SELECT * FROM images WHERE image_id ='$id'";
 $row = mysql_query($query)

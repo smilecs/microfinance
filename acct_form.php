@@ -18,6 +18,9 @@
 </option>
 </select>
 </div>
+<div class="form-group" id="new_elem">
+
+</div>
 <div class="form-group">
   <input type="submit" class="btn btn-primary" value="Create Account">
 </div>

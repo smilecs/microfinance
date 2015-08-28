@@ -3,4 +3,4 @@
 <article>
 	<h3>Your User ID is <?php echo $_GET['id'];?></h3>
 </article>
-<a href="index.php?page=acct_form">Proceed to Account Creation?</a>
+<a href="index.php?page=../acct_form">Proceed to Account Creation?</a>

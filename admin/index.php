@@ -2,6 +2,7 @@
 <?php
 include('../conf/db_connect.php');
 include ('../conf/misc.php');
+connect();
 session_start();
 ?>
 <html>
@@ -118,8 +119,8 @@ session_start();
                 <li><a href="#">Withdraw</a></li>
               </ul>
             </li>
-
             <li><a href="#"><i class="fa fa-link"></i> <span>Reports</span></a></li>
+            <li><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
                       </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -241,6 +242,7 @@ session_start();
     <script src="../dist/js/app.min.js"></script>
     <script src="../user.js"></script>
     <script src="../acct.js"></script>
+    <script src="../duration_elem.js"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
