@@ -113,16 +113,10 @@ if(!isset($_SESSION['logged_in'])){
           <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>New Entry</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Account</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Reports</span></a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Edits</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
-              </ul>
-            </li>
+            <li class="active"><a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
+            <li><a href="#"><i class="fa fa-link"></i> <span>Edit</span></a></li>
+        
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -149,7 +143,7 @@ if(!isset($_SESSION['logged_in'])){
           include($page);
           }   /* if $page has a value, include it */
       else{
-      include('new_user.php');
+      include('profile.php');
       }
       ?>
 

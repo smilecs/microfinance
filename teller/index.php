@@ -239,6 +239,7 @@ if(!isset($_SESSION['logged_in'])){
     <script src="../user.js"></script>
 <script src="../acct.js"></script>
 <script src="../duration_elem.js"></script>
+<script src="../withdraw.js"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
