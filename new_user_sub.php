@@ -2,9 +2,7 @@
 //session_start();
 include('conf/db_connect.php');
 connect();
-echo "ooo";
 $f_name = $_POST['name'];
-echo $f_name;
 $s_name = $_POST['sname'];
 $m_name = $_POST['mname'];
 $uname = $_POST['username'];

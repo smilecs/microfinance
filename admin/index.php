@@ -86,10 +86,10 @@ session_start();
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="../dist/img/avatar.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>Smile Mmumene</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -110,17 +110,17 @@ session_start();
           <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li><a href="index.php?page=../acct_form"><i class="fa fa-link"></i> <span>Create Account</span></a></li>
-            <li class="active"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
+            <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
+            <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
             <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Deposit</a></li>
-                <li><a href="#">Withdraw</a></li>
+                <li class="<?php echo classUpdate("../deposit_form"); ?>"><a href="index.php?page=../deposit_form">Deposit</a></li>
+                <li class="<?php echo classUpdate("../withdraw_form"); ?>"><a href="index.php?page=../withdraw_form">Withdraw</a></li>
               </ul>
             </li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Reports</span></a></li>
-            <li><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
+            <li class="<?php echo classUpdate("../value_form"); ?>"><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
                       </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

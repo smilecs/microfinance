@@ -63,11 +63,11 @@ if(!isset($_SESSION['logged_in'])){
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="index.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b></b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>Admin</b></span>
         </a>
 
         <!-- Header Navbar -->
@@ -89,10 +89,10 @@ if(!isset($_SESSION['logged_in'])){
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="dist/img/avatar.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>Smile Mmumene</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -115,7 +115,7 @@ if(!isset($_SESSION['logged_in'])){
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Edit</span></a></li>
-        
+
 
           </ul><!-- /.sidebar-menu -->
         </section>
@@ -232,6 +232,7 @@ if(!isset($_SESSION['logged_in'])){
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/app.min.js"></script>
+    <script src="pwd.js"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
