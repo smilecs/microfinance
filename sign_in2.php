@@ -1,5 +1,5 @@
 <?php
-        session_start();
+session_start();
 include_once('db_connect.php');
 connect();
 // Define $myusername and $mypassword
