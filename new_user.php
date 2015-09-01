@@ -1,4 +1,4 @@
-<form method="post" action="new_user_sub.php">
+<form method="post" action="../new_user_sub.php">
   <div class="form-group">
     <label for="name">Full Name</label>
     <input type="text" name="name" class="form-control" id="fullname" placeholder="First Name" REQUIRED>

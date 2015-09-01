@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('db_connect.php');
+include_once('conf/db_connect.php');
 connect();
 // Define $myusername and $mypassword
 $uname=$_POST['username'];
@@ -23,10 +23,10 @@ $priv = $row['priviledge'];
   $_SESSION['priv'] = $priv;
 switch ($priv) {
   case '0':
-    redirect('/admin/index.php');
+    redirect('admin/index.php');
     break;
   case '1':
-    redirect('/teller/index.php');
+    redirect('teller/index.php');
     break;
   default:
     redirect("index.php");

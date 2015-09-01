@@ -1,8 +1,8 @@
 <?php
-//$id = something
+$id =$_SESSION['id'];
 $result = query("SELECT * FROM account WHERE emp_id='$id'");
 if(mysql_num_rows($result) < 1){
-echo "<h2>Account inofrmation unavailable</h2>";
+echo "<h2>Account information unavailable</h2>";
 }
 else{
 while ($row = mysql_fetch_array($result)) {

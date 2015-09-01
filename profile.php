@@ -1,6 +1,5 @@
 <?php
-connect();
-$id = '1';
+$id =$_SESSION['id'];
 $result = query("SELECT * FROM customer WHERE id='$id'");
 $row = mysql_fetch_array($result);
 $mid_name = $row['middle_name'];
@@ -98,13 +97,13 @@ $nok_name = $row['nok_name'];
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#account" data-toggle="tab">Account</a></li>
-                  <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+                  <li><a href="#settings" data-toggle="tab">Settings</a></li>
                 </ul>
                 <div class="tab-content">
                   <div class="active tab-pane" id="account">
                     <?php include('account_view.php'); ?>
                   </div><!-- /.tab-pane -->
-                  <div class="active tab-pane" id="settings">
+                  <div class="tab-pane" id="settings">
                     <?php include('profile_edit.php'); ?>
                   </div>
                   <!-- /.tab-pane -->

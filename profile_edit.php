@@ -1,5 +1,5 @@
 <?php
-$id = '1';
+$id =$_SESSION['id'];
 $result = query("SELECT * FROM customer WHERE id='$id'");
 $row = mysql_fetch_array($result);
 $email = $row['email'];

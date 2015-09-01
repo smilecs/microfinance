@@ -30,12 +30,21 @@ function acct_check($acct_no){
 }
 
 function db_pic($id){
-$query ="SELECT * FROM images WHERE image_id ='$id'";
-$row = mysql_query($query)
-or die(mysql_error());
-$row_d = mysql_fetch_array($row);
-extract($row_d);
-$new_id = $image_id;
-return $new_id;
+
+  $result = query("SELECT img_url FROM customer WHERE id='$id'");
+  $row = mysql_fetch_array($result);
+  $img = $row['img_url'];
+  if(empty($img)){
+  $img = "avatar.png";
+  }
+  return $img;
+
 }
+function name($id){
+  $result = query("SELECT * FROM customer WHERE id='$id'");
+  $row = mysql_fetch_array($result);
+  $name = $row['surname'] ." " . $row['firstname'];
+  return $name;
+}
+
 ?>

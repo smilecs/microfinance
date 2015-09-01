@@ -4,6 +4,11 @@ include('../conf/db_connect.php');
 include ('../conf/misc.php');
 connect();
 session_start();
+if(!isset($_SESSION['logged_in'])){
+    redirect("sign-in.html");
+}
+$id = $_SESSION['id'];
+
 ?>
 <html>
   <head>
@@ -86,24 +91,17 @@ session_start();
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="../dist/img/avatar.png" class="img-circle" alt="User Image">
+              <img src="../dist/img/<?php echo db_pic($id); ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Smile Mmumene</p>
+              <p><?php echo name($id); ?></p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
 
           <!-- search form (Optional) -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
+
           <!-- /.search form -->
 
           <!-- Sidebar Menu -->
@@ -141,9 +139,6 @@ session_start();
 
           <?php
 
-      /*if(!isset($_SESSION['logged_in'])){
-          redirect("sign-in.html");
-      }*/
       $page = '';/* gets the variable $page */
           if (!empty($_GET['page'])) {
           $page .= $_GET['page'] . '.php';

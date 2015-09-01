@@ -1,6 +1,8 @@
 <?php
-//session_start();
+session_start();
+$priv = $_SESSION['priv'];
 include('conf/db_connect.php');
+include('conf/misc.php');
 connect();
 $f_name = $_POST['name'];
 $s_name = $_POST['sname'];
@@ -25,5 +27,10 @@ query("INSERT INTO customer(state, lga, middle_name, surname, reg_date, firstnam
 $rs = query("SELECT * FROM customer WHERE uname='$uname'");
 $row = mysql_fetch_array($rs);
 $id = $row['id'];
-redirect("index.php?page=../confirmation&id=$id");
+if($priv = 0){
+redirect("admin/index.php?page=../confirmation&id=$id");
+}
+redirect("teller/index.php?page=../confirmation&id=$id");
+
+
 ?>
