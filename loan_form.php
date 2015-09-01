@@ -1,9 +1,10 @@
+<form>
 <div class="form-group">
-  <label for="exampleInputEmail1">Email address</label>
-  <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="<?php echo $email; ?>">
-<input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>"/>
+  <label for="emp_id">Identification Number</label>
+  <input type="Number" name="emp_id" class="form-control" id="emp_id">
 </div>
 <div class="form-group">
-  <label for="address">Address</label>
-  <input type="text" id="address" name="address" class="form-control" value="<?php echo $address; ?>"/>
+  <label for="amt">Amount</label>
+  <input type="Number" id="amt" name="amt" class="form-control" required/>
 </div>
+</form>
