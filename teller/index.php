@@ -4,7 +4,7 @@ include('conf/db_connect.php');
 include ('conf/misc.php');
 session_start();
 if(!isset($_SESSION['logged_in'])){
-    redirect("login.php");
+    redirect("../login.php");
 }
 $id = $_SESSION['id'];
 
@@ -115,6 +115,8 @@ $id = $_SESSION['id'];
                 <li class="<?php echo classUpdate("../withdraw_form"); ?>"><a href="index.php?page=../withdraw_form">Withdraw</a></li>
               </ul>
             </li>
+            <li class="active"><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
+
                   </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

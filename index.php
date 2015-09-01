@@ -108,6 +108,8 @@ $id =$_SESSION['id'];
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
+            <li class="active"><a href="logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
+
 
 
 

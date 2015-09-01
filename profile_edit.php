@@ -11,7 +11,7 @@ $nok_name = $row['nok_name'];
 $n_phone = $row['n_phone'];
 $pwd = $row['pwd'];
 ?>
-<form method="post" action="save.php">
+<form method="post" action="save.php" enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="<?php echo $email; ?>">
