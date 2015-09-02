@@ -18,5 +18,21 @@ function folder($priv){
 }
 redirect("index.php");
 }
+function folders($priv, $url){
+
+switch ($priv) {
+  case '1':
+    redirect("teller/index.php?" . $url);
+    break;
+  case '0':
+  redirect("admin/index.php?" . $url);
+    break;
+  default:
+  redirect("index.php");
+    break;
+}
+
+  }
+
 
 ?>

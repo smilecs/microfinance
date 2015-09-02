@@ -8,6 +8,8 @@ if(!isset($_SESSION['logged_in'])){
     redirect("login.php");
 }
 $id =$_SESSION['id'];
+$priv = $_SESSION['priv'];
+
 ?>
 <html>
   <head>
@@ -123,8 +125,7 @@ $id =$_SESSION['id'];
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Page Header
-            <small>Optional description</small>
+                  <small></small>
           </h1>
                 </section>
 
@@ -132,6 +133,7 @@ $id =$_SESSION['id'];
         <section class="content">
 
           <?php
+
       $page = '';/* gets the variable $page */
           if (!empty($_GET['page'])) {
           $page .= $_GET['page'] . '.php';

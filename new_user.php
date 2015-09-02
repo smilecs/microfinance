@@ -1,3 +1,5 @@
+<div class="me">
+
 <form method="post" action="../new_user_sub.php">
   <div class="form-group">
     <label for="name">Full Name</label>
@@ -59,3 +61,5 @@
 
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
+</div>

@@ -113,8 +113,9 @@ $id = $_SESSION['id'];
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="<?php echo classUpdate("../deposit_form"); ?>"><a href="index.php?page=../deposit_form">Deposit</a></li>
-                <li class="<?php echo classUpdate("../withdraw_form"); ?>"><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+                <li><a href="index.php?page=../deposit_form">Deposit</a></li>
+                <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+                <li><a href="index.php?page=../loan_form">Withdraw</a></li>
               </ul>
             </li>
             <li class="active"><a href="index.php?page=../profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
@@ -242,6 +243,7 @@ $id = $_SESSION['id'];
     <script src="../acct.js"></script>
     <script src="../duration_elem.js"></script>
     <script src="../withdraw.js"></script>
+    <script src="../dep.js"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the

@@ -1,4 +1,4 @@
-<form method="post" action="">
+<form method="post" action="../acct_sub.php">
   <div class="form-group">
 <label for="acct_name">Account Name</label>
 <input type="text" name="acct_name" class="form-control" id="acct_name" placeholder="Account Name">
@@ -20,6 +20,10 @@
 </div>
 <div class="form-group" id="new_elem">
 
+</div>
+<div class="form-group">
+<label for="sv">Monthly Savings</label>
+<input type="text" name="save_amt" class="form-control" id="sv" placeholder="5000.00">
 </div>
 <div class="form-group">
   <input type="submit" class="btn btn-primary" value="Create Account">

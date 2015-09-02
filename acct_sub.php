@@ -1,8 +1,12 @@
 <?php
+session_start();
+$priv = $_SESSION['priv'];
 include_once('conf/db_connect.php');
+include_once('conf/misc.php');
 connect();
 $acct_name = $_POST['acct_name'];
 $emp_id = $_POST['emp_id'];
+$save = $_POST['save_amt'];
 $acct_type = $_POST['acct_type'];
 $prefix = "TSA";
 $duration = '';
@@ -22,7 +26,6 @@ for($i=0; $i<7; $i++){
 $date = date('Y-m-d');
 
 $end = date('Y-m-d', strtotime('+'.$duration .'years'));
-query("INSERT INTO account(duration, acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$end', '$acct_name', '$emp_id', '$acct_type', '$date', '$k')")
-redirect(index.php?page=acct_suc&no=$k&type=$acct_type);
-
+query("INSERT INTO account(save_amt, duration, acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$save', '$end', '$acct_name', '$emp_id', '$acct_type', '$date', '$k')");
+folders($priv, "page=../acct_suc&no=$k&type=$acct_type");
 ?>

@@ -9,9 +9,7 @@
 <div id="msg">
 </div>
 </div>
-<div class="form-group">
-<label for="amt">Deposit Amount</label>
-<input type="Number" name="amt" class="form-control" id="amt" placeholder="10000">
+<div class="form-group" id="dep">
 </div>
 <div class="form-group">
   <input type="submit" class="btn btn-primary" value="pay in">
