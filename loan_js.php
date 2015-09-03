@@ -6,8 +6,12 @@ $result = query("SELECT * FROM loan WHERE emp_no = '$loan_id'");
 if(mysql_num_rows($result) > 0){
   $row = mysql_fetch_array($result);
   $amort = $row['amort'];
-  echo "<label for=amort>Account Number</label><input type=Number name=amort class=form-control id=amort value=$amort>";
+
+
+
+
+  echo "<div class=form-group id=aloan><label for=amort>Account Number</label><input type=Number name=amort class=form-control id=amort value=$amort></div><div class=form-group id=sub><input type=submit value=submit/></div>";
 }else{
-  echo "";
+  echo "<h3>No OutStanding Balance.</h3>";
 }
  ?>

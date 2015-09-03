@@ -4,8 +4,7 @@ $(document).ready(function(){
     $.post('../loan_js.php', {
       loan: loan_id
     }, function(data){
-      $('#aloan').html(data);
-      $('#sub').html("<input type=submit class=btn btn-primary value=pay>");
+      $('.content').html(data);
     });
   });
 });

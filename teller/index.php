@@ -116,6 +116,8 @@ $id = $_SESSION['id'];
                 <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
               </ul>
             </li>
+            <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
+            <li><a href="index.php?page=../report_generation"><i class="glyphicon glyphicon-folder-open"></i> <span>View Reports</span></a></li>
             <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
             <li class="active"><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 

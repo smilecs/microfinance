@@ -9,12 +9,9 @@
 <label for="loan">User ID</label>
 <input type="text" name="loan_id" class="form-control" id="loan" placeholder="Depositor ID">
 </div>
-<div class="form-group" id="aloan">
-</div>
-<div class="form-group" id="sub">
+<div class="content">
 
 </div>
-
 </div>
 
 </form>
