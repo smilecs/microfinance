@@ -115,6 +115,7 @@ $id = $_SESSION['id'];
                 <li class="<?php echo classUpdate("../withdraw_form"); ?>"><a href="index.php?page=../withdraw_form">Withdraw</a></li>
               </ul>
             </li>
+            <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
             <li class="active"><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
                   </ul><!-- /.sidebar-menu -->

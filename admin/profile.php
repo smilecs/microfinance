@@ -96,13 +96,12 @@ $nok_name = $row['nok_name'];
             <div class="col-md-9">
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
-                </ul>
+                  <li class="active"><a href="#account" data-toggle="tab">Settings</a></li>
+                                </ul>
                 <div class="tab-content">
-                  <!-- /.tab-pane -->
-                  <div class="tab-pane" id="settings">
-                    <?php include('profile_edit.php'); ?>
-                  </div>
+                  <div class="active tab-pane" id="account">
+                    <?php include('../profile_edit.php'); ?>
+                  </div><!-- /.tab-pane -->
                   <!-- /.tab-pane -->
                 </div><!-- /.tab-content -->
               </div><!-- /.nav-tabs-custom -->

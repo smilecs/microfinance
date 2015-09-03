@@ -1,6 +1,11 @@
-<div class="me">
+<div class="row">
+            <!-- left column -->
+            <div class="col-md-10">
+              <!-- general form elements -->
+              <div class="box box-primary">
 
 <form method="post" action="../new_user_sub.php">
+   <div class="box-body">
   <div class="form-group">
     <label for="name">Full Name</label>
     <input type="text" name="name" class="form-control" id="fullname" placeholder="First Name" REQUIRED>
@@ -14,7 +19,7 @@
   </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputEmail1">Contact Info</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" REQUIRED>
   <input type="text" name="phone" class="form-control" placeholder="phone" REQUIRED/>
   </div>
@@ -60,6 +65,8 @@
 
 
   <button type="submit" class="btn btn-default">Submit</button>
+</div>
 </form>
-
+</div>
+</div>
 </div>
