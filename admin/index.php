@@ -244,7 +244,7 @@ $id = $_SESSION['id'];
     <script src="../duration_elem.js"></script>
     <script src="../withdraw.js"></script>
     <script src="../dep.js"></script>
-
+<script src="../loan.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
