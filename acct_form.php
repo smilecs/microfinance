@@ -1,4 +1,12 @@
+
+<div class="row">
+            <!-- left column -->
+            <div class="col-md-10">
+              <!-- general form elements -->
+              <div class="box box-primary">
+
 <form method="post" action="../acct_sub.php">
+<div class="box-body">
   <div class="form-group">
 <label for="acct_name">Account Name</label>
 <input type="text" name="acct_name" class="form-control" id="acct_name" placeholder="Account Name">
@@ -28,4 +36,8 @@
 <div class="form-group">
   <input type="submit" class="btn btn-primary" value="Create Account">
 </div>
+</div>
 </form>
+</div>
+</div>
+</div>
