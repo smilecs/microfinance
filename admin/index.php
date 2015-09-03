@@ -116,10 +116,12 @@ $id = $_SESSION['id'];
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
                 <li><a href="index.php?page=../loan_form">Loan</a></li>
+                <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
               </ul>
             </li>
             <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
             <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
+
             <li class="<?php echo classUpdate("../value_form"); ?>"><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
             <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 

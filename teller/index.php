@@ -113,6 +113,7 @@ $id = $_SESSION['id'];
               <ul class="treeview-menu">
                 <li class="<?php echo classUpdate("../deposit_form"); ?>"><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li class="<?php echo classUpdate("../withdraw_form"); ?>"><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+                <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
               </ul>
             </li>
             <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
