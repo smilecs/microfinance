@@ -52,4 +52,3 @@ $bal = $row['balance'];
 </table>
 </div>
 </div>
-<a href="../print_account.php?type=<?php echo $type;?>" class="btn btn-primary">Print</a>

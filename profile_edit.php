@@ -10,6 +10,7 @@ $dept = $row['dept'];
 $nok_name = $row['nok_name'];
 $n_phone = $row['n_phone'];
 $pwd = $row['pwd'];
+$emp_no = $row['employee_no'];
 ?>
 <form method="post" action="save.php" enctype="multipart/form-data">
   <div class="form-group">
@@ -18,16 +19,15 @@ $pwd = $row['pwd'];
   <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>"/>
   </div>
   <div class="form-group">
+      <label for="em">Employee ID</label>
+      <input type="text" name="emp_no" class="form-control" id="em" placeholder="username" value="<?php echo $emp_no; ?>">
+    </div>
+
+  <div class="form-group">
     <label for="address">Address</label>
     <input type="text" id="address" name="address" class="form-control" value="<?php echo $address; ?>"/>
 </div>
 
-  <div class="form-group">
-    <label for="faculty">Faculty</label>
-    <input type="text" name="faculty" class="form-control" id="faculty" value="<?php echo $faculty; ?>">
-    <label for="dept">Department</label>
-    <input type="text" id="dept" name="dept" value="<?php echo $dept; ?>"/>
-  </div>
 
 
   <div class="form-group">

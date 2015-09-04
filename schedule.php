@@ -2,7 +2,11 @@
 <div class="box">
   <div class="box-body">
     <?php
-         $rs = query("SELECT * FROM department");
+    $rss = query("SELECT * FROM faculty");
+    while($row = mysql_fetch_array($rss)){
+      $faculty = $row['id'];
+      $name =$row['name'];
+         $rs = query("SELECT * FROM department WHERE faculty='$faculty'");
          while($row = mysql_fetch_array($rs)){
            $idd = $row['id'];
            $name = $row['dep_name'];
@@ -12,12 +16,16 @@
 <thead>
   <tr>
     <th>
+      Faculty:   <?php echo $name; ?>
+    </th>
+    <th>
       <h3>Department:    <?php echo $name; ?></h3>
     </th>
   </tr>
   <tr>
     <th>S/N</th>
     <th>UserId</th>
+    <th>Employee No</th>
     <th>FullName</th>
     <th>Monthly Amount</th>
     <th>Balance to Pay</th>
@@ -26,13 +34,14 @@
 </thead>
 <tbody>
 <?php
-$result = query("SELECT emp_no, surname, firstname, amort, paid, total FROM customer LEFT JOIN loan ON customer.id=loan.emp_no WHERE dept='$idd'");
+$result = query("SELECT * FROM customer LEFT JOIN loan ON customer.id=loan.emp_no WHERE dept='$idd'");
 $i = 0;
 $sum = 0;
 while($row = mysql_fetch_array($result)){
 $id = $row['emp_no'];
 $fullname = $row['firstname'] . $row['surname'];
 $amount = $row['amort'];
+$no = $row['employee_no'];
 $paid = $row['paid'];
 $total = $row['total'];
 $bal = $total - $paid;
@@ -42,6 +51,7 @@ $sum += $total;
 <tr>
   <td><?php echo ++$i;?></td>
   <td><?php echo $id;?></td>
+  <td><?php echo $no; ?></td>
   <td><?php echo $fullname;?></td>
   <td><?php echo $amount;?></td>
   <td><?php echo $bal;?></td>
@@ -61,6 +71,7 @@ $sum += $total;
 </tbody>
 </table>
 <?php
+}
 }
  ?>
 </div>

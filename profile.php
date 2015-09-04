@@ -77,20 +77,7 @@ $nok_name = $row['nok_name'];
               <div class="box box-primary">
                 <div class="box-header with-border">
                 </div><!-- /.box-header -->
-                <div class="box-body">
-                  <strong><i class="fa fa-book margin-r-5"></i>  Faculty</strong>
-                  <p class="text-muted">
-              <?php echo $faculty; ?>
-                  </p>
-
-                  <hr>
-
-                  <strong><i class="fa fa-map-marker margin-r-5"></i> Department</strong>
-                  <p class="text-muted"><?php echo $dept; ?></p>
-
-                  <hr>
-
-                                </div><!-- /.box-body -->
+                
               </div><!-- /.box -->
             </div><!-- /.col -->
             <div class="col-md-9">

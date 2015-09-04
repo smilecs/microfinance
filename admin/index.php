@@ -26,6 +26,7 @@ $priv = $_SESSION['priv'];
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../arrange.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
@@ -124,7 +125,8 @@ $priv = $_SESSION['priv'];
             <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
             <li><a href="index.php?page=../report_generation"><i class="glyphicon glyphicon-folder-open"></i> <span>View Reports</span></a></li>
             <li class="<?php echo classUpdate("../value_form"); ?>"><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
-            <li class="<?php echo classUpdate("../create_dep"); ?>"><a href="index.php?page=../create_dep"><i class="fa fa-link"></i> <span>Create department</span></a></li>
+            <li class="<?php echo classUpdate("../create_dep"); ?>"><a href="index.php?page=../create_dep"><i class="fa fa-link"></i> <span>Create Department</span></a></li>
+            <li class="<?php echo classUpdate("../create_faculty"); ?>"><a href="index.php?page=../create_faculty"><i class="fa fa-link"></i> <span>Create Faculty</span></a></li>
             <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
                       </ul><!-- /.sidebar-menu -->
@@ -249,6 +251,7 @@ $priv = $_SESSION['priv'];
     <script src="../withdraw.js"></script>
     <script src="../dep.js"></script>
 <script src="../loan.js"></script>
+<script src="../department_choice.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the

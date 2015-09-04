@@ -12,8 +12,8 @@
 <input type="text" name="acct_name" class="form-control" id="acct_name" placeholder="Account Name">
 </div>
 <div class="form-group">
-<label for="emp_id">Employee ID</label>
-<input type="text" name="emp_id" class="form-control" id="emp_id" placeholder="Employee ID">
+<label for="emp_id">User ID</label>
+<input type="text" name="emp_id" class="form-control" id="emp_id" placeholder="Registration ID">
 </div>
 <div class="form-group">
 <label for="acct_type">Account Type</label>

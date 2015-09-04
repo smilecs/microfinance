@@ -21,9 +21,10 @@ $dob = $_POST['dob'];
 $date = date('y-m-d');
 $state = $_POST['state'];
 $lga = $_POST['lga'];
+$emp_no = $_POST['emp_no'];
 
 
-query("INSERT INTO customer(state, lga, middle_name, surname, reg_date, firstname, uname, email, address, sex, faculty, dept, nok_name, n_phone, priviledge, phone, dob, pwd) VALUES('$state', '$lga', '$m_name', '$s_name', '$date', '$f_name', '$uname', '$email', '$address', '$sex', '$faculty', '$dept', '$nok', '$n_phone', '$user_type', '$phone', '$dob', '12345')");
+query("INSERT INTO customer(employee_no, state, lga, middle_name, surname, reg_date, firstname, uname, email, address, sex, faculty, dept, nok_name, n_phone, priviledge, phone, dob, pwd) VALUES('$emp_no', '$state', '$lga', '$m_name', '$s_name', '$date', '$f_name', '$uname', '$email', '$address', '$sex', '$faculty', '$dept', '$nok', '$n_phone', '$user_type', '$phone', '$dob', '12345')");
 $rs = query("SELECT * FROM customer WHERE uname='$uname'");
 $row = mysql_fetch_array($rs);
 $id = $row['id'];

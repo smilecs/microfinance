@@ -13,6 +13,11 @@
     <input type="text" name="sname" class="form-control"  placeholder="SurName" REQUIRED>
 </div>
 <div class="form-group">
+    <label for="em">Employee ID</label>
+    <input type="text" name="emp_no" class="form-control" id="em" placeholder="username" REQUIRED>
+  </div>
+
+<div class="form-group">
     <label for="username">Username</label>
     <input type="text" name="username" class="form-control" id="username" placeholder="username" REQUIRED>
   <div id="msg">
@@ -40,23 +45,27 @@
     </select>
   </div>
   <div class="form-group">
-    <label for="faculty">Faculty</label>
-    <input type="text" name="faculty" class="form-control" id="faculty" placeholder="faculty" REQUIRED>
-    <label for="dept">Department</label>
-    <select name="dept" class="form-control">
+    <label for="dept">Faculty</label>
+    <select name="faculty" class="form-control" id="facul">
+    <option></option>
     <?php
-    $result = query("SELECT * FROM department");
+    $result = query("SELECT * FROM faculty");
     while($row=mysql_fetch_array($result)){
       $value = $row['id'];
-      $dep_name = $row['dep_name'];
+      $name = $row['name'];
       ?>
-      <option value="<?php echo $value; ?>"><?php echo $dep_name;?></option>
+      <option value="<?php echo $value; ?>"><?php echo $name;?></option>
       <?php
   }
      ?>
     </select>
   </div>
 
+<div class="form-group">
+<select class="form-control" id="dept" name="dept">
+
+</select>
+</div>
 
   <div class="form-group">
     <label for="nok">Next of Kin Name</label>

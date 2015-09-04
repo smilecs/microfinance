@@ -7,8 +7,6 @@ $priv = $_SESSION['priv'];
 connect();
 $email = $_POST['email'];
 $address = $_POST['address'];
-$faculty = $_POST['faculty'];
-$dept = $_POST['dept'];
 $pwd = $_POST['pwd'];
 $nok = $_POST['nok'];
 $n_phone = $_POST['n_phone'];
@@ -21,7 +19,7 @@ echo $ImageName;
 if(move_uploaded_file($_FILES['propic']['tmp_name'],
         $ImageName)){
 $new = $id .".jpg";
-query("UPDATE customer SET img_url='$new', email='$email', faculty='$faculty', dept='$dept', address='$address', phone='$phone', nok_name='$nok', n_phone='$n_phone', pwd='$pwd' WHERE id='$id'");
+query("UPDATE customer SET img_url='$new', email='$email', address='$address', phone='$phone', nok_name='$nok', n_phone='$n_phone', pwd='$pwd' WHERE id='$id'");
 $newfilename = $ImageDir . $new;
 echo $newfilename;
 $animage = imagecreatefromjpeg ($ImageName);

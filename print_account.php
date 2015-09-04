@@ -87,7 +87,12 @@ switch ($type) {
         <div class="row">
           <div class="col-xs-12 table-responsive">
             <?php
-                 $rs = query("SELECT * FROM department");
+            $rss = query("SELECT * FROM faculty");
+            while($row = mysql_fetch_array($rss)){
+              $faculty = $row['id'];
+              $name =$row['name'];
+
+                 $rs = query("SELECT * FROM department WHERE faculty='$faculty'");
                  while($row = mysql_fetch_array($rs)){
                    $idd = $row['id'];
                    $name = $row['dep_name'];
@@ -149,6 +154,7 @@ switch ($type) {
             </table>
             <?php
             }
+          }
             ?>
           </div><!-- /.col -->
         </div><!-- /.row -->
