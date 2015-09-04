@@ -72,8 +72,19 @@ connect();
         <!-- Table row -->
         <div class="row">
           <div class="col-xs-12 table-responsive">
+            <?php
+                 $rs = query("SELECT * FROM department");
+                 while($row = mysql_fetch_array($rs)){
+                   $idd = $row['id'];
+                   $name = $row['dep_name'];
+            ?>
             <table class="table table-striped">
               <thead>
+                <tr>
+                  <th>
+                    <h3>Department:    <?php echo $name;?></h3>
+                  </th>
+                </tr>
                 <tr>
                   <th>S/N</th>
                   <th>UserId</th>
@@ -85,7 +96,7 @@ connect();
               </thead>
               <tbody>
               <?php
-              $result = query("SELECT emp_no, surname, firstname, amort, paid, total FROM customer LEFT JOIN loan ON customer.id=loan.emp_no");
+              $result = query("SELECT emp_no, surname, firstname, amort, paid, total FROM customer LEFT JOIN loan ON customer.id=loan.emp_no WHERE dept='$idd'");
               $i = 0;
               $sum = 0;
               while($row = mysql_fetch_array($result)){
@@ -114,6 +125,9 @@ connect();
                         </div><!-- /.col -->
                       </div><!-- /.row -->
                       <div class="row">
+                        <?php
+                      }
+                         ?>
                         <!-- accepted payments column -->
 
                         <div class="col-xs-6">

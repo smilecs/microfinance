@@ -88,3 +88,4 @@ if($acct_type == 1){
 </table>
 </div>
 </div>
+<a href="../w_report_print.php" class="btn btn-primary">Print</a>

@@ -86,6 +86,14 @@ switch ($type) {
         <!-- Table row -->
         <div class="row">
           <div class="col-xs-12 table-responsive">
+            <?php
+                 $rs = query("SELECT * FROM department");
+                 while($row = mysql_fetch_array($rs)){
+                   $idd = $row['id'];
+                   $name = $row['dep_name'];
+            ?>
+
+
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -139,6 +147,9 @@ switch ($type) {
 </tr>
                             </tbody>
             </table>
+            <?php
+            }
+            ?>
           </div><!-- /.col -->
         </div><!-- /.row -->
 

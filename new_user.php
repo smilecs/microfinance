@@ -43,7 +43,18 @@
     <label for="faculty">Faculty</label>
     <input type="text" name="faculty" class="form-control" id="faculty" placeholder="faculty" REQUIRED>
     <label for="dept">Department</label>
-    <input type="text" id="dept" name="dept" placeholder="department" REQUIRED/>
+    <select name="dept" class="form-control">
+    <?php
+    $result = query("SELECT * FROM department");
+    while($row=mysql_fetch_array($result)){
+      $value = $row['id'];
+      $dep_name = $row['dep_name'];
+      ?>
+      <option value="<?php echo $value; ?>"><?php echo $dep_name;?></option>
+      <?php
+  }
+     ?>
+    </select>
   </div>
 
 

@@ -1,8 +1,20 @@
 
 <div class="box">
   <div class="box-body">
+    <?php
+         $rs = query("SELECT * FROM department");
+         while($row = mysql_fetch_array($rs)){
+           $idd = $row['id'];
+           $name = $row['dep_name'];
+    ?>
+
 <table class="table">
 <thead>
+  <tr>
+    <th>
+      <h3>Department:    <?php echo $name; ?></h3>
+    </th>
+  </tr>
   <tr>
     <th>S/N</th>
     <th>UserId</th>
@@ -14,7 +26,7 @@
 </thead>
 <tbody>
 <?php
-$result = query("SELECT emp_no, surname, firstname, amort, paid, total FROM customer LEFT JOIN loan ON customer.id=loan.emp_no");
+$result = query("SELECT emp_no, surname, firstname, amort, paid, total FROM customer LEFT JOIN loan ON customer.id=loan.emp_no WHERE dept='$idd'");
 $i = 0;
 $sum = 0;
 while($row = mysql_fetch_array($result)){
@@ -44,11 +56,13 @@ $sum += $total;
   <td></td>
   <td></td>
   <td></td>
-  <td></td>
   <th><?php echo $sum; ?></th>
 </tr>
 </tbody>
 </table>
+<?php
+}
+ ?>
 </div>
 </div>
 <a href="../print_loan.php" class="btn btn-primary">Print</a>
