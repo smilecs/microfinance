@@ -23,7 +23,7 @@ function acct_check($acct_no){
   $expiry_date = $row['duration'];
   $current_date = date('Y-m-d');
   if(strtotime($expiry_date) <= strtotime($current_date)){
-    redirect("index.php?page=../bad_account");
+    redirect("../bad_account.php");
   }
 
 

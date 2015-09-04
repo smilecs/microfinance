@@ -92,21 +92,28 @@ switch ($type) {
                   <th>s/n</th>
                   <th>UserId</th>
                   <th>FullName</th>
-                  <th>Amount Saved</th>
-                  <th>Account No</th>
+                  <th>Monthly Amt</th>
+                  <th>Amount Todate</th>
+                  <th>Balance</th>
+
                 </tr>
               </thead>
               <tbody>
                 <?php
                 $i= 0;
                 $total = 0;
+                $bal_total = 0;
+                $amt_total = 0;
                 $result = query("SELECT emp_id, surname, firstname, save_amt, acct_no FROM customer LEFT JOIN account ON customer.id=account.emp_id WHERE acct_type='$tp'");
                 while($row = mysql_fetch_array($result)){
                 $id = $row['emp_id'];
                 $fullname = $row['firstname'] . " " . $row['surname'];
                 $amount = $row['save_amt'];
                 $total += $amount;
-                $acct_no = $row['acct_no'];
+                $amt_todate = $row['amt_todate'];
+                $amt_total += $amt_todate;
+                $balance = $row['balance'];
+                $bal_total += $balance;
                 ?>
 
                 <tr>
@@ -116,11 +123,20 @@ switch ($type) {
                   <td><?php echo $id;?></td>
                   <td><?php echo $fullname;?></td>
                   <td><?php echo $amount;?></td>
-                  <td><?php echo $acct_no;?></td>
+                  <td><?php echo $amt_todate;?></td>
+                  <td><?php echo $balance;?></td>
                 </tr>
 
 <?php }
 ?>
+<tr>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th><?php echo $total;?></th>
+  <th><?php echo $amt_todate;?></th>
+  <th><?php echo $balance;?></th>
+</tr>
                             </tbody>
             </table>
           </div><!-- /.col -->
@@ -129,12 +145,12 @@ switch ($type) {
         <div class="row">
           <!-- accepted payments column -->
 
-          <div class="col-xs-6">
+          <div class="col-xs-12">
             <div class="table-responsive">
               <table class="table">
                 <tr>
-                  <th>Total:</th>
-                  <th><?php echo $total?></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </table>
             </div>
