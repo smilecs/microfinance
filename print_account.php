@@ -104,7 +104,7 @@ switch ($type) {
                 $total = 0;
                 $bal_total = 0;
                 $amt_total = 0;
-                $result = query("SELECT emp_id, surname, firstname, save_amt, acct_no FROM customer LEFT JOIN account ON customer.id=account.emp_id WHERE acct_type='$tp'");
+                $result = query("SELECT * FROM customer LEFT JOIN account ON customer.id=account.emp_id WHERE acct_type='$tp'");
                 while($row = mysql_fetch_array($result)){
                 $id = $row['emp_id'];
                 $fullname = $row['firstname'] . " " . $row['surname'];
@@ -134,8 +134,8 @@ switch ($type) {
   <th></th>
   <th></th>
   <th><?php echo $total;?></th>
-  <th><?php echo $amt_todate;?></th>
-  <th><?php echo $balance;?></th>
+  <th><?php echo $amt_total;?></th>
+  <th><?php echo $bal_total;?></th>
 </tr>
                             </tbody>
             </table>

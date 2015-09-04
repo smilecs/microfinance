@@ -8,6 +8,7 @@ if(!isset($_SESSION['logged_in'])){
     redirect("../login.php");
 }
 $id = $_SESSION['id'];
+$priv = $_SESSION['priv'];
 
 ?>
 <html>
@@ -96,7 +97,7 @@ $id = $_SESSION['id'];
             <div class="pull-left info">
               <p><?php echo name($id); ?></p>
               <!-- Status -->
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              <a href="#"><i class="fa fa-circle text-success"></i></a>
             </div>
           </div>
 
@@ -106,7 +107,7 @@ $id = $_SESSION['id'];
 
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header"></li>
             <!-- Optionally, you can add icons to the links -->
             <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
             <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
@@ -135,8 +136,8 @@ $id = $_SESSION['id'];
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Page Header
-            <small>Optional description</small>
+
+            <small></small>
           </h1>
                 </section>
 

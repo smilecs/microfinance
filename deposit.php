@@ -20,8 +20,8 @@ $amt_todate += $amt;
 $amt += $balance;
 query("UPDATE account SET balance='$amt', amt_todate='$amt_todate' WHERE acct_no='$acct_no'");
 if($priv = 0){
-  redirect("teller/index.php");
+  redirect("teller/index.php?page=../deposit_form");
 }
-redirect("admin/index.php");
+redirect("admin/index.php?page=../deposit_form");
 
 ?>

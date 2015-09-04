@@ -7,8 +7,8 @@
     <th>S/N</th>
     <th>UserId</th>
     <th>FullName</th>
-    <th>Amount</th>
-    <th>Balance</th>
+    <th>Monthly Amount</th>
+    <th>Balance to Pay</th>
     <th>Total Loan</th>
   </tr>
 </thead>

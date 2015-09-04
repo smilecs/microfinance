@@ -34,6 +34,7 @@ switch ($priv) {
 
   }
 function simple_interest($p, $r, $t){
+  $r = $r/100;
   $i = $p*$r*$t;
   return $i;
 }

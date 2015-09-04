@@ -7,10 +7,7 @@ if(mysql_num_rows($result) > 0){
   $row = mysql_fetch_array($result);
   $amort = $row['amort'];
 
-
-
-
-  echo "<div class=form-group id=aloan><label for=amort>Account Number</label><input type=Number name=amort class=form-control id=amort value=$amort></div><div class=form-group id=sub><input type=submit value=submit/></div>";
+  echo "<div class=form-group><label for=amort>Account Number</label><input type=Number name=amort class=form-control id=amort value=$amort ></div><div class=form-group id=sub><input type=submit class=btn btn-primary value=submit /></div>";
 }else{
   echo "<h3>No OutStanding Balance.</h3>";
 }

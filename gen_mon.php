@@ -26,7 +26,7 @@ function month_select_box( $field_name = 'month' ) {
   </div>
   <div class="form-group col-xs-5">
   <label for="year">Year</label>
-  <select name="year" id="year">
+  <select name="year" id="year" class="form-control">
     <option value="2015">2015</option>
       <option value="2016">2016</option>
         <option value="2017">2017</option>

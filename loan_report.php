@@ -14,9 +14,10 @@
 <?php
 $month = $_POST['month'];
 $year = $_POST['year'];
-$date = $year . "-" . $month;
+$date = $year . "-" . $month . "-%";
 $i= 0;
 $total = 0;
+
 $result = query("SELECT * FROM payment WHERE date LIKE '$date-%'");
 while($row = mysql_fetch_array($result)){
 $id = $row['dep_id'];
