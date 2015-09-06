@@ -20,7 +20,7 @@ $emp_no = $row['employee_no'];
   </div>
   <div class="form-group">
       <label for="em">Employee ID</label>
-      <input type="text" name="emp_no" class="form-control" id="em" placeholder="username" value="<?php echo $emp_no; ?>">
+      <input type="text" name="emp_no" class="form-control" id="em" placeholder="employee no" value="<?php echo $emp_no; ?>">
     </div>
 
   <div class="form-group">

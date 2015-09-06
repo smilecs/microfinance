@@ -25,6 +25,7 @@ while($row = mysql_fetch_array($rss)){
        $name = $row['dep_name'];
        $result = query("SELECT * FROM customer LEFT JOIN account ON customer.id=account.emp_id WHERE acct_type='$tp' AND department='$idd'");
        if(mysql_num_rows($result) < 1){
+         
 
        }else{
 ?>

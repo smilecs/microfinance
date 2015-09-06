@@ -14,7 +14,7 @@
 </div>
 <div class="form-group">
     <label for="em">Employee ID</label>
-    <input type="text" name="emp_no" class="form-control" id="em" placeholder="username" REQUIRED>
+    <input type="text" name="emp_no" class="form-control" id="em" placeholder="employee no" REQUIRED>
   </div>
 
 <div class="form-group">
