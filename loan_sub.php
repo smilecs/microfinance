@@ -23,10 +23,13 @@ if(1 >$s){
 $new_ans = $j/(1-$s);
 }
 $new_ans = $j/($s - 1);
-$loan_amount = $new_ans * $p;
-$loan_amount = round($loan_amount,1);
+$loan_amount1 = $new_ans * $p1;
+$loan_amount2 = $new_ans * $sm_amt;
+$loan_amount1 = round($loan_amount,1);
+$loan_amount2 = round($loan_amount,1);
+$loan_amount = $loan_amount1 + $loan_amount2;
 $date = date('Y-m-d');
-query("INSERT INTO loan(emp_no, date_incured, amount, amort, interest, total) VALUES('$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
+query("INSERT INTO loan(amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
 folders($priv, "page=../view_amort&amort=$loan_amount");
 
  ?>

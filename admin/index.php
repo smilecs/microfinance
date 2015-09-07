@@ -110,6 +110,7 @@ $priv = $_SESSION['priv'];
           <ul class="sidebar-menu">
             <li class="header"></li>
             <!-- Optionally, you can add icons to the links -->
+            <li class="<?php echo classUpdate(""); ?>"><a href="index.php"><i class="glyphicon glyphicon-open"></i> <span>Dashboard</span></a></li>
             <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
             <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
             <li class="treeview">
@@ -156,7 +157,7 @@ $priv = $_SESSION['priv'];
           include($page);
           }   /* if $page has a value, include it */
       else{
-      include('../new_user.php');
+      include('../dashboard.php');
       }
       ?>
 
