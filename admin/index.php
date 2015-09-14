@@ -9,6 +9,10 @@ if(!isset($_SESSION['logged_in'])){
 }
 $id = $_SESSION['id'];
 $priv = $_SESSION['priv'];
+if(isset($_GET['idd'])){
+  $id = $_GET['idd'];
+  redirect("index.php?page=../profile_search&id=$id");
+}
 
 ?>
 <html>
@@ -101,7 +105,14 @@ $priv = $_SESSION['priv'];
               <a href="#"><i class="fa fa-circle text-success"></i></a>
             </div>
           </div>
-
+          <form action="index.php" method="get" class="sidebar-form">
+                      <div class="input-group">
+                        <input type="text" name="idd" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        </span>
+                      </div>
+                    </form>
           <!-- search form (Optional) -->
 
           <!-- /.search form -->

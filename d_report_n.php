@@ -29,7 +29,7 @@ $result = query("SELECT * FROM deposit");
    $amount = $row['amount'];
 $body .= "<tr>
 <td>$i</td>
-<td>$acct_no</td>
+<td><a href="index.php?page=../dep_witd&id=<?php echo $acct_no; ?>"><?php echo $acct_no; ?></a></td>
 <td>$amount</td>
 <td>$bal</td>
 <td>$name</td>

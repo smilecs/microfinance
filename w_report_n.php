@@ -32,7 +32,7 @@ $result = query("SELECT * FROM withdraw");
    $total_d = $row['total_deduction'];
 $body .= "<tr>
 <td>$i</td>
-<td>$acct_no</td>
+<td><a href="index.php?page=../dep_witd&id=<?php echo $acct_no; ?>"><?php echo $acct_no; ?></a></td>
 <td>$name</td>
 
 <td>$amount</td>

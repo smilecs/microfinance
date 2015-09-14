@@ -30,7 +30,7 @@ while($row = mysql_fetch_array($result)){
     <tr>
       <td><?php echo $i; ?></td>
       <td><?php echo $member_id; ?></td>
-      <td><?php echo $acct_no; ?></td>
+      <td><a href="index.php?page=../dep_witd&id=<?php echo $acct_no; ?>"><?php echo $acct_no; ?></a></td>
       <td><?php echo $acct_type; ?></td>
       <td><?php echo $monthly; ?></td>
       <td><?php echo $amt_todate; ?></td>

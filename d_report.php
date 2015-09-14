@@ -35,7 +35,7 @@ $result = query("SELECT * FROM deposit");
    if(($date >= $start) && ($date <= $end)){
 $body .= "<tr>
 <td>$i</td>
-<td>$acct_no</td>
+<td><a href="index.php?page=../dep_witd&id=<?php echo $acct_no; ?>"><?php echo $acct_no; ?></a></td>
 <td>$amount</td>
 <td>$bal</td>
 <td>$name</td>
