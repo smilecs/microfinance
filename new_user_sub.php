@@ -29,10 +29,6 @@ query("INSERT INTO customer(title, employee_no, state, lga, middle_name, surname
 $rs = query("SELECT * FROM customer WHERE uname='$uname'");
 $row = mysql_fetch_array($rs);
 $id = $row['id'];
-if($priv = 0){
-redirect("admin/index.php?page=../confirmation&id=$id");
-}
-redirect("teller/index.php?page=../confirmation&id=$id");
-
+folders($priv, "page=../confirmation&id=$id");
 
 ?>

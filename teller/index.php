@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <?php
-include('conf/db_connect.php');
-include ('conf/misc.php');
+include('../conf/db_connect.php');
+include ('../conf/misc.php');
+connect();
 session_start();
 if(!isset($_SESSION['logged_in'])){
     redirect("../login.php");
 }
 $id = $_SESSION['id'];
+$priv = $_SESSION['priv'];
+if(isset($_GET['idd'])){
+  $id = $_GET['idd'];
+  redirect("index.php?page=../profile_search&id=$id");
+}
 
 ?>
 <html>
@@ -17,18 +23,19 @@ $id = $_SESSION['id'];
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../arrange.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,7 +71,7 @@ $id = $_SESSION['id'];
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index.php" class="logo">
+        <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
@@ -95,33 +102,63 @@ $id = $_SESSION['id'];
             <div class="pull-left info">
               <p><?php echo name($id); ?></p>
               <!-- Status -->
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              <a href="#"><i class="fa fa-circle text-success"></i></a>
             </div>
           </div>
-
+          <form action="index.php" method="get" class="sidebar-form">
+                      <div class="input-group">
+                        <input type="text" name="idd" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        </span>
+                      </div>
+                    </form>
           <!-- search form (Optional) -->
 
           <!-- /.search form -->
 
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header"></li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
+            <li class="<?php echo classUpdate(""); ?>"><a href="index.php"><i class="glyphicon glyphicon-open"></i> <span>Dashboard</span></a></li>
+
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Customer Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
+                <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
+</ul>
+            </li>
+
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="<?php echo classUpdate("../deposit_form"); ?>"><a href="index.php?page=../deposit_form">Deposit</a></li>
-                <li class="<?php echo classUpdate("../withdraw_form"); ?>"><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+                <li>
+                  <a href="index.php?page=../account_report">View Accounts</a>
+                </li>
+                <li><a href="index.php?page=../deposit_form">Deposit</a></li>
+                <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+                <li><a href="index.php?page=../loan_form">Loan</a></li>
                 <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
               </ul>
             </li>
-            <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
-            <li><a href="index.php?page=../report_generation"><i class="glyphicon glyphicon-folder-open"></i> <span>View Reports</span></a></li>
-            <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
-            <li class="active"><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
-                  </ul><!-- /.sidebar-menu -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="index.php?page=../customer_filter">Member</a></li>
+                <li><a href="index.php?page=../transaction">Transaction</a></li>
+
+              </ul>
+            </li>
+
+
+            <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
+            <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
+            <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
+
+                      </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
       </aside>
@@ -140,6 +177,7 @@ $id = $_SESSION['id'];
         <section class="content">
 
           <?php
+
       $page = '';/* gets the variable $page */
           if (!empty($_GET['page'])) {
           $page .= $_GET['page'] . '.php';
@@ -147,7 +185,7 @@ $id = $_SESSION['id'];
           include($page);
           }   /* if $page has a value, include it */
       else{
-      include('new_user.php');
+      include('../dashboard.php');
       }
       ?>
 
@@ -231,18 +269,20 @@ $id = $_SESSION['id'];
     <!-- REQUIRED JS SCRIPTS -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/app.min.js"></script>
+    <script src="../dist/js/app.min.js"></script>
     <script src="../user.js"></script>
-<script src="../acct.js"></script>
-<script src="../duration_elem.js"></script>
-<script src="../withdraw.js"></script>
-<script src="../dep.js"></script>
+    <script src="../acct.js"></script>
+    <script src="../duration_elem.js"></script>
+    <script src="../withdraw.js"></script>
+  <script src="../dep.js"></script>
 <script src="../loan.js"></script>
-
+<script src="../department_choice.js"></script>
+<script src="../transaction.js"></script>
+<script src="../filter.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
