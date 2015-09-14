@@ -122,9 +122,20 @@ $priv = $_SESSION['priv'];
                 <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
               </ul>
             </li>
+
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="index.php?page=../customer_filter">Member</a></li>
+                <li><a href="index.php?page=../transaction">Transaction</a></li>
+                
+              </ul>
+            </li>
+
+
             <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
             <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
-            <li><a href="index.php?page=../report_generation"><i class="glyphicon glyphicon-folder-open"></i> <span>View Reports</span></a></li>
+  <!--          <li><a href="index.php?page=../view_report"><i class="glyphicon glyphicon-folder-open"></i> <span>View Reports</span></a></li>-->
             <li class="<?php echo classUpdate("../value_form"); ?>"><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
             <li class="<?php echo classUpdate("../create_dep"); ?>"><a href="index.php?page=../create_dep"><i class="fa fa-link"></i> <span>Create Department</span></a></li>
             <li class="<?php echo classUpdate("../create_faculty"); ?>"><a href="index.php?page=../create_faculty"><i class="fa fa-link"></i> <span>Create Faculty</span></a></li>
@@ -250,9 +261,10 @@ $priv = $_SESSION['priv'];
     <script src="../acct.js"></script>
     <script src="../duration_elem.js"></script>
     <script src="../withdraw.js"></script>
-    <script src="../dep.js"></script>
+  <script src="../dep.js"></script>
 <script src="../loan.js"></script>
 <script src="../department_choice.js"></script>
+<script src="../filter.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the

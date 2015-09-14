@@ -1,0 +1,14 @@
+@media print {
+  body{
+    width: 95%;
+  }
+  .main-header, .sidebar-menu, .tab-content, .control-sidebar, .control-sidebar-dark{
+    display: none;
+  }
+  .main-sidebar{
+    display: none;
+  }
+
+
+
+}

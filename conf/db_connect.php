@@ -10,6 +10,16 @@ function query($string){
 $rs = mysql_query($string) or die(mysql_error());
 return $rs;
 }
+
+function get_teller_name($id){
+  $result = query("SELECT * FROM customer WHERE id='$id'");
+  $row = mysql_fetch_array($result);
+  $fname = $row['firstname'];
+  $sname = $row['surname'];
+  return $sname . " " . $fname;
+}
+
+
 function return_connection(){
   return $link;
 }

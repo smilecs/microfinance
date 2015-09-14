@@ -2,7 +2,7 @@
 include('conf/db_connect.php');
 connect();
 $faculty = $_POST['faculty'];
-$html = '';
+$html = '<option></option>';
 $result = query("SELECT * FROM department WHERE faculty='$faculty'");
 while($row=mysql_fetch_array($result)){
   $value = $row['id'];

@@ -6,12 +6,19 @@
 
 <form method="post" action="../new_user_sub.php">
    <div class="box-body">
+
+     <div class="form-group">
+         <label for="title">Tite</label>
+         <input type="text" name="title" class="form-control" id="title" placeholder="Mr. Prof. Dr." REQUIRED>
+       </div>
+
   <div class="form-group">
     <label for="name">Full Name</label>
     <input type="text" name="name" class="form-control" id="fullname" placeholder="First Name" REQUIRED>
     <input type="text" name="mname" class="form-control" placeholder="Middle Name" REQUIRED>
     <input type="text" name="sname" class="form-control"  placeholder="SurName" REQUIRED>
 </div>
+
 <div class="form-group">
     <label for="em">Employee ID</label>
     <input type="text" name="emp_no" class="form-control" id="em" placeholder="employee no" REQUIRED>
