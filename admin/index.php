@@ -111,11 +111,21 @@ $priv = $_SESSION['priv'];
             <li class="header"></li>
             <!-- Optionally, you can add icons to the links -->
             <li class="<?php echo classUpdate(""); ?>"><a href="index.php"><i class="glyphicon glyphicon-open"></i> <span>Dashboard</span></a></li>
-            <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
-            <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
+
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Customer Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
+                <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
+</ul>
+            </li>
+
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
+                <li>
+                  <a href="index.php?page=../account_report">View Accounts</a>
+                </li>
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
                 <li><a href="index.php?page=../loan_form">Loan</a></li>
@@ -128,17 +138,21 @@ $priv = $_SESSION['priv'];
               <ul class="treeview-menu">
                 <li><a href="index.php?page=../customer_filter">Member</a></li>
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
-                
+
               </ul>
             </li>
 
 
             <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
             <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
-  <!--          <li><a href="index.php?page=../view_report"><i class="glyphicon glyphicon-folder-open"></i> <span>View Reports</span></a></li>-->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Customisation</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
             <li class="<?php echo classUpdate("../value_form"); ?>"><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
             <li class="<?php echo classUpdate("../create_dep"); ?>"><a href="index.php?page=../create_dep"><i class="fa fa-link"></i> <span>Create Department</span></a></li>
             <li class="<?php echo classUpdate("../create_faculty"); ?>"><a href="index.php?page=../create_faculty"><i class="fa fa-link"></i> <span>Create Faculty</span></a></li>
+          </ul>
+        </li>
             <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
                       </ul><!-- /.sidebar-menu -->
@@ -264,6 +278,7 @@ $priv = $_SESSION['priv'];
   <script src="../dep.js"></script>
 <script src="../loan.js"></script>
 <script src="../department_choice.js"></script>
+<script src="../transaction.js"></script>
 <script src="../filter.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the

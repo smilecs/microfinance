@@ -10,39 +10,38 @@ $top = "
 <thead>
   <tr>
     <th>S/N</th>
-    <th>ACCT NO</th>
-    <th>TELLER</th>
-
+    <th>MEMBER ID</th>
+    <th>NAME</th>
     <th>AMOUNT</th>
-    <th>TOTAL DEDUCTION</th>
-    <th>BALANCE</th>
+    <th>PAID</th>
+    <th>AMT_MNT</th>
+    <th>INTEREST</th>
     <th>DATE</th>
   </tr>
 </thead>
 <tbody>";
 $body = ' ';
-$type = '';
-$result = query("SELECT * FROM withdraw");
+$result = query("SELECT * FROM loan");
  $i = 0;
  while($row = mysql_fetch_array($result)){
    ++$i;
-   $t_id = $row['teller_id'];
-   $name = get_teller_name($t_id);
-   $date1 = $row['date'];
-
-   $date = strtotime($date1);
-   $acct_no = $row['acct_no'];
-   $bal = $row['balance'];
    $amount = $row['amount'];
-   $total_d = $row['total_deduction'];
+   $id = $row['emp_no'];
+   $name = get_teller_name($id);
+   $date1 = $row['date_incured'];
+   $date = strtotime($date1);
+   $paid = $row['paid'];
+   $interest = $row['interest_amount'];
+  $amt =$row['amort'];
    if(($date >= $start) && ($date <= $end)){
 $body .= "<tr>
 <td>$i</td>
-<td>$acct_no</td>
+<td>$id</td>
 <td>$name</td>
 <td>$amount</td>
-<td>$total_d</td>
-<td>$bal</td>
+<td>$paid</td>
+<td>$amt</td>
+<td>$interest</td>
 <td>$date1</td>
 </tr>";
    }

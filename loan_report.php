@@ -1,5 +1,3 @@
-<div class="box">
-   <div class="box-body">
 <table class="table">
 <thead>
   <tr>
@@ -12,13 +10,10 @@
 </thead>
 <tbody>
 <?php
-$month = $_POST['month'];
-$year = $_POST['year'];
-$date = $year . "-" . $month;
-$i= 0;
+$i = 0;
 $total = 0;
-
-$result = query("SELECT * FROM payment WHERE date LIKE '$date-%'");
+$id = $_GET['id'];
+$result = query("SELECT * FROM payment LEFT JOIN customer ON customer.id=payment.emp_id WHERE emp_id = $id");
 while($row = mysql_fetch_array($result)){
 $id = $row['emp_id'];
 $date = $row['date'];
@@ -50,5 +45,3 @@ $bal = $row['balance'];
 </tr>
 </tbody>
 </table>
-</div>
-</div>

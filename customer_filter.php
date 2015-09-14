@@ -1,5 +1,5 @@
 <div class="row">
-<div class="col-md-10">
+<div class="col-md-13">
 <div class="box box-primary">
 <div class="box-body">
   <h3>Filter Controls</h3>
@@ -27,7 +27,7 @@
 </select>
 </div>
 
-<div class="form-group col-xs-3">
+<div class="form-group col-xs-2">
   <label for="sex">Sex</label>
   <select name="sex" id="sex" name="sex" class="form-control">
   <option></option>
@@ -68,7 +68,7 @@
 </thead>
 <tbody>
 <?php
-$result = query("SELECT * FROM customer LEFT JOIN department ON customer.dept=department.id");
+$result = query("SELECT employee_no, title, surname, firstname, dep_name, lga, state, customer.id, phone, address, email, sex FROM customer LEFT JOIN department ON customer.dept=department.id");
 $i = 0;
 while ($row = mysql_fetch_array($result)) {
 ++$i;
@@ -88,7 +88,7 @@ $id = $row['id'];
   <td>
     <?php echo $i;?>
   </td>
-<td><?php echo $emp_no;?></td>
+<td><a href="index.php?page=../profile_search&id=<?php echo $id; ?>"><?php echo $emp_no;?></a></td>
 <td><?php echo $title;?></td>
 <td><?php echo $name;?></td>
 <td><?php echo $state;?></td>

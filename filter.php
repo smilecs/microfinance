@@ -57,7 +57,7 @@ if(empty($sex) && !empty($dept)){
 
 $sex = sex($sex);
 $query = $fac . $dep . $sex;
-$result = query("SELECT * FROM customer LEFT JOIN department ON customer.dept=department.id WHERE $query");
+$result = query("SELECT employee_no, title, surname, firstname, dep_name, lga, state, customer.id, phone, address, email, sex FROM customer LEFT JOIN department ON customer.dept=department.id WHERE $query");
 $i=0;
 $body = '';
 while($row = mysql_fetch_array($result)){
@@ -77,7 +77,7 @@ $body .= "<tr>
   <td>
     $i
   </td>
-<td>$emp_no</td>
+<td><a href=index.php?page=../profile_search&id=$id>$emp_no</a></td>
 <td>$title</td>
 <td>$name</td>
 <td>$state</td>

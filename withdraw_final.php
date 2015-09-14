@@ -14,7 +14,8 @@ $row = mysql_fetch_array($rs);
 $bal = $row['balance'];
 $acct_type['acct_type'];
 if($new_amt > $bal){
-echo "<div class=table-responsive>
+echo "<div class=box>
+<div class=box-body>
   <table class=table>
   <tr>
   <th>
@@ -42,12 +43,14 @@ echo "<div class=table-responsive>
   </tr>
   </table>
   </div>
+  </div>
   <div>
   <h3>Insufficient Funds withdrawal percent and personl amount cannot be reconciled</h3>
   </div>
   ";
 }else{
-echo "<div class=table-responsive>
+echo "<div class=box>
+<div class=box-body>
 <table class=table>
 <tr>
 <th>
@@ -74,6 +77,7 @@ $exp
 </td>
 </tr>
 </table>
+</div>
 </div>
 <div>
 <form action=../update_withdraw.php?acct=$acct_no&bal=$new_amt&amount=$amount method=post>

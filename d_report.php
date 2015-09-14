@@ -1,5 +1,5 @@
 <?php
-include('conf/db_connect');
+include('conf/db_connect.php');
 connect();
 $start = $_POST['start_date'];
 $start = strtotime($start);
@@ -11,7 +11,6 @@ $top = "
   <tr>
     <th>S/N</th>
     <th>ACCT NO</th>
-    <th>ACCT TYPE</th>
     <th>AMOUNT</th>
     <th>BALANCE</th>
     <th>TELLER</th>
@@ -21,29 +20,24 @@ $top = "
 <tbody>";
 $body = ' ';
 $type = '';
-$result = query("SELECT * FROM deposit LEFT JOIN account ON deposit.dep_id=account.emp_id");
+$result = query("SELECT * FROM deposit");
  $i = 0;
  while($row = mysql_fetch_array($result)){
    $t_id = $row['teller_id'];
    $name = get_teller_name($t_id);
    $date1 = $row['date'];
-   $acct_type = $row['acct_type'];
-   if($acct_type == 1){
-     $type = "thrift";
-   }else{
-     $type = "special";
-   }
+
+   ++$i;
    $date = strtotime($date1);
    $acct_no = $row['acct_no'];
    $bal = $row['balance'];
    $amount = $row['amount'];
    if(($date >= $start) && ($date <= $end)){
 $body .= "<tr>
-<td>++$i</td>
+<td>$i</td>
 <td>$acct_no</td>
-<td>$type</td>
 <td>$amount</td>
-<td>$balance</td>
+<td>$bal</td>
 <td>$name</td>
 <td>$date1</td>
 </tr>";
