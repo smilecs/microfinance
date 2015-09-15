@@ -126,7 +126,7 @@ if(isset($_GET['idd'])){
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Customer Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
+                <li><a href="index.php?page=../customer_filter">Member</a></li>
                 <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
 </ul>
             </li>
@@ -134,20 +134,27 @@ if(isset($_GET['idd'])){
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
+                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
                 <li>
                   <a href="index.php?page=../account_report">View Accounts</a>
                 </li>
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Loan Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
                 <li><a href="index.php?page=../loan_form">Loan</a></li>
                 <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
               </ul>
             </li>
 
+
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="index.php?page=../customer_filter">Member</a></li>
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
 
               </ul>
