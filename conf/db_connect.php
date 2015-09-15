@@ -57,4 +57,17 @@ function name($id){
   return $name;
 }
 
+function update_loan($emp_id){
+  $arr = [0,0];
+  $result = query("SELECT * FROM loan WHERE emp_no = '$emp_no'");
+  if(mysql_num_rows($result) > 0){
+    $row = mysql_fetch_array($result);
+    $amt = $row['total'] - $row['paid'];
+    $duration = $row['duration'];
+    $arr = [$amt, $duration];
+    return $arr;
+  }
+  return $arr;
+}
+
 ?>

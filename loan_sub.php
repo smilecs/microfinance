@@ -8,14 +8,23 @@ connect();
 $new_ans = '';
 $p1 = $_POST['amt'];
 $duration = $_POST['duration'];
+$sm_amt = '';
+$p = '';
 $emp_id = $_POST['emp_id'];
+$digit = update_loan($emp_id);
 $rs = query("SELECT * FROM percent WHERE id='$id'");
 $row = mysql_fetch_array($rs);
 $tmp = $row['value'];
+if($digit[0] != 0){
+$duration += $digit[1];
+$sm_amt = simple_interest($p1, $tmp, $duration);
+$p = $sm_amt + $p1 + $digit[0];
+}else{
 $sm_amt = simple_interest($p1, $tmp, $duration);
 $p = $sm_amt + $p1;
+}
 $i = $tmp /100;
-$d = 12 * $duration;
+$d = $duration;
 $j = $i/12;
 $num = (1+$j);
 $s = pow($num, $d);
@@ -29,7 +38,7 @@ $loan_amount1 = round($loan_amount,1);
 $loan_amount2 = round($loan_amount,1);
 $loan_amount = $loan_amount1 + $loan_amount2;
 $date = date('Y-m-d');
-query("INSERT INTO loan(amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
+query("INSERT INTO loan(duration, amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$duration', '$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
 folders($priv, "page=../view_amort&amort=$loan_amount");
 
  ?>
