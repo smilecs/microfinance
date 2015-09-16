@@ -38,12 +38,34 @@ $loan_amount2 = $new_ans * $sm_amt;
 $loan_amount1 = round($loan_amount1,1);
 $loan_amount2 = round($loan_amount2,1);
 $loan_amount = $loan_amount1 + $loan_amount2;
-$date = date('Y-m-d');
 if($digit[2] != 0){
-  query("UPDATE loan SET duration='$duration', amort_loan='$loan_amount1', amort_interest='$loan_amount2', interest_amount='$sm_amt', date_incured='$date', amount='$p1', amort='$loan_amount', interest='$tmp', total='$p' WHERE emp_no='$emp_id'");
-}else{
-query("INSERT INTO loan(duration, amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$duration', '$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
+echo "<strong><i></i>Total Duration </strong>
+<p class=text-muted>$dur  Months</p>
+<hr>
+<strong><i></i>Previous amount </strong>
+<p class=text-muted>$digit[0]</p>
+<hr><strong><i></i>Interest </strong>
+<p class=text-muted>$sm_amt</p>
+<hr>
+<strong><i></i>Amort </strong>
+<p class=text-muted>$loan_amount  $loan_amount1  $new_ans  $p1</p>
+<hr>
+<strong><i></i>Total </strong>
+<p class=text-muted>$p</p>
+<hr>";
+}else {
+  echo "<strong><i></i>Total Duration </strong>
+  <p class=text-muted>$dur  Months</p>
+  <hr>
+  <strong><i></i>Previous amount </strong>
+  <p class=text-muted>0</p>
+  <hr><strong><i></i>Interest </strong>
+  <p class=text-muted>$sm_amt</p>
+  <hr>
+  <strong><i></i>Amort </strong>
+  <p class=text-muted>$loan_amount  $loan_amount1  $new_ans  $p1</p>
+  <hr>
+  <strong><i></i>Total </strong>
+  <p class=text-muted>$p</p>
+  <hr>";
 }
-folders($priv, "page=../view_amort&amort=$loan_amount");
-
- ?>

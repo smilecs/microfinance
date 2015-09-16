@@ -10,7 +10,7 @@ if(mysql_num_rows($rs) < 1){
 }else{
 $row = mysql_fetch_array($rs);
 $exp = $row['duration'];
-$acct_type['acct_type'];
+$acct_type = $row['acct_type'];
 $expiry_date = $row['duration'];
 $current_date = date('Y-m-d');
 if(strtotime($expiry_date) <= strtotime($current_date)){

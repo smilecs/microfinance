@@ -5,7 +5,7 @@
     $rss = query("SELECT * FROM faculty");
     while($row = mysql_fetch_array($rss)){
       $faculty = $row['id'];
-      $name =$row['name'];
+      $name1 =$row['name'];
          $rs = query("SELECT * FROM department WHERE faculty='$faculty'");
          while($row = mysql_fetch_array($rs)){
            $idd = $row['id'];
@@ -16,10 +16,10 @@
 <thead>
   <tr>
     <th>
-      Faculty:   <?php echo $name; ?>
+      Faculty of  <?php echo $name1; ?>
     </th>
     <th>
-      <h3>Department:    <?php echo $name; ?></h3>
+      <h3>Department of   <?php echo $name; ?></h3>
     </th>
   </tr>
   <tr>
@@ -34,7 +34,7 @@
 </thead>
 <tbody>
 <?php
-$result = query("SELECT * FROM customer LEFT JOIN loan ON customer.id=loan.emp_no WHERE dept='$idd'");
+$result = query("SELECT * FROM loan LEFT JOIN customer ON loan.emp_no=customer.id WHERE dept='$idd'");
 $i = 0;
 $sum = 0;
 while($row = mysql_fetch_array($result)){

@@ -58,16 +58,37 @@ function name($id){
 }
 
 function update_loan($emp_id){
-  $arr = [0,0];
-  $result = query("SELECT * FROM loan WHERE emp_no = '$emp_no'");
+  $arr = [0,0,0];
+  $result = query("SELECT * FROM loan WHERE emp_no = '$emp_id'");
   if(mysql_num_rows($result) > 0){
     $row = mysql_fetch_array($result);
     $amt = $row['total'] - $row['paid'];
     $duration = $row['duration'];
-    $arr = [$amt, $duration];
+    $arr = [$amt, $duration, 1];
     return $arr;
   }
   return $arr;
+}
+
+function thrift_special($type){
+  $arr = [0,0,0,0];
+  $result = query("SELECT * FROM deposit WHERE acct_type='$type'");
+  $count = 0;
+  $amount = 0;
+  while($row = mysql_fetch_array($result)){
+    $count += 1;
+    $amount += $row['amount'];
+    }
+    $arr[0] = $count;
+    $arr[1] = $amount;
+    $result = query("SELECT * FROM account WHERE acct_type='$type'");
+    while($row = mysql_fetch_array($result)){
+      $count += 1;
+      $amount += $row['save_amt'];
+    }
+    $arr[2] = $count;
+    $arr[3] = $amount;
+    return $arr;
 }
 
 ?>

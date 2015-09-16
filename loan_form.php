@@ -1,6 +1,6 @@
 <div class="row">
             <!-- left column -->
-            <div class="col-md-10">
+            <div class="col-md-6">
               <!-- general form elements -->
               <div class="box box-primary">
 
@@ -20,11 +20,21 @@
   <input type="Number" id="duration" name="duration" class="form-control" required/>
 </div>
 
+
 <div class="form-group">
-  <input type="submit"  class="btn btn-primary" value="submit" required/>
+  <input type="submit"  class="btn btn-primary" value="submit"/>
 </div>
 </div>
 </form>
+  <button class="btn btn-primary cs" id="calc">Calculate</button>
+
 </div>
 </div>
+<div class="col-md-3">
+  <div class="box box-primary">
+    <div class="box-body" id="new_content">
+    </div>
+  </div>
+</div>
+
 </div>

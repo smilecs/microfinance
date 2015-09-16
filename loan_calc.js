@@ -1,0 +1,17 @@
+$(document).ready(function(){
+  var emp_id = '';
+  var amount = '';
+  var duration = '';
+  $('#calc').click(function(){
+    emp_id = $('#emp_id').val();
+    amount = $('#amt').val();
+    duration = $('#duration').val();
+    $.post('../loan_calc.php', {
+      emp_id: emp_id,
+      amt: amount,
+      duration: duration
+    }, function(data){
+      $('#new_content').html(data);
+    });
+  });
+});

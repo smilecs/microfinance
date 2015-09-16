@@ -1,28 +1,24 @@
 <div class="row">
             <!-- left column -->
-            <div class="col-md-10">
+            <div class="col-md-8">
               <!-- general form elements -->
               <div class="box box-primary">
-<form method="post" action="../deposit.php">
   <div class="box-body">
-      <div class="form-group">
-<label for="dep">Depositor ID</label>
-<input type="text" name="dep_id" class="form-control" id="dep" placeholder="Depositor ID">
-</div>
+
 <div class="form-group">
 <label for="acct">Account Number</label>
 <input type="text" name="acct_no" class="form-control" id="acct" placeholder="Account no">
-
 </div>
-<div id="msg" class="form-group" id="dep">
+<div class="form-group" id="dep">
 </div>
 <div class="form-group">
-  <input type="submit" class="btn btn-primary" value="pay in">
+  <button class="btn btn-primary" id="sub">Pay In</button>
 </div>
 
 </div>
-
-</form>
 </div>
 </div>
+<div class="col-md-3" id="new_table">
+  <!-- general form elements -->
+  </div>
 </div>

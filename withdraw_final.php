@@ -8,81 +8,27 @@ $row = mysql_fetch_array($result);
 $perc = $row['value'];
 $new_amt = $amount;
 $new_amt += ($perc/100) * $amount;
+$int = ($perc/100) * $amount;
 
 $rs = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($rs);
 $bal = $row['balance'];
-$acct_type['acct_type'];
+$acct_type = $row['acct_type'];
 if($new_amt > $bal){
-echo "<div class=box>
-<div class=box-body>
-  <table class=table>
-  <tr>
-  <th>
-  Account Balance
-  </th>
-  <td>
-  <h3>$bal</h3>
-  </td>
-  </tr>
-  <tr>
-  <th>
-  Account Type
-  </th>
-  <td>
-  $acct_type
-  </td>
-  </tr>
-  <tr>
-  <th>
-  Expiry Date
-  </th>
-  <td>
-  $exp
-  </td>
-  </tr>
-  </table>
-  </div>
-  </div>
-  <div>
-  <h3>Insufficient Funds withdrawal percent and personl amount cannot be reconciled</h3>
-  </div>
-  ";
+  echo "<strong><i></i>Interest on Withdrawal</strong>
+  <p class=text-muted>$int</p>
+  <strong><i></i>Total Withdrawal Amount</strong>
+  <p class=text-danger><b>$new_amt</b></p>";
+
 }else{
-echo "<div class=box>
-<div class=box-body>
-<table class=table>
-<tr>
-<th>
-Account Balance
-</th>
-<td>
-<h3>$bal</h3>
-</td>
-</tr>
-<tr>
-<th>
-Account Type
-</th>
-<td>
-$acct_type
-</td>
-</tr>
-<tr>
-<th>
-Expiry Date
-</th>
-<td>
-$exp
-</td>
-</tr>
-</table>
+echo "<strong><i></i>Interest on Withdrawal</strong>
+<p class=text-muted>$int</p>
+<strong><i></i>Total Withdrawal Amount</strong>
+<p class=text-success><b>$new_amt</b></p>
+<input type=text id=amont value=$new_amt readonly>
+<div id=new_bal>
+
 </div>
-</div>
-<div>
-<form action=../update_withdraw.php?acct=$acct_no&bal=$new_amt&amount=$amount method=post>
-<input type=submit class=btn primary/>
-</form>
 </div>
 ";
 }
