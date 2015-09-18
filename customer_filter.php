@@ -68,7 +68,7 @@
 </thead>
 <tbody>
 <?php
-$result = query("SELECT employee_no, title, surname, firstname, dep_name, lga, state, customer.id, phone, address, email, sex FROM customer LEFT JOIN department ON customer.dept=department.id");
+$result = query("SELECT employee_no, title, surname, firstname, dep_name, lga, state, customer.id, phone, address, email, sex FROM customer LEFT JOIN department ON customer.dept=department.id WHERE priviledge='2'");
 $i = 0;
 while ($row = mysql_fetch_array($result)) {
 ++$i;

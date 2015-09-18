@@ -15,8 +15,8 @@ function acct($prefix){
     return $prefix;
   }
 }
-$acct_name = $_POST['acct_name'];
 $emp_id = $_POST['emp_id'];
+$acct_name = get_teller_name($emp_id);
 $save = $_POST['save_amt'];
 $acct_type = $_POST['acct_type'];
 $prefix = "TSA";

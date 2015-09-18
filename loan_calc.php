@@ -40,7 +40,7 @@ $loan_amount2 = round($loan_amount2,1);
 $loan_amount = $loan_amount1 + $loan_amount2;
 if($digit[2] != 0){
 echo "<strong><i></i>Total Duration </strong>
-<p class=text-muted>$dur  Months</p>
+<p class=text-muted>$duration  Months</p>
 <hr>
 <strong><i></i>Previous amount </strong>
 <p class=text-muted>$digit[0]</p>
@@ -48,14 +48,14 @@ echo "<strong><i></i>Total Duration </strong>
 <p class=text-muted>$sm_amt</p>
 <hr>
 <strong><i></i>Amort </strong>
-<p class=text-muted>$loan_amount  $loan_amount1  $new_ans  $p1</p>
+<p class=text-muted>$loan_amount </p>
 <hr>
 <strong><i></i>Total </strong>
 <p class=text-muted>$p</p>
 <hr>";
 }else {
   echo "<strong><i></i>Total Duration </strong>
-  <p class=text-muted>$dur  Months</p>
+  <p class=text-muted>$duration  Months</p>
   <hr>
   <strong><i></i>Previous amount </strong>
   <p class=text-muted>0</p>
@@ -63,7 +63,7 @@ echo "<strong><i></i>Total Duration </strong>
   <p class=text-muted>$sm_amt</p>
   <hr>
   <strong><i></i>Amort </strong>
-  <p class=text-muted>$loan_amount  $loan_amount1  $new_ans  $p1</p>
+  <p class=text-muted>$loan_amount</p>
   <hr>
   <strong><i></i>Total </strong>
   <p class=text-muted>$p</p>

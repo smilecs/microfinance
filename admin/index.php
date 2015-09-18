@@ -77,9 +77,7 @@ if(isset($_GET['idd1'])){
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b></b></span>
+
         </a>
 
         <!-- Header Navbar -->
@@ -134,7 +132,7 @@ if(isset($_GET['idd1'])){
                           </form>
                           </li>
                 <li><a href="index.php?page=../customer_filter">Member</a></li>
-                <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
+                <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New Member</span></a></li>
 </ul>
             </li>
 
@@ -194,6 +192,7 @@ if(isset($_GET['idd1'])){
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Customisation</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
+            <li class="<?php echo classUpdate("../value_form"); ?>"><a href="index.php?page=../new_user2"><i class="fa fa-link"></i> <span>New Teller</span></a></li>
             <li class="<?php echo classUpdate("../value_form"); ?>"><a href="index.php?page=../value_form"><i class="fa fa-link"></i> <span>Settings</span></a></li>
             <li class="<?php echo classUpdate("../create_dep"); ?>"><a href="index.php?page=../create_dep"><i class="fa fa-link"></i> <span>Create Department</span></a></li>
             <li class="<?php echo classUpdate("../create_faculty"); ?>"><a href="index.php?page=../create_faculty"><i class="fa fa-link"></i> <span>Create Faculty</span></a></li>

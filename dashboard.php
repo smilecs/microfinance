@@ -2,21 +2,6 @@
 include('../utility.php');
 ?>
 <div class="row">
-  <div class="col-lg-3 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-aqua">
-      <div class="inner">
-        <h3><?php echo total_no_users(); ?></h3>
-        <p>New Members this month</p>
-      </div>
-      <div class="icon">
-        <i class="fa fa-user-plus"></i>
-      </div>
-      <a href="#" class="small-box-footer">
-        More info <i class="fa fa-arrow-circle-right"></i>
-      </a>
-    </div>
-  </div><!-- ./col -->
 
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
@@ -58,9 +43,9 @@ include('../utility.php');
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3><?php echo no_faculty(); ?></h3>
-          <p>Faculties Registered</p>
-          <p><strong><?php echo no_dept();?>  Departments</strong></p>
+          <h3><?php echo loan_report()[0]; ?></h3>
+          <p>Total Loan Recovered</p>
+          <p><strong><?php echo loan_report()[2];?> Expected Loan</strong></p>
         </div>
         <div class="icon">
           <i class="fa fa-industry"></i>
@@ -89,5 +74,41 @@ include('../utility.php');
           </a>
         </div>
       </div>
+
+      <div class="col-lg-4 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3><?php echo thrift_special(1)[3] + thrift_special(2)[3] + loan_report()[2]; ?></h3>
+            <p>Total expected income</p>
+            <p>Total expected deposits:  <strong><?php echo thrift_special(1)[3] + thrift_special(2)[3];?></strong></p>
+          <p>Total expected loans:   <strong><?php echo loan_report()[2];?></strong></p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-archive"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3><?php echo revenue()[0]; ?></h3>
+            <p>Available funds</p>
+            <p>Total revenue generated:  <strong><?php echo revenue()[1];?></strong></p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-archive"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
 
   </div><!-- /.row -->

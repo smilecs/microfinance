@@ -18,14 +18,15 @@ $tmp = $row['balance'];
 $emp_id = $row['emp_id'];
  $date = date('y-m-d');
  $new_tmp_amt = $tmp - $new_amt;
- query("INSERT INTO withdraw (emp_id, balance, acct_no, amount, total_deduction, date, teller_id) VALUES('$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date', '$teller')");
+ query("INSERT INTO withdraw (interest_amount, emp_id, balance, acct_no, amount, total_deduction, date, teller_id) VALUES('$new_amt1', '$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date', '$teller')");
  query("UPDATE account SET balance='$new_tmp_amt' WHERE acct_no='$acct_no'");
 
  $rs = query("SELECT * FROM ad_income");
  $row = mysql_fetch_array($rs);
  $bal = $row['balance'];
- $int1 = $bal + $new_amt1;
- query("INSERT INTO income(income_type, amount, balance) VALUES('1', '$int', '$int1')");
+ $int1 = $bal - $amount;
+ $int1 += $new_amt1;
+ query("INSERT INTO income(income_type, amount, balance) VALUES('2', '$new_amt1', '$int1')");
  query("UPDATE ad_income SET balance='$int1'");
 
 echo "<strong id=result><i></i>New Balance</strong>

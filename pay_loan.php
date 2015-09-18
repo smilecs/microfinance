@@ -18,6 +18,7 @@ $loan = $row['amort_loan'];
 $total_paid = $amort + $paid;
 query("UPDATE loan SET paid='$total_paid' WHERE emp_no='$loaner_id'");
 $bal = $total - $total_paid;
+$b4 = $bal;
 query("INSERT INTO payment(amort_loan, amort_interest, l_id, balance, emp_id, amount_pay, date) VALUES('$loan', '$int', '$id', '$bal', '$loaner_id', '$amort', '$date')");
 $result = query("SELECT * FROM loan");
 while($row = mysql_fetch_array($result)){
@@ -30,11 +31,21 @@ while($row = mysql_fetch_array($result)){
  $rs = query("SELECT * FROM ad_income");
  $row = mysql_fetch_array($rs);
  $bal = $row['balance'];
- $int1 = $bal + $int;
+ $int1 = $bal + $loan;
+ query("INSERT INTO income(income_type, amount, balance) VALUES('3', '$loan', '$int1')");
+ query("UPDATE ad_income SET balance='$int1'");
+ $int1 += $int;
  query("INSERT INTO income(income_type, amount, balance) VALUES('1', '$int', '$int1')");
  query("UPDATE ad_income SET balance='$int1'");
+$result = query("SELECT * FROM sub_income");
+$row = mysql_fetch_array($result);
+$ad_bal = $row['balance'] + $total_paid;
+ query("UPDATE sub_income SET balance='$ad_bal'");
 
 }
+$res = "<strong><i></i>New Balance</strong>
+<p class=text-muted>$b4</p>";
+echo $res;
 
-folders($priv, "page=../pay_loan_form");
+
 ?>

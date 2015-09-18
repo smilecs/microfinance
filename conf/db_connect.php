@@ -91,4 +91,54 @@ function thrift_special($type){
     return $arr;
 }
 
+function loan_report(){
+  $arr = [0,0,0];
+  $total_loan_recovered = 0;
+  $total_interest = 0;
+  $expected_loan = 0;
+  $result = query("SELECT * FROM payment");
+  while($row = mysql_fetch_array($result)){
+  $total_loan_recovered += $row['amount_pay'];
+  $total_interest += $row['amort_interest'];
+  }
+  $result = query("SELECT * FROM loan");
+  while($row = mysql_fetch_array($result)){
+    $expected_loan += $row['amort'];
+  }
+  $arr = [$total_loan_recovered, $total_interest, $expected_loan];
+  return $arr;
+
+}
+
+function withdraw_report(){
+  $arr = [0, 0, 0];
+  $count = 0;
+  $amount = 0;
+  $interest = 0;
+  $result = query("SELECT * FROM withdraw");
+  while($row = mysql_fetch_array($result)){
+    $count +=1;
+    $amount += $row['amount'];
+    $interest += $row['interest_amount'];
+  }
+  $arr = [$count, $amount, $interest];
+  return $arr;
+}
+
+function revenue(){
+  $arr = [0,0];
+  $amount = 0;
+  $result = query("SELECT * FROM income");
+  while($row = mysql_fetch_array($result)){
+    $income_type = $row['income_type'];
+    if($income_type != 3){
+      $amount += $row['amount'];
+    }
+  }
+  $result = query("SELECT * FROM ad_income");
+  $row = mysql_fetch_array($result);
+  $bal = $row['balance'];
+  $arr = [$bal, $amount];
+  return $arr;
+}
 ?>

@@ -57,7 +57,7 @@ if(empty($sex) && !empty($dept)){
 
 $sex = sex($sex);
 $query = $fac . $dep . $sex;
-$result = query("SELECT employee_no, title, surname, firstname, dep_name, lga, state, customer.id, phone, address, email, sex FROM customer LEFT JOIN department ON customer.dept=department.id WHERE $query");
+$result = query("SELECT priviledge, employee_no, title, surname, firstname, dep_name, lga, state, customer.id, phone, address, email, sex FROM customer LEFT JOIN department ON customer.dept=department.id WHERE $query");
 $i=0;
 $body = '';
 while($row = mysql_fetch_array($result)){
@@ -73,6 +73,8 @@ while($row = mysql_fetch_array($result)){
   $sex = $row['sex'];
   $email = $row['email'];
   $id = $row['id'];
+  $prv = $row['priviledge'];
+  if($prv == 2){
 $body .= "<tr>
   <td>
     $i
@@ -88,6 +90,7 @@ $body .= "<tr>
 <td>$sex</td>
 <td>$email</td>
 </tr>";
+}
 }
 $body .= "</tbody></table>";
 $tab = $top . $body;

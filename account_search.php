@@ -3,13 +3,12 @@
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#account" data-toggle="tab">Account</a></li>
-        <li><a href="#loan" data-toggle="tab">Loan</a></li>
       </ul>
       <div class="tab-content">
         <div class="active tab-pane" id="account">
           <?php
           $id = $_GET['id'];
-          $result = query("SELECT * FROM account WHERE emp_id='$id'");
+          $result = query("SELECT * FROM account WHERE acct_no='$id'");
           if(mysql_num_rows($result) < 1){
           echo "<h2>Account information unavailable</h2>";
           }
@@ -71,9 +70,7 @@
 
 
         </div><!-- /.tab-pane -->
-          <div class="tab-pane" id="loan">
-            <?php include('../loan_report.php'); ?>
-          </div><!-- /.tab-pane -->
+        <!-- /.tab-pane -->
         <!-- /.tab-pane -->
       </div><!-- /.tab-content -->
     </div><!-- /.nav-tabs-custom -->

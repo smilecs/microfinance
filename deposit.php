@@ -8,8 +8,11 @@ $acct_no = $_POST['acct_no'];
 acct_check($acct_no);
 $amt = $_POST['amt'];
 $date = date('y-m-d');
-
-query("INSERT INTO deposit (teller_id, acct_no, amount, date) VALUES('$teller_id', '$acct_no', '$amt', '$date')");
+$result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
+$balance = $row['balance'] + $amt;
+$row = mysql_fetch_array($result);
+$type = $row['acct_type'];
+query("INSERT INTO deposit (acct_type, teller_id, acct_no, amount, date, balance) VALUES('$type', '$teller_id', '$acct_no', '$amt', '$date', $balance)");
 //$t_id = mysql_insert_id();
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($result);
@@ -18,6 +21,15 @@ $amt_todate = $row['amt_todate'];
 $amt_todate += $amt;
 $amt += $balance;
 query("UPDATE account SET balance='$amt', amt_todate='$amt_todate' WHERE acct_no='$acct_no'");
+
+$rs = query("SELECT * FROM ad_income");
+$row = mysql_fetch_array($rs);
+$bal = $row['balance'];
+$int1 = $bal + $amt;
+
+query("INSERT INTO income(income_type, amount, balance) VALUES('3', '$amt', '$int1')");
+query("UPDATE ad_income SET balance='$int1'");
+
 $res = "<strong id=result><i></i>New Balance</strong>
 <p class=text-muted>$amt</p>";
 echo $res;

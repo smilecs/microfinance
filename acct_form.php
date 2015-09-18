@@ -8,11 +8,7 @@
 <form method="post" action="../acct_sub.php">
 <div class="box-body">
   <div class="form-group">
-<label for="acct_name">Account Name</label>
-<input type="text" name="acct_name" class="form-control" id="acct_name" placeholder="Account Name">
-</div>
-<div class="form-group">
-<label for="emp_id">User ID</label>
+<label for="emp_id">Member ID</label>
 <input type="text" name="emp_id" class="form-control" id="emp_id" placeholder="Registration ID">
 </div>
 <div class="form-group">

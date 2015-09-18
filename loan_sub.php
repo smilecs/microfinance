@@ -44,6 +44,15 @@ if($digit[2] != 0){
 }else{
 query("INSERT INTO loan(duration, amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$duration', '$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
 }
+
+$rs = query("SELECT * FROM ad_income");
+$row = mysql_fetch_array($rs);
+$bal = $row['balance'];
+$int1 = $bal - $p1;
+//query("INSERT INTO income(income_type, amount, balance) VALUES('2', '$new_amt1', '$int1')");
+query("UPDATE ad_income SET balance='$int1'");
+
+
 folders($priv, "page=../view_amort&amort=$loan_amount");
 
  ?>

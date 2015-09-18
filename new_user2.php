@@ -4,23 +4,8 @@
               <!-- general form elements -->
               <div class="box box-primary">
 
-<form method="post" action="../new_user_sub.php">
+<form method="post" action="../new_user_sub2.php">
    <div class="box-body">
-
-     <div class="form-group">
-         <label for="title">Tite</label>
-         <select name="title" class="form-control" id="title"><option></option>
-         <option value="Mr">
-           Mr
-         </option>
-         <option value="Dr">
-           Dr
-         </option>
-         <option value="Prof">
-           Prof
-         </option>
-         </select>
-       </div>
 
   <div class="form-group">
     <label for="name">Full Name</label>
@@ -29,10 +14,6 @@
     <input type="text" name="sname" class="form-control"  placeholder="SurName" REQUIRED>
 </div>
 
-<div class="form-group">
-    <label for="em">Employee ID</label>
-    <input type="text" name="emp_no" class="form-control" id="em" placeholder="employee no" REQUIRED>
-  </div>
 
 <div class="form-group">
     <label for="username">Username</label>
@@ -61,22 +42,6 @@
     <option value="female"> Female</option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="dept">Faculty</label>
-    <select name="faculty" class="form-control" id="facul">
-    <option></option>
-    <?php
-    $result = query("SELECT * FROM faculty");
-    while($row=mysql_fetch_array($result)){
-      $value = $row['id'];
-      $name = $row['name'];
-      ?>
-      <option value="<?php echo $value; ?>"><?php echo $name;?></option>
-      <?php
-  }
-     ?>
-    </select>
-  </div>
 
 <div class="form-group">
 <select class="form-control" id="dept" name="dept">
@@ -84,12 +49,6 @@
 </select>
 </div>
 
-  <div class="form-group">
-    <label for="nok">Next of Kin Name</label>
-    <input type="text" name="nok" class="form-control" id="nok" placeholder="Next Of Kin Name">
-    <label for="n_phone">Next of Kin Phone no</label>
-    <input type="text" id="n_phone" name="n_phone" placeholder="next of kin phone"/>
-  </div>
 
 
   <button type="submit" class="btn btn-default">Submit</button>

@@ -13,6 +13,10 @@ if(isset($_GET['idd'])){
   $id = $_GET['idd'];
   redirect("index.php?page=../profile_search&id=$id");
 }
+if(isset($_GET['idd1'])){
+  $id = $_GET['idd1'];
+  redirect("index.php?page=../account_search&id=$id");
+}
 
 ?>
 <html>
@@ -73,9 +77,7 @@ if(isset($_GET['idd'])){
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+
         </a>
 
         <!-- Header Navbar -->
@@ -105,14 +107,7 @@ if(isset($_GET['idd'])){
               <a href="#"><i class="fa fa-circle text-success"></i></a>
             </div>
           </div>
-          <form action="index.php" method="get" class="sidebar-form">
-                      <div class="input-group">
-                        <input type="text" name="idd" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-                        </span>
-                      </div>
-                    </form>
+
           <!-- search form (Optional) -->
 
           <!-- /.search form -->
@@ -126,8 +121,18 @@ if(isset($_GET['idd'])){
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Customer Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
-                <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New User</span></a></li>
+                <li>
+                  <form action="index.php" method="get" class="sidebar-form">
+                            <div class="input-group">
+                              <input type="text" name="idd" class="form-control" placeholder="Search...">
+                              <span class="input-group-btn">
+                                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                              </span>
+                            </div>
+                          </form>
+                          </li>
+                <li><a href="index.php?page=../customer_filter">Member</a></li>
+                <li class="<?php echo classUpdate("../new_user"); ?>"><a href="index.php?page=../new_user"><i class="glyphicon glyphicon-folder-open"></i> <span>New Member</span></a></li>
 </ul>
             </li>
 
@@ -135,27 +140,56 @@ if(isset($_GET['idd'])){
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Account Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li>
+                  <form action="index.php" method="get" class="sidebar-form">
+                            <div class="input-group">
+                              <input type="text" name="idd1" class="form-control" placeholder="Search...">
+                              <span class="input-group-btn">
+                                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                              </span>
+                            </div>
+                          </form>
+
+                </li>
+                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
+                <li>
                   <a href="index.php?page=../account_report">View Accounts</a>
                 </li>
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Loan Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
                 <li><a href="index.php?page=../loan_form">Loan</a></li>
                 <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
               </ul>
             </li>
 
             <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Schedule Generation</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="index.php?page=../thrift_schedule&type=thrift">Thrift</a></li>
+                <li><a href="index.php?page=../thrift_schedule&type=special">Special</a></li>
+                <li><a href="index.php?page=../schedule">Loan</a>
+</li>
+
+              </ul>
+            </li>
+
+            <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="index.php?page=../customer_filter">Member</a></li>
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
+
 
               </ul>
             </li>
 
 
             <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
-            <li><a href="index.php?page=../generate"><i class="glyphicon glyphicon-folder-open"></i> <span>Generate</span></a></li>
+    
             <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
                       </ul><!-- /.sidebar-menu -->
@@ -283,6 +317,7 @@ if(isset($_GET['idd'])){
 <script src="../department_choice.js"></script>
 <script src="../transaction.js"></script>
 <script src="../filter.js"></script>
+<script src="../loan_calc.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the

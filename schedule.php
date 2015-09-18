@@ -46,7 +46,7 @@ $paid = $row['paid'];
 $total = $row['total'];
 $bal = $total - $paid;
 $bal -= $amount;
-$sum += $total;
+$sum += $amount;
 ?>
 <tr>
   <td><?php echo ++$i;?></td>
@@ -62,7 +62,6 @@ $sum += $total;
 ?>
 <tr>
   <th>Sum Total</th>
-  <td></td>
   <td></td>
   <td></td>
   <td></td>
