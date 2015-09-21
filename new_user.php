@@ -3,7 +3,9 @@
             <div class="col-md-10">
               <!-- general form elements -->
               <div class="box box-primary">
-
+                <div class="box-header with-border">
+                  <h3 class="box-title">New Member Form</h3>
+                </div>
 <form method="post" action="../new_user_sub.php">
    <div class="box-body">
 

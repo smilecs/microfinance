@@ -6,7 +6,6 @@ $top = "
 <thead>
   <tr>
     <th>S/N</th>
-    <th>MEMBER ID</th>
     <th>NAME</th>
     <th>AMOUNT</th>
     <th>PAID</th>
@@ -30,7 +29,6 @@ $result = query("SELECT * FROM loan");
   $amt =$row['amort'];
 $body .= "<tr>
 <td>$i</td>
-<td>$id</td>
 <td>$name</td>
 <td>$amount</td>
 <td>$paid</td>

@@ -1,5 +1,8 @@
 <div class="box">
   <div class="box-body">
+    <div class="box-header with-border">
+      <h3 class="box-title">Account Summary</h3>
+    </div>
 <table class="table">
   <thead>
     <tr>

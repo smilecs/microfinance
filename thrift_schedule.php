@@ -1,17 +1,23 @@
 <?php
 $type = $_GET['type'];
 $tp = '';
+$msg = '';
 switch ($type) {
   case 'special':
     $tp = '2';
+    $msg = "Special Account Schedule";
     break;
 
   default:
     $tp = '1';
+    $msg = "Thrift Account Schedule";
     break;
 }
  ?>
 <div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title"><?php echo $msg;?></h3>
+  </div>
    <div class="box-body">
 <?php
 $rss = query("SELECT * FROM faculty");
