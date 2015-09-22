@@ -70,4 +70,19 @@ while($row=mysql_fetch_array($result)){
 $tm = [$count, $thrift_total, $special_total];
 return $tm;
 }
+function ts_calc($i){
+  $date = date("y-m-d");
+  $date =split('-', $date);
+  $date = $date[0] . "-" . $date['1'];
+  $count = 0;
+  $result = query("SELECT * FROM account WHERE d_opened LIKE '$date-%' AND acct_type = '$i'");
+  while($row = mysql_fetch_array($result)){
+    ++$count;
+  }
+  $rss = query("SELECT * FROM account WHERE acct_type = '$i'");
+while($row= mysql_fetch_array($rss)){
+  ++$count;
+}
+
+}
 ?>

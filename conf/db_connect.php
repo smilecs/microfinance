@@ -81,6 +81,7 @@ function thrift_special($type){
     }
     $arr[0] = $count;
     $arr[1] = $amount;
+    $amount = 0;
     $result = query("SELECT * FROM account WHERE acct_type='$type'");
     while($row = mysql_fetch_array($result)){
       $count += 1;
@@ -90,6 +91,33 @@ function thrift_special($type){
     $arr[3] = $amount;
     return $arr;
 }
+
+function thrift_special_mnt($type){
+  $date = date("Y-m-d");
+  $date =split('-', $date);
+  $date = $date[0] . "-" . $date['1'];
+  $arr = [0,0,0,0];
+  $result = query("SELECT * FROM deposit WHERE acct_type='$type' AND date LIKE '$date-%'");
+  $count = 0;
+  $amount = 0;
+  while($row = mysql_fetch_array($result)){
+    $count += 1;
+    $amount += $row['amount'];
+    }
+    $arr[0] = $count;
+    $arr[1] = $amount;
+    $count = 0;
+    $amount = 0;
+    $rs = query("SELECT * FROM account WHERE acct_type='$type' AND d_opened LIKE '$date-%'");
+    while($row = mysql_fetch_array($rs)){
+      $count += 1;
+      $amount += $row['save_amt'];
+    }
+    $arr[2] = $count;
+    $arr[3] = $amount;
+    return $arr;
+}
+
 
 function loan_report(){
   $arr = [0,0,0];
@@ -109,6 +137,29 @@ function loan_report(){
   return $arr;
 
 }
+
+function loan_report_mnt(){
+  $date = date("Y-m-d");
+  $date =split('-', $date);
+  $date = $date[0] . "-" . $date['1'];
+  $arr = [0,0,0];
+  $total_loan_recovered = 0;
+  $total_interest = 0;
+  $expected_loan = 0;
+  $result = query("SELECT * FROM payment WHERE date LIKE '$date-%'");
+  while($row = mysql_fetch_array($result)){
+  $total_loan_recovered += $row['amount_pay'];
+  $total_interest += $row['amort_interest'];
+  }
+  $result = query("SELECT * FROM loan WHERE date_incured LIKE '$date-%'");
+  while($row = mysql_fetch_array($result)){
+    $expected_loan += $row['amort'];
+  }
+  $arr = [$total_loan_recovered, $total_interest, $expected_loan];
+  return $arr;
+
+}
+
 
 function withdraw_report(){
   $arr = [0, 0, 0];
@@ -139,6 +190,25 @@ function revenue(){
   $row = mysql_fetch_array($result);
   $bal = $row['balance'];
   $arr = [$bal, $amount];
+  return $arr;
+}
+function member(){
+  $date = date("Y-m-d");
+  $date =split('-', $date);
+  $date = $date[0] . "-" . $date['1'];
+  $arr = [0,0,0,0];
+  $count = 0;
+  $result = query("SELECT * FROM customer WHERE reg_date LIKE '$date-%'");
+  while($row = mysql_fetch_array($result)){
+    ++$count;
+  }
+  $arr[0] = $count;
+  $count = 0;
+  $rs= query("SELECT * FROM customer");
+  while($row = mysql_fetch_array($rs)){
+++$count;
+  }
+  $arr[1] = $count;
   return $arr;
 }
 ?>

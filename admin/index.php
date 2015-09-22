@@ -181,7 +181,12 @@ if(isset($_GET['idd1'])){
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
+                <li><a href="index.php?page=../member">Member</a></li>
+                <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
+                <li><a href="index.php?page=../special_mnt">Special</a></li>
+                <li><a href="index.php?page=../loan_mnt">Loan</a></li>
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
+                <li><a href="index.php?page=../report">Detailed</a></li>
 
 
               </ul>
@@ -326,6 +331,8 @@ if(isset($_GET['idd1'])){
 <script src="../transaction.js"></script>
 <script src="../filter.js"></script>
 <script src="../loan_calc.js"></script>
+<script src="../report_filter/thrift_special.js"></script>
+
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
