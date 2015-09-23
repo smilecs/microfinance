@@ -49,7 +49,7 @@ $rs = query("SELECT * FROM ad_income");
 $row = mysql_fetch_array($rs);
 $bal = $row['balance'];
 $int1 = $bal - $p1;
-//query("INSERT INTO income(income_type, amount, balance) VALUES('2', '$new_amt1', '$int1')");
+query("INSERT INTO income(income_type, amount, balance) VALUES('4', '$new_amt1', '$int1')");
 query("UPDATE ad_income SET balance='$int1'");
 
 

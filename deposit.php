@@ -13,12 +13,12 @@ $balance = $row['balance'] + $amt;
 $row = mysql_fetch_array($result);
 $type = $row['acct_type'];
 query("INSERT INTO deposit (acct_type, teller_id, acct_no, amount, date, balance) VALUES('$type', '$teller_id', '$acct_no', '$amt', '$date', '$balance')");
-$rs = query("SELECT * FROM transaction WHERE date='$date' AND acct_no='$acct_no'");
+/*$rs = query("SELECT * FROM transaction WHERE date='$date' AND acct_no='$acct_no'");
 if(mysql_num_rows($result) > 0) {
   query("UPDATE transaction SET credit='$amt', balance='$balance'");
-}else{
+}else{*/
 query("INSERT INTO transaction (acct_no, credit, date, balance) VALUES('$type', '$acct_no', '$amt', '$date', '$balance')");
-}//$t_id = mysql_insert_id();
+//}$t_id = mysql_insert_id();
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($result);
 $balance = $row['balance'];

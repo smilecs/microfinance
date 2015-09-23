@@ -179,11 +179,14 @@ if(isset($_GET['idd1'])){
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="index.php?page=../member">Member</a></li>
+                <li><a href="index.php?page=../account_amt">Account</a></li>
                 <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
                 <li><a href="index.php?page=../special_mnt">Special</a></li>
                 <li><a href="index.php?page=../loan_mnt">Loan</a></li>
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
                 <li><a href="index.php?page=../report">Detailed</a></li>
+                <li><a href="index.php?page=../grand_report">Grand Summary</a></li>
+
 
 
               </ul>

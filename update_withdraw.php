@@ -21,11 +21,11 @@ $emp_id = $row['emp_id'];
  query("INSERT INTO withdraw (interest_amount, emp_id, balance, acct_no, amount, total_deduction, date, teller_id) VALUES('$new_amt1', '$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date', '$teller')");
  query("UPDATE account SET balance='$new_tmp_amt' WHERE acct_no='$acct_no'");
  $rs = query("SELECT *  transaction WHERE date='$date' AND acct_no='$acct_no'");
- if(mysql_num_rows($rs) > 0){
+ /*if(mysql_num_rows($rs) > 0){
    query("UPDATE transaction SET balance='$new_tmp_amt', debit='$new_amt', interest_amount='$new_amt1'");
- }else{
+ }else{*/
  query("INSERT INTO transaction (interest_amount, emp_id, balance, acct_no, amount, debit, date) VALUES('$new_amt1', '$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date')");
-}
+//}
  $rs = query("SELECT * FROM ad_income");
  $row = mysql_fetch_array($rs);
  $bal = $row['balance'];

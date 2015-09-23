@@ -17,6 +17,36 @@ $(document).ready(function(){
     }
   });
 
+$('#loangens').click(function(){
+  start = $('#start_date').val();
+  end = $('#end_date').val();
+  if((start === '') || (end === '')){
+    alert("Both End & Start Date Fields Must Have Values");
+  }else{
+    $.post('../report_filter/interest_filter.php', {
+      start_date: start,
+      end_date: end
+    }, function(data){
+      $('#content').html(data);
+    });
+  }
+});
+
+$('#accgens').click(function(){
+  start = $('#start_date').val();
+  end = $('#end_date').val();
+  if((start === '') || (end === '')){
+    alert("Both End & Start Date Fields Must Have Values");
+  }else{
+    $.post('../report_filter/account_filter.php', {
+      start_date: start,
+      end_date: end
+    }, function(data){
+      $('#content').html(data);
+    });
+  }
+});
+
 
   $('#gen').click(function(){
     start = $('#start_date').val();

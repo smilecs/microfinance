@@ -176,9 +176,12 @@ function withdraw_report(){
   return $arr;
 }
 function revenue_type($type){
+  $date = date("Y-m-d");
+  $date =split('-', $date);
+  $date = $date[0] . "-" . $date['1'];
   $arr = '';
   $amount = 0;
-  $result = query("SELECT * FROM income WHERE income_type = '$type'");
+  $result = query("SELECT * FROM income WHERE income_type = '$type' AND date LIKE '$date-%'");
   while($row = mysql_fetch_array($result)){
         $amount += $row['amount'];
   }

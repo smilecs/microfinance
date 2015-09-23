@@ -85,4 +85,16 @@ while($row= mysql_fetch_array($rss)){
 }
 
 }
+function expected(){
+  $arr = [0,0];
+  $loan_int = 0;
+  $loan_rec = 0;
+  $rs = query("SELECT * FROM loan");
+  while($row = mysql_fetch_array($rs)){
+    $loan_int += $row['amort_interest'];
+    $loan_rec += $row['amort_loan'];
+  }
+  $arr = [$loan_int, $loan_rec];
+  return $arr;
+}
 ?>
