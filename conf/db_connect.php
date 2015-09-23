@@ -175,7 +175,16 @@ function withdraw_report(){
   $arr = [$count, $amount, $interest];
   return $arr;
 }
-
+function revenue_type($type){
+  $arr = '';
+  $amount = 0;
+  $result = query("SELECT * FROM income WHERE income_type = '$type'");
+  while($row = mysql_fetch_array($result)){
+        $amount += $row['amount'];
+  }
+  $arr = $amount;
+  return $arr;
+}
 function revenue(){
   $arr = [0,0];
   $amount = 0;
