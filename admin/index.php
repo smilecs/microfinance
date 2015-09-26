@@ -73,8 +73,11 @@ if(isset($_GET['idd1'])){
 
         <!-- Logo -->
         <a href="index2.html" class="logo">
+          <h2 style='margin:0px;'>
           <!-- mini logo for sidebar mini 50x50 pixels -->
-
+          <img src="../dist/img/unical.png" height="50px">
+          <span>Unical</span>
+          </h2>
         </a>
 
         <!-- Header Navbar -->
@@ -178,7 +181,8 @@ if(isset($_GET['idd1'])){
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="index.php?page=../member">Member</a></li>
+                <!--<li><a href="index.php?page=../member">Member</a></li>-->
+                <li><a href="index.php?page=../interest_report">Interest</a></li>
                 <li><a href="index.php?page=../account_amt">Account</a></li>
                 <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
                 <li><a href="index.php?page=../special_mnt">Special</a></li>
