@@ -7,7 +7,11 @@
       <div class="tab-content">
         <div class="active tab-pane" id="witd">
           <?php // include('../wit_n.php');
+          if($priv == '2'){
+          include('transaction_report.php');  
+          }else{
           include('../transaction_report.php');
+        }
           ?>
         </div><!-- /.tab-pane -->
 

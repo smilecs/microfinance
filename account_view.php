@@ -23,7 +23,7 @@ $duration = $row['duration'];
       </tr>
       <tr>
         <th>Account No</th>
-        <td><?php echo $acct_no; ?></td>
+        <td><a href="index.php?page=dep_witd&id=<?php echo $acct_no; ?>"><?php echo $acct_no; ?></a></td>
        </tr>
       <tr>
         <th>Balance</th>
