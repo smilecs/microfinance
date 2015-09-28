@@ -71,4 +71,24 @@ $('#loan').click(function(){
 
 });
 
+
+$('#calc').click(function(){
+  if((start === '') || (end === '')){
+    alert("required fields");
+  }else{
+  start = $('#start_date').val();
+  end = $('#end_date').val();
+  var hid = $('#hid').val();
+    $.post('../loan_report_js.php', {
+      start_date: start,
+      end_date: end,
+      id:hid
+    }, function(data){
+      $('#tableentry').html(data);
+
+    });
+  }
+
+});
+
 });

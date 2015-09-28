@@ -11,35 +11,35 @@ $top = "
   <tr>
     <th>S/N</th>
     <th>NAME</th>
-    <th>AMOUNT</th>
-    <th>PAID</th>
+    <th>TOTAL PAID</th>
     <th>AMT_MNT</th>
-    <th>INTEREST</th>
+    <th>AMORT_INTEREST</th>
+    <th>BALANCE</th>
     <th>DATE</th>
   </tr>
 </thead>
 <tbody>";
 $body = ' ';
-$result = query("SELECT * FROM loan");
+$result = query("SELECT * FROM payment");
  $i = 0;
  while($row = mysql_fetch_array($result)){
    ++$i;
-   $amount = $row['amount'];
-   $id = $row['emp_no'];
+   $amount = $row['balance'];
+   $id = $row['emp_id'];
    $name = get_teller_name($id);
-   $date1 = $row['date_incured'];
+   $date1 = $row['date'];
    $date = strtotime($date1);
-   $paid = $row['paid'];
-   $interest = $row['interest_amount'];
-  $amt =$row['amort'];
+   $paid = $row['amount_pay'];
+   $interest = $row['amort_interest'];
+  $amt =$row['amort_loan'];
    if(($date >= $start) && ($date <= $end)){
 $body .= "<tr>
 <td>$i</td>
 <td>$name</td>
-<td>$amount</td>
 <td>$paid</td>
 <td>$amt</td>
 <td>$interest</td>
+<td>$amount</td>
 <td>$date1</td>
 </tr>";
    }

@@ -1,12 +1,12 @@
 <?php
 $id =$_SESSION['id'];
-$result = query("SELECT * FROM account WHERE emp_id='$id'");
+$result = query("SELECT * FROM account LEFT JOIN acct_type ON account.acct_type=acct_type.id WHERE emp_id='$id'");
 if(mysql_num_rows($result) < 1){
 echo "<h2>Account information unavailable</h2>";
 }
 else{
 while ($row = mysql_fetch_array($result)) {
-$acct_type = $row['acct_type'];
+$acct_type = $row['name'];
 $acct_no = $row['acct_no'];
 $balance = $row['balance'];
 $d_opened = $row['d_opened'];

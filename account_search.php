@@ -8,7 +8,7 @@
         <div class="active tab-pane" id="account">
           <?php
           $id = $_GET['id'];
-          $result = query("SELECT * FROM account WHERE acct_no='$id'");
+          $result = query("SELECT * FROM account LEFT JOIN acct_type ON account.acct_type=acct_type.id WHERE acct_no='$id'");
           if(mysql_num_rows($result) < 1){
           echo "<h2>Account information unavailable</h2>";
           }

@@ -68,9 +68,12 @@ $priv = $_SESSION['priv'];
         <!-- Logo -->
         <a href="index.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b></b></span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b></span>
+          <h2 style='margin:0px;'>
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <img src="dist/img/unical.png" height="50px">
+          <span>Unical</span>
+          </h2>
+
         </a>
 
         <!-- Header Navbar -->
@@ -109,7 +112,7 @@ $priv = $_SESSION['priv'];
           <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
+            <li class="active"><a href="index.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
             <li class="active"><a href="logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
 
