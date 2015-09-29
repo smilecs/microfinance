@@ -54,7 +54,7 @@
 </table>
 </div>
 </div>
-</div>
+
 <?php
 $date = date("Y-m-d");
 $date =split('-', $date);
@@ -79,7 +79,7 @@ while($row = mysql_fetch_array($result)){
   $table_top = "
   <div class=box>
   <div class=box-body no-padding>
-  <table class=table id=tableentry>
+  <table class=table>
   <thead>
     <tr>
       <th>S/N</th>
@@ -89,7 +89,7 @@ while($row = mysql_fetch_array($result)){
     </tr>
   </thead>
   <tbody>";
-  $end = "</tbody></table></div></div>";
+  $end = "</tbody></table></div></div></div>";
   $htm = $table_top . $body . $end;
   echo $htm;
 

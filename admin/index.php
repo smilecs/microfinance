@@ -151,9 +151,10 @@ if(isset($_GET['idd1'])){
 
                 </li>
                 <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
-                <li>
+                <!--<li>
                   <a href="index.php?page=../account_report">View Accounts</a>
-                </li>
+                </li>-->
+                <li><a href="index.php?page=../account_amt">Account</a></li>
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
               </ul>
@@ -183,7 +184,6 @@ if(isset($_GET['idd1'])){
               <ul class="treeview-menu">
                 <!--<li><a href="index.php?page=../member">Member</a></li>-->
                 <li><a href="index.php?page=../interest_report">Interest</a></li>
-                <li><a href="index.php?page=../account_amt">Account</a></li>
                 <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
                 <li><a href="index.php?page=../special_mnt">Special</a></li>
                 <li><a href="index.php?page=../loan_mnt">Loan</a></li>

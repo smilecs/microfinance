@@ -18,12 +18,18 @@ $tmp = $row['value'];
 if($digit[2] != 0){
 $duration += $digit[1];
 $sm_amt = simple_interest($p1, $tmp, $duration);
+//$sm_amt = round($sm_amt, 0);
+$sm_amt = floor($sm_amt);
 $p = $sm_amt + $p1 + $digit[0];
+$p = floor($p);
 }else{
 $sm_amt = simple_interest($p1, $tmp, $duration);
+//$sm_amt = round($sm_amt, 0);
+$sm_amt = floor($sm_amt);
 $p = $sm_amt + $p1;
+//$p = floor($p);
 }
-$i = $tmp /100;
+/*$i = $tmp /100;
 $d = $duration;
 $j = $i/12;
 $num = (1+$j);
@@ -32,12 +38,15 @@ $new_ans = $j/($s - 1);
 if(1 >$s){
 $new_ans = $j/(1-$s);
 }
-
-$loan_amount1 = $new_ans * $p1;
-$loan_amount2 = $new_ans * $sm_amt;
-$loan_amount1 = round($loan_amount1,1);
-$loan_amount2 = round($loan_amount2,1);
+*/
+$loan_amount1 = $p1/$duration;
+$loan_amount2 = $sm_amt/$duration;
+//$loan_amount1 = $new_ans * $p1;
+//$loan_amount2 = $new_ans * $sm_amt;
+$loan_amount1 = round($loan_amount1);
+$loan_amount2 = round($loan_amount2);
 $loan_amount = $loan_amount1 + $loan_amount2;
+$loan_amount = floor($loan_amount);
 if($digit[2] != 0){
 echo "<strong><i></i>Total Duration </strong>
 <p class=text-muted>$duration  Months</p>

@@ -2,7 +2,7 @@ $(document).ready(function(){
   var emp_id = '';
   var amount = '';
   var duration = '';
-  $('#calc').click(function(){
+  $('#calcs').click(function(){
     emp_id = $('#emp_id').val();
     amount = $('#amt').val();
     duration = $('#duration').val();

@@ -20,7 +20,7 @@ $emp_id = $row['emp_id'];
  $new_tmp_amt = $tmp - $new_amt;
  query("INSERT INTO withdraw (interest_amount, emp_id, balance, acct_no, amount, total_deduction, date, teller_id) VALUES('$new_amt1', '$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date', '$teller')");
  query("UPDATE account SET balance='$new_tmp_amt' WHERE acct_no='$acct_no'");
- $rs = query("SELECT *  transaction WHERE date='$date' AND acct_no='$acct_no'");
+ $rs = query("SELECT * FROM transaction WHERE date='$date' AND acct_no='$acct_no'");
  /*if(mysql_num_rows($rs) > 0){
    query("UPDATE transaction SET balance='$new_tmp_amt', debit='$new_amt', interest_amount='$new_amt1'");
  }else{*/
@@ -35,5 +35,5 @@ $emp_id = $row['emp_id'];
  query("UPDATE ad_income SET balance='$int1'");
 
 echo "<strong id=result><i></i>New Balance</strong>
-<p class=text-muted>$new_tmp_amt</p>";
+<p class=text-muted>$new_amt $tmp $new_tmp_amt</p>";
 ?>

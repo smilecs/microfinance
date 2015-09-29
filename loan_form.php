@@ -26,7 +26,7 @@
 </div>
 </div>
 </form>
-  <button class="btn btn-primary cs" id="calc">Calculate</button>
+  <button class="btn btn-primary cs" id="calcs">Calculate</button>
 
 </div>
 </div>

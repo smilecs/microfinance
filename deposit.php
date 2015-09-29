@@ -9,15 +9,15 @@ acct_check($acct_no);
 $amt = $_POST['amt'];
 $date = date('y-m-d');
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
-$balance = $row['balance'] + $amt;
 $row = mysql_fetch_array($result);
+$balance = $row['balance'] + $amt;
 $type = $row['acct_type'];
 query("INSERT INTO deposit (acct_type, teller_id, acct_no, amount, date, balance) VALUES('$type', '$teller_id', '$acct_no', '$amt', '$date', '$balance')");
 /*$rs = query("SELECT * FROM transaction WHERE date='$date' AND acct_no='$acct_no'");
 if(mysql_num_rows($result) > 0) {
   query("UPDATE transaction SET credit='$amt', balance='$balance'");
 }else{*/
-query("INSERT INTO transaction (acct_no, credit, date, balance) VALUES('$type', '$acct_no', '$amt', '$date', '$balance')");
+query("INSERT INTO transaction (acct_no, credit, date, balance) VALUES('$acct_no', '$amt', '$date', '$balance')");
 //}$t_id = mysql_insert_id();
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($result);
@@ -32,7 +32,7 @@ $row = mysql_fetch_array($rs);
 $bal = $row['balance'];
 $int1 = $bal + $amt;
 
-query("INSERT INTO income(income_type, amount, balance) VALUES('3', '$amt', '$int1')");
+query("INSERT INTO income(date, income_type, amount, balance) VALUES('$date', '3', '$amt', '$int1')");
 query("UPDATE ad_income SET balance='$int1'");
 
 $res = "<strong id=result><i></i>New Balance</strong>

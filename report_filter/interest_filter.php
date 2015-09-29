@@ -47,7 +47,7 @@ while($row = mysql_fetch_array($result)){
   </thead>
   <tbody>";
 
-$top ="<div id=content>
+$top ="
 
 <div class=box>
 <div class=box-body no-padding>
@@ -76,7 +76,7 @@ $top ="<div id=content>
 </table>
 </div>
 </div>
-</div>";
+";
 $top .= $table_top;
   $end = "</tbody></table></div></div>";
   $htm =  $top . $body . $end;
