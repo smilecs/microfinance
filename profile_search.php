@@ -26,8 +26,11 @@ $nok_name = $row['nok_name'];
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">About Me</h3>
-                </div><!-- /.box-header -->
+                </div>
+                <!-- /.box-header -->
                 <div class="box-body">
+                  <img class="profile-user-img img-responsive img-circle" src="../dist/img/<?php echo db_pic($id); ?>" alt="User profile picture">
+
                   <strong><i class="fa fa-book margin-r-5"></i>  Email</strong>
                   <p class="text-muted">
                     <?php echo $email; ?>

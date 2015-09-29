@@ -25,12 +25,25 @@
     <![endif]-->
   </head>
   <body class="hold-transition login-page">
+    <h2 >
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+        </h2>
     <div class="login-box">
       <div class="login-logo">
         <a href="../../index2.html"></a>
       </div><!-- /.login-logo -->
+
+
       <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <div style='margin-left:120px;'>
+          <img src="dist/img/unical.png" height="80px" width="70px">
+
+        </div>
+        <p class="login-box-msg" style="font-size:9px;"><strong style="font-size:18px; margin-bottom:0px;">UNIVERSITY OF CALABAR</strong>
+         <br>MULTI-PURPOSE CO-OPERATIVE SOCIETY CORE</p>
+         <p>
+           <strong>ACCESS LOGIN</strong>
+         </p>
         <form action="sign_in2.php" method="post">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" name="username" placeholder="username">

@@ -76,7 +76,7 @@ if(isset($_GET['idd1'])){
           <h2 style='margin:0px;'>
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <img src="../dist/img/unical.png" height="50px">
-          <span>Unical</span>
+          <span style='font-size:12px;'>Unical MPCS</span>
           </h2>
         </a>
 
