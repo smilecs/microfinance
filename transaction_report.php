@@ -9,6 +9,7 @@ $top = "
     <th>INTEREST</th>
     <th>AMOUNT</th>
     <th>BALANCE</th>
+    <th>DESCRIPTION</th>
     <th>DATE</th>
   </tr>
 </thead>
@@ -25,6 +26,7 @@ while($row = mysql_fetch_array($result)){
   $credit = $row['credit'];
   $bal = $row['balance'];
   $amount = $row['amount'];
+  $desc = $row['description'];
   $interest = $row['interest_amount'];
   $body .= "<tr>
   <td>$i</td>
@@ -33,6 +35,7 @@ while($row = mysql_fetch_array($result)){
   <td>$interest</td>
   <td>$amount</td>
   <td>$bal</td>
+  <td>$desc</td>
   <td>$date1</td>
   </tr>";
 

@@ -97,4 +97,70 @@ function expected(){
   $arr = [$loan_int, $loan_rec];
   return $arr;
 }
+
+function income_report($start, $end){
+  $start = strtotime($start);
+  $end = strtotime($end);
+  $arr = [0,0,0,0,0,0,0];
+  $loan_int = 0;
+  $loan_rec = 0;
+  $rs = query("SELECT * FROM payment");
+  while($row = mysql_fetch_array($rs)){
+    $date1 = $row['date'];
+    $date = strtotime($date1);
+    if(($date >= $start) && ($date <= $end)){
+    $loan_int += $row['amort_interest'];
+    $loan_rec += $row['amort_loan'];
+  }
+}
+$arr[0] = $loan_int;
+$arr[1] = $loan_rec;
+$result = query("SELECT * FROM transaction WHERE description='deposit'");
+$amount = 0;
+$count = 0;
+while($row = mysql_fetch_array($result)){
+  $date1 = $row['date'];
+  $date = strtotime($date1);
+  if(($date >= $start) && ($date <= $end)){
+    $amount +=$row['credit'];
+    ++$count;
+}
+  }
+  $arr[2] = $amount;
+  $arr[3] = $count;
+  $amount = 0;
+  $result = query("SELECT * FROM income WHERE income_type = '2'");
+  while($row= mysql_fetch_array($result)){
+    $date1 = $row['date'];
+    $date = strtotime($date1);
+    if(($date >= $start) && ($date <= $end)){
+      $amount += $row['amount'];
+    }
+  }
+$arr[4] = $amount;
+$result = query("SELECT * FROM charge WHERE type = '1'");
+while($row= mysql_fetch_array($result)){
+  $date1 = $row['date'];
+  $date = strtotime($date1);
+  if(($date >= $start) && ($date <= $end)){
+    $amount += $row['amount'];
+  }
+}
+$arr[5] = $amount;
+
+$amount = 0;
+$result = query("SELECT * FROM charge WHERE type = '2'");
+while($row= mysql_fetch_array($result)){
+  $date1 = $row['date'];
+  $date = strtotime($date1);
+  if(($date >= $start) && ($date <= $end)){
+    $amount += $row['amount'];
+  }
+}
+$arr[6] = $amount;
+
+return $arr;
+}
+
+
 ?>

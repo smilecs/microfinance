@@ -17,7 +17,7 @@ query("INSERT INTO deposit (acct_type, teller_id, acct_no, amount, date, balance
 if(mysql_num_rows($result) > 0) {
   query("UPDATE transaction SET credit='$amt', balance='$balance'");
 }else{*/
-query("INSERT INTO transaction (acct_no, credit, date, balance) VALUES('$acct_no', '$amt', '$date', '$balance')");
+query("INSERT INTO transaction (description, acct_no, credit, date, balance) VALUES('deposit', '$acct_no', '$amt', '$date', '$balance')");
 //}$t_id = mysql_insert_id();
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($result);

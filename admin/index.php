@@ -154,7 +154,8 @@ if(isset($_GET['idd1'])){
                 <!--<li>
                   <a href="index.php?page=../account_report">View Accounts</a>
                 </li>-->
-                <li><a href="index.php?page=../account_amt">Account</a></li>
+                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../purchase_slip"><i class="glyphicon glyphicon-open"></i> <span>Purchase Passbook</span></a></li>
+                <li><a href="index.php?page=../account_amt">View Account</a></li>
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
               </ul>
@@ -184,6 +185,7 @@ if(isset($_GET['idd1'])){
               <ul class="treeview-menu">
                 <!--<li><a href="index.php?page=../member">Member</a></li>-->
                 <li><a href="index.php?page=../interest_report">Interest</a></li>
+                <li><a href="index.php?page=../loan_allocated">Loan Allocated</a></li>
                 <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
                 <li><a href="index.php?page=../special_mnt">Special</a></li>
                 <li><a href="index.php?page=../loan_mnt">Loan</a></li>

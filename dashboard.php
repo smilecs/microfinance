@@ -3,7 +3,7 @@ include('../utility.php');
 ?>
 <div class="row">
 
-  <div class="col-lg-3 col-xs-6">
+  <div class="col-lg-4 col-xs-6">
     <!-- small box -->
     <div class="small-box bg-aqua">
       <div class="inner">
@@ -21,7 +21,7 @@ include('../utility.php');
   </div><!-- ./col -->
 
 
-  <div class="col-lg-3 col-xs-6">
+  <div class="col-lg-4 col-xs-6">
     <!-- small box -->
     <div class="small-box bg-aqua">
       <div class="inner">
@@ -39,13 +39,14 @@ include('../utility.php');
   </div><!-- ./col -->
 
 
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-4 col-xs-6">
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
           <h3><?php echo loan_report()[0]; ?></h3>
           <p>Total Loan Recovered</p>
           <p><strong><?php echo loan_report()[2];?> Expected Loan</strong></p>
+            <p><strong>Loan Count:    <?php echo loan_report()[3];?></strong></p>
         </div>
         <div class="icon">
           <i class="fa fa-industry"></i>
@@ -57,7 +58,7 @@ include('../utility.php');
     </div><!-- ./col -->
 
 
-      <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-4 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">

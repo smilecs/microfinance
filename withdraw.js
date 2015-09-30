@@ -35,4 +35,21 @@ $('#act').html(data);
 });
 });
 
+$('#passbook').keyup(function(){
+var acct = $('#passbook').val();
+$.post('../report_filter/passbook_info.php', {
+  acct_no: acct
+}, function(data){
+$('#content').html(data);
+});
+});
+$('#purchase').click(function(){
+  var acct = $('#passbook').val();
+$.post('../report_filter/purchase.php',{
+  acct: acct
+}, function(data){
+  $('#new_bal').html(data);
+
+});
+});
 });

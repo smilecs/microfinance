@@ -120,7 +120,8 @@ function thrift_special_mnt($type){
 
 
 function loan_report(){
-  $arr = [0,0,0];
+  $arr = [0,0,0,0];
+  $loan_count = 0;
   $total_loan_recovered = 0;
   $total_interest = 0;
   $expected_loan = 0;
@@ -130,10 +131,12 @@ function loan_report(){
   $total_interest += $row['amort_interest'];
   }
   $result = query("SELECT * FROM loan");
+
   while($row = mysql_fetch_array($result)){
     $expected_loan += $row['amort'];
+    ++$loan_count;
   }
-  $arr = [$total_loan_recovered, $total_interest, $expected_loan];
+  $arr = [$total_loan_recovered, $total_interest, $expected_loan, $loan_count];
   return $arr;
 
 }

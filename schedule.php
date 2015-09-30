@@ -38,15 +38,18 @@ $result = query("SELECT * FROM loan LEFT JOIN customer ON loan.emp_no=customer.i
 $i = 0;
 $sum = 0;
 while($row = mysql_fetch_array($result)){
+  //$rs = query("SELECT * FROM payment WHERE emp_id = '$id'");
 $id = $row['emp_no'];
 $fullname = $row['firstname'] . $row['surname'];
 $amount = $row['amort'];
 $no = $row['employee_no'];
 $paid = $row['paid'];
 $total = $row['total'];
+$charge = $row['admin_charge'];
 $bal = $total - $paid;
 $bal -= $amount;
 $sum += $amount;
+$amount += $charge;
 ?>
 <tr>
   <td><?php echo ++$i;?></td>

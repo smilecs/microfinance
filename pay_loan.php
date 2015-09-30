@@ -7,8 +7,19 @@ $id = $_SESSION['id'];
 $priv = $_SESSION['priv'];
 $loaner_id = $_POST['loan_id'];
 $amort = $_POST['amort'];
+$charge = '';
 $result = query("SELECT * FROM loan WHERE emp_no='$loaner_id'");
 $row= mysql_fetch_array($result);
+//$rs= query("SELECT * FROM payment WHERE emp_id='$loaner_id'");
+$pn = $row['p_no'];
+if($pn < 1){
+  $charge = $row['admin_charge'];
+  query("INSERT INTO charge(emp_no, amount, type) VALUES('$loaner_id', '$charge', '1')");
+  query("UPDATE loan SET p_no='1' WHERE emp_no='$loaner_id'");
+
+
+}
+$amort -= $charge;
 $total = $row['total'];
 $paid = $row['paid'];
 $date = date("y-m-d");
@@ -28,6 +39,7 @@ while($row = mysql_fetch_array($result)){
   if($paid >= $amount){
     query("DELETE FROM loan WHERE id='$id'");
   }
+
  $rs = query("SELECT * FROM ad_income");
  $row = mysql_fetch_array($rs);
  $bal = $row['balance'];

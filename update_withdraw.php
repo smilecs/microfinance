@@ -24,14 +24,14 @@ $emp_id = $row['emp_id'];
  /*if(mysql_num_rows($rs) > 0){
    query("UPDATE transaction SET balance='$new_tmp_amt', debit='$new_amt', interest_amount='$new_amt1'");
  }else{*/
- query("INSERT INTO transaction (interest_amount, emp_id, balance, acct_no, amount, debit, date) VALUES('$new_amt1', '$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date')");
+ query("INSERT INTO transaction (description, interest_amount, emp_id, balance, acct_no, amount, debit, date) VALUES('withdrawal', '$new_amt1', '$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date')");
 //}
  $rs = query("SELECT * FROM ad_income");
  $row = mysql_fetch_array($rs);
  $bal = $row['balance'];
  $int1 = $bal - $amount;
  $int1 += $new_amt1;
- query("INSERT INTO income(income_type, amount, balance) VALUES('2', '$new_amt1', '$int1')");
+ query("INSERT INTO income(income_type, amount, balance, date) VALUES('2', '$new_amt1', '$int1', $date)");
  query("UPDATE ad_income SET balance='$int1'");
 
 echo "<strong id=result><i></i>New Balance</strong>
