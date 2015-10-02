@@ -14,7 +14,8 @@ $row= mysql_fetch_array($result);
 $pn = $row['p_no'];
 if($pn < 1){
   $charge = $row['admin_charge'];
-  query("INSERT INTO charge(emp_no, amount, type) VALUES('$loaner_id', '$charge', '1')");
+  $date = date("y-m-d");
+  query("INSERT INTO charge(emp_no, amount, type, date) VALUES('$loaner_id', '$charge', '1', '$date')");
   query("UPDATE loan SET p_no='1' WHERE emp_no='$loaner_id'");
 
 
@@ -30,6 +31,8 @@ $total_paid = $amort + $paid;
 query("UPDATE loan SET paid='$total_paid' WHERE emp_no='$loaner_id'");
 $bal = $total - $total_paid;
 $b4 = $bal;
+query("UPDATE loan SET balance='$bal' WHERE emp_no='$loaner_id'");
+
 query("INSERT INTO payment(amort_loan, amort_interest, l_id, balance, emp_id, amount_pay, date) VALUES('$loan', '$int', '$id', '$bal', '$loaner_id', '$amort', '$date')");
 $result = query("SELECT * FROM loan");
 while($row = mysql_fetch_array($result)){

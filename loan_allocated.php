@@ -77,7 +77,7 @@ $paid = $row['paid'];
 $total = $row['total'];
 $date = $row['date_incured'];
 $bal = $total - $paid;
-$bal -= $amount;
+$bal = $row['balance'];
 $sum += $amount;
 ?>
 <tr>

@@ -25,7 +25,7 @@ $nok_name = $row['nok_name'];
 
               <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">About Me</h3>
+                  <h3 class="box-title">Profile</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">

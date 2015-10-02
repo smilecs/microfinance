@@ -73,6 +73,9 @@ $('#loan').click(function(){
 
 
 $('#calc').click(function(){
+  start = $('#start_date').val();
+  end = $('#end_date').val();
+
   if((start === '') || (end === '')){
     alert("required fields");
   }else{
@@ -93,8 +96,10 @@ $('#calc').click(function(){
 
 
 $('#genes').click(function(){
+  start = $('#start_date').val();
+  end = $('#end_date').val();
   if((start === '') || (end === '')){
-    alert("required fields");
+    alert(start);
   }else{
   start = $('#start_date').val();
   end = $('#end_date').val();

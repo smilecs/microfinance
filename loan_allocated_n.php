@@ -69,7 +69,7 @@ $no = $row['employee_no'];
 $paid = $row['paid'];
 $total = $row['total'];
 $bal = $total - $paid;
-$bal -= $amount;
+$bal = $row['balance'];
 $sum += $amount;
 if(($date >= $start) && ($date <= $end)){
 ++$i;

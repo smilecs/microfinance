@@ -56,8 +56,7 @@ include_once('../utility.php');
 </table>
 </div>
 </div>
-</div>
-<div id="content">
+
 <div class="box">
   <div class="box-body">
     <div class="box-header with-border">

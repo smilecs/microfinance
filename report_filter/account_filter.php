@@ -67,7 +67,7 @@ $end = strtotime($end);
   $special = no_accounts($start, $end)[2];
   $total = $thrift + $special;
 
-$top = "<div id=content>
+$top = "
 <div class=box>
 <div class=box-body no-padding>
 <table class=table>
@@ -120,7 +120,7 @@ $top = "<div id=content>
     </tr>
     </thead>
 ";
- $end = "</tbody></table></div></div>";
+ $end = "</tbody></table></div>";
  $htm =  $top . $body . $end;
  echo $htm;
 ?>
