@@ -14,9 +14,7 @@ include('../utility.php');
       <div class="icon">
         <i class="fa fa-usd"></i>
       </div>
-      <a href="#" class="small-box-footer">
-        More info <i class="fa fa-arrow-circle-right"></i>
-      </a>
+
     </div>
   </div><!-- ./col -->
 
@@ -32,9 +30,6 @@ include('../utility.php');
       <div class="icon">
         <i class="fa fa-usd"></i>
       </div>
-      <a href="#" class="small-box-footer">
-        More info <i class="fa fa-arrow-circle-right"></i>
-      </a>
     </div>
   </div><!-- ./col -->
 
@@ -46,15 +41,12 @@ include('../utility.php');
           <h3><?php echo loan_report()[0]; ?></h3>
           <p>Total Loan Recovered</p>
           <p><strong><?php echo loan_report()[2];?> Expected Loan</strong></p>
-            <p><strong>Loan Count:    <?php echo loan_report()[3];?></strong></p>
+            <p><strong>Loans Given:    <?php echo loan_report()[3];?></strong></p>
         </div>
         <div class="icon">
           <i class="fa fa-industry"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          More info <i class="fa fa-arrow-circle-right"></i>
-        </a>
-      </div>
+          </div>
     </div><!-- ./col -->
 
 
@@ -63,16 +55,13 @@ include('../utility.php');
         <div class="small-box bg-aqua">
           <div class="inner">
             <h3><?php echo no_accounts()[0]; ?></h3>
-            <p>Accounts</p>
+            <p>Accounts Opened</p>
             <p>Total Thrift Accounts:  <strong><?php echo no_accounts()[1];?></strong></p>
           <p>Total Special Accounts:   <strong><?php echo no_accounts()[2];?></strong></p>
           </div>
           <div class="icon">
             <i class="fa fa-archive"></i>
           </div>
-          <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
-          </a>
         </div>
       </div>
 
@@ -88,10 +77,7 @@ include('../utility.php');
           <div class="icon">
             <i class="fa fa-archive"></i>
           </div>
-          <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
-          </a>
-        </div>
+          </div>
       </div>
 
       <div class="col-lg-4 col-xs-6">
@@ -105,9 +91,6 @@ include('../utility.php');
           <div class="icon">
             <i class="fa fa-archive"></i>
           </div>
-          <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
-          </a>
         </div>
       </div>
 

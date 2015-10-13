@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 30, 2015 at 04:05 PM
+-- Generation Time: Oct 13, 2015 at 11:45 AM
 -- Server version: 5.6.25-0ubuntu0.15.04.1
 -- PHP Version: 5.6.4-4ubuntu6.2
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `account` (
 --
 
 INSERT INTO `account` (`id`, `emp_id`, `balance`, `acct_type`, `d_opened`, `duration`, `acct_no`, `save_amt`, `acct_name`, `amt_todate`, `department`) VALUES
-(1, '5', 1510, 1, '2015-09-02', '2115-09-02', 'TSA6046007', 5000, 'smile mmumene', 15800, 1),
+(1, '5', 7510, 1, '2015-09-02', '2115-09-02', 'TSA6046007', 5000, 'smile mmumene', 21800, 1),
 (4, '5', 1510, 2, '2015-09-02', '1970-01-01', 'SSA0276544', 5000, 'smile mmumene', NULL, 0),
 (5, '5', 1510, 2, '2015-09-02', '2020-09-02', 'SSA4645268', 5000, 'smile mmumene', NULL, 0),
 (6, '5', 1510, 2, '2015-09-02', '2020-09-02', 'SSA3809260', 5000, 'smile mmumene', NULL, 0),
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `ad_income` (
 --
 
 INSERT INTO `ad_income` (`balance`) VALUES
-(11687.7);
+(16624.4);
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `charge` (
   `amount` float DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `date` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `charge`
@@ -111,7 +111,8 @@ CREATE TABLE IF NOT EXISTS `charge` (
 
 INSERT INTO `charge` (`id`, `emp_no`, `amount`, `type`, `date`) VALUES
 (1, 6, 800, 1, '0000-00-00'),
-(3, 5, 2000, 2, '2015-09-30');
+(3, 5, 2000, 2, '2015-09-30'),
+(4, 7, 110, 1, '2015-10-02');
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `surname` varchar(50) NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `employee_no` varchar(124) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
@@ -151,7 +152,8 @@ CREATE TABLE IF NOT EXISTS `customer` (
 INSERT INTO `customer` (`id`, `middle_name`, `dob`, `sex`, `img_url`, `faculty`, `dept`, `address`, `phone`, `state`, `lga`, `nok_name`, `n_phone`, `reg_date`, `uname`, `pwd`, `priviledge`, `email`, `title`, `surname`, `firstname`, `employee_no`) VALUES
 (1, 'jkkjkjk', '2015-08-27', 'male', '1.jpg', 1, 1, 'jkjkkj', 2147483647, '', '', 'jkjkj', 9090, '2015-08-26', 'admin', '12345', 0, 'jkjk@gmail.com', NULL, 'jkjk', 'jjsjkskds', ''),
 (5, 'Smile', '1992-10-22', 'male', '5.jpg', 1, 1, '66 new airport road', 2147483647, 'Cross River', 'abi', 'smle', 2147483647, '2015-08-31', 'smilecs', '12345', 2, 'mumene@gmail.com', NULL, 'Mmumene', 'Smile', 'em5670po'),
-(6, 'egbai', '1992-10-22', 'male', NULL, 1, 2, '66 new airport road', 2147483647, 'Cross River', 'abi', 'n/a', 2147483647, '2015-09-14', 'teller', '12345', 1, 'mumene@gmail.com', 'prof', 'egbai', 'egbai', 'polki908');
+(6, 'egbai', '1992-10-22', 'male', NULL, 1, 2, '66 new airport road', 2147483647, 'Cross River', 'abi', 'n/a', 2147483647, '2015-09-14', 'teller', '12345', 1, 'mumene@gmail.com', 'prof', 'egbai', 'egbai', 'polki908'),
+(7, 'Obhazi', '1991-07-06', 'male', NULL, 1, 1, '66 new airport road', 2147483647, 'Cross River', 'Abi', 'me', 2147483647, '2015-10-02', 'rabba', '12345', 2, 'ram@gmail.com', 'Mr', 'Rhazzep', 'Ekponta', 'emoli987');
 
 -- --------------------------------------------------------
 
@@ -187,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `deposit` (
   `teller_id` int(30) NOT NULL,
   `balance` float NOT NULL,
   `acct_type` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `deposit`
@@ -214,7 +216,9 @@ INSERT INTO `deposit` (`id`, `amount`, `date`, `acct_no`, `teller_id`, `balance`
 (18, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1),
 (19, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1),
 (20, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1),
-(21, 5000, '2015-09-28', 'TSA3929672', 1, 10000, 1);
+(21, 5000, '2015-09-28', 'TSA3929672', 1, 10000, 1),
+(22, 5000, '2015-10-01', 'TSA6046007', 1, 6510, 1),
+(23, 1000, '2015-10-01', 'TSA6046007', 1, 7510, 1);
 
 -- --------------------------------------------------------
 
@@ -246,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `income` (
   `balance` float NOT NULL,
   `date` date NOT NULL,
 `id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `income`
@@ -285,7 +289,12 @@ INSERT INTO `income` (`income_type`, `amount`, `balance`, `date`, `id`) VALUES
 (3, 318.3, 10605.4, '0000-00-00', 30),
 (1, 382, 10987.4, '0000-00-00', 31),
 (3, 318.3, 11305.7, '0000-00-00', 32),
-(1, 382, 11687.7, '0000-00-00', 33);
+(1, 382, 11687.7, '0000-00-00', 33),
+(3, 6510, 18197.7, '2015-10-01', 34),
+(3, 7510, 25707.7, '2015-10-01', 35),
+(4, 0, 15707.7, '0000-00-00', 36),
+(3, 833.33, 16541, '0000-00-00', 37),
+(1, 83.33, 16624.4, '0000-00-00', 38);
 
 -- --------------------------------------------------------
 
@@ -327,16 +336,18 @@ CREATE TABLE IF NOT EXISTS `loan` (
   `amort_loan` float NOT NULL,
   `duration` int(11) NOT NULL,
   `admin_charge` float DEFAULT NULL,
-  `p_no` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  `p_no` int(11) DEFAULT NULL,
+  `balance` float DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `loan`
 --
 
-INSERT INTO `loan` (`id`, `emp_no`, `date_incured`, `amount`, `paid`, `interest`, `status`, `total`, `amort`, `interest_amount`, `amort_interest`, `amort_loan`, `duration`, `admin_charge`, `p_no`) VALUES
-(11, '5', '2015-09-18', 6000, 746.8, 10, 0, 95800, 186.7, 1800, 43.1, 143.6, 36, NULL, NULL),
-(12, '6', '2015-09-16', 4000, 3700.9, 10, 0, 8800, 700.3, 4800, 382, 318.3, 12, 800, 1);
+INSERT INTO `loan` (`id`, `emp_no`, `date_incured`, `amount`, `paid`, `interest`, `status`, `total`, `amort`, `interest_amount`, `amort_interest`, `amort_loan`, `duration`, `admin_charge`, `p_no`, `balance`) VALUES
+(11, '5', '2015-09-18', 6000, 746.8, 10, 0, 95800, 186.7, 1800, 43.1, 143.6, 36, NULL, NULL, 95053.2),
+(12, '6', '2015-09-16', 4000, 3700.9, 10, 0, 8800, 700.3, 4800, 382, 318.3, 12, 800, 1, 5099.1),
+(13, '7', '2015-10-02', 10000, 916.66, 10, 0, 11000, 916.66, 1000, 83.33, 833.33, 12, 110, 1, 10083.3);
 
 -- --------------------------------------------------------
 
@@ -353,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `date` date NOT NULL,
   `amort_loan` float NOT NULL,
   `amort_interest` float NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payment`
@@ -371,7 +382,8 @@ INSERT INTO `payment` (`id`, `emp_id`, `amount_pay`, `balance`, `l_id`, `date`, 
 (9, 5, 186.7, 95053.2, 1, '2015-09-18', 143.6, 43.1),
 (10, 6, 1500.3, 7299.7, 1, '2015-09-30', 318.3, 382),
 (11, 6, 1500.3, 5799.4, 1, '2015-09-30', 318.3, 382),
-(12, 6, 700.3, 5099.1, 1, '2015-09-30', 318.3, 382);
+(12, 6, 700.3, 5099.1, 1, '2015-09-30', 318.3, 382),
+(13, 7, 916.66, 10083.3, 1, '2015-10-02', 833.33, 83.33);
 
 -- --------------------------------------------------------
 
@@ -410,7 +422,7 @@ CREATE TABLE IF NOT EXISTS `sub_income` (
 --
 
 INSERT INTO `sub_income` (`balance`) VALUES
-(10068.8);
+(10985.5);
 
 -- --------------------------------------------------------
 
@@ -430,7 +442,7 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `acct_no` varchar(124) NOT NULL,
   `interest_amount` float DEFAULT NULL,
   `description` varchar(124) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaction`
@@ -463,7 +475,9 @@ INSERT INTO `transaction` (`id`, `debit`, `credit`, `date`, `amount`, `emp_id`, 
 (24, 0, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL),
 (25, 0, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL),
 (26, 440, NULL, '2015-09-28', 400, 5, 760, NULL, 'TSA3929672', 40, NULL),
-(27, 2000, NULL, '2015-09-30', 2000, 0, 1510, NULL, '', NULL, 'passbook');
+(27, 2000, NULL, '2015-09-30', 2000, 0, 1510, NULL, '', NULL, 'passbook'),
+(28, NULL, 5000, '2015-10-01', 0, 0, 6510, NULL, 'TSA6046007', NULL, 'deposit'),
+(29, NULL, 1000, '2015-10-01', 0, 0, 7510, NULL, 'TSA6046007', NULL, 'deposit');
 
 -- --------------------------------------------------------
 
@@ -605,12 +619,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `charge`
 --
 ALTER TABLE `charge`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `department`
 --
@@ -620,7 +634,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `deposit`
 --
 ALTER TABLE `deposit`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `faculty`
 --
@@ -630,7 +644,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `income`
 --
 ALTER TABLE `income`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `income_type`
 --
@@ -640,12 +654,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `loan`
 --
 ALTER TABLE `loan`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `percent`
 --
@@ -655,7 +669,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `withdraw`
 --

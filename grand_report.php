@@ -53,6 +53,10 @@ include_once('../utility.php');
     </th>
     <td><?php echo expected()[1]; ?></td>
   </tr>
+  <tr>
+  <th>Charge Recieved on Loan</th>
+  <td><?php echo charge_total()[0]; ?></td>
+  </tr>
 
   <tr>
     <th>
@@ -60,7 +64,10 @@ include_once('../utility.php');
     </th>
     <td><?php echo thrift_special(1)[3] + thrift_special(2)[3] + loan_report()[2]; ?></td>
   </tr>
-
+  <tr>
+  <th>Total Paid on PassBook</th>
+  <td><?php echo charge_total()[1]; ?></td>
+  </tr>
   <tr>
     <th>
 Available Funds

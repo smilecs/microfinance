@@ -5,7 +5,41 @@ function date_splitter(){
   $tmp_date = $tmp_date[0] . "-" . $tmp_date[1];
   return $tmp_date;
 }
+function charge_total(){
+  $amount = 0;
+  $arr = [0,0,0];
+  $tmp_date = date_splitter();
+  $result = query("SELECT * FROM charge WHERE type = '1' AND date LIKE '$tmp_date-%'");
+  while($row= mysql_fetch_array($result)){
+    $date1 = $row['date'];
+    $date = strtotime($date1);
+          $amount += $row['amount'];
+      }
+  $arr[0] = $amount;
 
+  $amount = 0;
+  $result = query("SELECT * FROM charge WHERE type = '2' AND date LIKE '$tmp_date-%'");
+  while($row= mysql_fetch_array($result)){
+    $date1 = $row['date'];
+    $date = strtotime($date1);
+          $amount += $row['amount'];
+      }
+  $arr[1] = $amount;
+  $amount = 0;
+
+  $result = query("SELECT * FROM income WHERE income_type = '2' AND date LIKE '$tmp_date-%'");
+  while($row= mysql_fetch_array($result)){
+    $date1 = $row['date'];
+    $date = strtotime($date1);
+      $amount += $row['amount'];
+    if(($date >= $start) && ($date <= $end)){
+    }
+  }
+  $arr[2] = $amount;
+
+
+return $arr;
+}
 function total_withdrawn(){
   $tmp_date = date_splitter();
   $result = query("SELECT * FROM withdraw WHERE date LIKE '$tmp_date-%'");
@@ -52,7 +86,7 @@ function no_dept(){
 
 function no_accounts(){
 $tmp_date = date_splitter();
-$result = query("SELECT * FROM account");
+$result = query("SELECT * FROM account WHERE d_opened LIKE '$tmp_date-%'");
 $thrift_total = 0;
 $special_total = 0;
 $count = 0;
