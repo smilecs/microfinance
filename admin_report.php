@@ -1,3 +1,5 @@
+<div class="box box-primary">
+<div class="box-body">
 <table class="table" id="tableentry">
 <thead>
   <tr>
@@ -41,3 +43,5 @@ $desc = $row['desc'];
 </tr>
 </tbody>
 </table>
+</div>
+</div>

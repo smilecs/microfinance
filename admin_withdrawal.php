@@ -14,6 +14,7 @@ include_once('../utility.php');
   <div class="form-group">
   <label for="acct">Description(Purpose)</label>
   <textarea name="desc" class="form-control" id="desc" placeholder="DESC" height="50px" width="50px">
+  </textarea>
 
   </div>
   <div class="form-group">

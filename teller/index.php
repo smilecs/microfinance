@@ -29,7 +29,10 @@ if(isset($_GET['idd1'])){
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
-      <!-- Theme style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="../arrange.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -76,7 +79,7 @@ if(isset($_GET['idd1'])){
           <h2 style='margin:0px;'>
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <img src="../dist/img/unical.png" height="50px">
-          <span>Unical</span>
+          <span style='font-size:12px;'>Unical MPCS</span>
           </h2>
         </a>
 
@@ -151,12 +154,14 @@ if(isset($_GET['idd1'])){
 
                 </li>
                 <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../acct_form"><i class="glyphicon glyphicon-open"></i> <span>Create Account</span></a></li>
-                <li>
+                <!--<li>
                   <a href="index.php?page=../account_report">View Accounts</a>
-                </li>
+                </li>-->
+                <li class="<?php echo classUpdate("../acct_form"); ?>"><a href="index.php?page=../purchase_slip"><i class="glyphicon glyphicon-open"></i> <span>Purchase Passbook</span></a></li>
+                <li><a href="index.php?page=../account_amt">View Account</a></li>
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
-              </ul>
+                                </ul>
             </li>
 
             <li class="treeview">
@@ -183,13 +188,14 @@ if(isset($_GET['idd1'])){
               <ul class="treeview-menu">
                 <!--<li><a href="index.php?page=../member">Member</a></li>-->
                 <li><a href="index.php?page=../interest_report">Interest</a></li>
-                <li><a href="index.php?page=../account_amt">Account</a></li>
+                <li><a href="index.php?page=../loan_allocated">Loan Allocated</a></li>
                 <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
                 <li><a href="index.php?page=../special_mnt">Special</a></li>
                 <li><a href="index.php?page=../loan_mnt">Loan</a></li>
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
                 <li><a href="index.php?page=../report">Detailed</a></li>
                 <li><a href="index.php?page=../grand_report">Grand Summary</a></li>
+                  <li><a href="index.php?page=../admin_report">Admin Report</a></li>
 
 
 
@@ -198,7 +204,8 @@ if(isset($_GET['idd1'])){
 
 
             <li><a href="index.php?page=profile"><i class="glyphicon glyphicon-folder-open"></i> <span>Profile</span></a></li>
-                      <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
+
+            <li><a href="../logout.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Log Out</span></a></li>
 
                       </ul><!-- /.sidebar-menu -->
         </section>
@@ -238,10 +245,10 @@ if(isset($_GET['idd1'])){
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Anything you want
+
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2015 <a href="#">Company</a>.</strong> Unical
+        <strong>Copyright &copy; 2015 <a href="#">UNICAL MPCS</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->
@@ -321,13 +328,12 @@ if(isset($_GET['idd1'])){
     <script src="../duration_elem.js"></script>
     <script src="../withdraw.js"></script>
   <script src="../dep.js"></script>
-<script src="../loan.js"></script>
-<script src="../department_choice.js"></script>
-<script src="../transaction.js"></script>
-<script src="../filter.js"></script>
-<script src="../loan_calc.js"></script>
-<script src="../report_filter/thrift_special.js"></script>
-
+  <script src="../loan.js"></script>
+  <script src="../department_choice.js"></script>
+  <script src="../transaction.js"></script>
+  <script src="../filter.js"></script>
+  <script src="../loan_calc.js"></script>
+  <script src="../report_filter/thrift_special.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
