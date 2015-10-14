@@ -18,6 +18,7 @@ $tmp = $row['value'];
 if($digit[2] != 0){
 $duration += $digit[1];
 $sm_amt = simple_interest($p1, $tmp, $duration);
+$sm_amt = round($sm_amt);
 $p = $sm_amt + $p1 + $digit[0];
 $p = floor($p);
 }else{
