@@ -45,7 +45,7 @@
   </tr>
   <tr>
     <th>
-      Total Interest on Withdrawal
+      Total Interest
     </th>
     <td><?php echo revenue_type(2)+revenue_type(1); ?></td>
   </tr>

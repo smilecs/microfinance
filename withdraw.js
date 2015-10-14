@@ -14,6 +14,21 @@ $('#pay').click(function(){
 
 });
 
+
+$('#pa').click(function(){
+  var amt = $('#amount').val();
+  var desc = $('#desc').val();
+  $.post('../admin_withdraw.php', {
+    amt:amt,
+    desc:desc
+  }, function(data){
+    $('#new').html(data);
+
+  });
+
+});
+
+
 $('#amount').keyup(function(){
 var amount = $('#amount').val();
 var acct_no = $('#acct').val();

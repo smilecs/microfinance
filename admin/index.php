@@ -158,6 +158,7 @@ if(isset($_GET['idd1'])){
                 <li><a href="index.php?page=../account_amt">View Account</a></li>
                 <li><a href="index.php?page=../deposit_form">Deposit</a></li>
                 <li><a href="index.php?page=../withdraw_form">Withdraw</a></li>
+                <li><a href="index.php?page=../admin_withdrawal">Funds</a></li>
               </ul>
             </li>
 
@@ -192,6 +193,8 @@ if(isset($_GET['idd1'])){
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
                 <li><a href="index.php?page=../report">Detailed</a></li>
                 <li><a href="index.php?page=../grand_report">Grand Summary</a></li>
+                <li><a href="index.php?page=../admin_report">Admin Report</a></li>
+
 
 
 
@@ -249,7 +252,7 @@ if(isset($_GET['idd1'])){
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          
+
         </div>
         <!-- Default to the left -->
         <strong>Copyright &copy; 2015 <a href="#">UNICAL MPCS</a>.</strong> All rights reserved.

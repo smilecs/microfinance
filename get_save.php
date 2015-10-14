@@ -1,5 +1,5 @@
 <?php
-include('conf/db_connect.php');
+include_once('conf/db_connect.php');
 connect();
 $acct = $_POST['acct'];
 $result = query("SELECT * FROM account WHERE acct_no='$acct'");

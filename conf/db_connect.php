@@ -194,6 +194,16 @@ function revenue_type($type){
 function revenue(){
   $arr = [0,0];
   $amount = 0;
+  $am = 0;
+
+  $result = query("SELECT * FROM charge");
+  while($row= mysql_fetch_array($result)){
+          $am += $row['amount'];
+      }
+
+
+
+
   $result = query("SELECT * FROM income");
   while($row = mysql_fetch_array($result)){
     $income_type = $row['income_type'];
@@ -203,7 +213,7 @@ function revenue(){
   }
   $result = query("SELECT * FROM ad_income");
   $row = mysql_fetch_array($result);
-  $bal = $row['balance'];
+  $bal = $row['balance'] + $am;
   $arr = [$bal, $amount];
   return $arr;
 }
