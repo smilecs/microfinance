@@ -35,5 +35,5 @@ $emp_id = $row['emp_id'];
  query("UPDATE ad_income SET balance='$int1'");
 
 echo "<strong id=result><i></i>New Balance</strong>
-<p class=text-muted>$new_amt $tmp $new_tmp_amt</p>";
+<p class=text-muted>$new_tmp_amt</p>";
 ?>

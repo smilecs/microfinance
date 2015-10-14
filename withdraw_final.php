@@ -25,7 +25,10 @@ if($new_amt > $bal){
   <p class=text-danger><b>$new_amt</b></p>";
 
 }else{
-echo "<strong><i></i>Interest on Withdrawal</strong>
+echo "
+<strong><i></i>Total Available funds</strong>
+<p class=text-muted>$val</p>
+<strong><i></i>Interest on Withdrawal</strong>
 <p class=text-muted>$int</p>
 <strong><i></i>Total Withdrawal Amount</strong>
 <p class=text-success><b>$new_amt</b></p>
