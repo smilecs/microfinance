@@ -20,12 +20,7 @@ switch ($type) {
   </div>
    <div class="box-body">
 <?php
-$rss = query("SELECT * FROM faculty");
-while($row = mysql_fetch_array($rss)){
-  $faculty = $row['id'];
-  $name1 =$row['name'];
-
-     $rs = query("SELECT * FROM department WHERE faculty='$faculty'");
+     $rs = query("SELECT * FROM department");
      while($row = mysql_fetch_array($rs)){
        $idd = $row['id'];
        $name = $row['dep_name'];
@@ -39,18 +34,17 @@ while($row = mysql_fetch_array($rss)){
 <thead>
 
   <tr>
-    <th>
-      Faculty of   <?php echo $name1; ?>
-    </th>
 
     <th><h3>Department of    <?php echo $name?></h3></th>
   </tr>
   <tr>
     <th>s/n</th>
     <th>UserId</th>
+    <th>Acct No</th>
         <th>Employee No</th>
     <th>FullName</th>
     <th>Monthly Amt</th>
+    <th>Shares</th>
     <th>Amount Todate</th>
     <th>Balance</th>
   </tr>
@@ -69,9 +63,19 @@ $fullname = $row['firstname'] . " " . $row['surname'];
 $amount = $row['save_amt'];
 $emp = $row['employee_no'];
 $total += $amount;
+$acct_no = $row['acct_no'];
 $amt_todate = $row['amt_todate'];
 $amt_total += $amt_todate;
 $balance = $row['balance'];
+$no = $row['number'];
+if($no == 5){
+  $shares = "N/A";
+}else{
+$shares = $row['shares'];
+$no +=1;
+
+query("UPDATE account set number='$no' WHERE emp_id='$id'");
+}
 $bal_total += $balance;
 ?>
 <tr>
@@ -79,9 +83,12 @@ $bal_total += $balance;
 <?php echo ++$i; ?>
 </td>
   <td><?php echo $id;?></td>
+<td><?php echo $acct_no;?></td>
   <td><?php echo $emp;?></td>
+
   <td><?php echo $fullname;?></td>
   <td><?php echo $amount;?></td>
+  <td><?php echo $shares;?></td>
   <td><?php echo $amt_todate;?></td>
   <td><?php echo $balance;?></td>
 </tr>
@@ -112,8 +119,7 @@ $bal_total += $balance;
 </table>
 <?php
 }}
-}
- ?>
+?>
 </div>
 </div>
 <a href="../print_account.php?type=<?php echo $type;?>" class="btn btn-primary">Print</a>

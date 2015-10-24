@@ -7,17 +7,22 @@ $teller_id = $_SESSION['id'];
 $acct_no = $_POST['acct_no'];
 acct_check($acct_no);
 $amt = $_POST['amt'];
+$bank_teller = "default";
+if(isset($_POST['bank_teller'])){
+  $bank_teller = $_POST['bank_teller'];
+}
+
 $date = date('y-m-d');
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($result);
 $balance = $row['balance'] + $amt;
 $type = $row['acct_type'];
-query("INSERT INTO deposit (acct_type, teller_id, acct_no, amount, date, balance) VALUES('$type', '$teller_id', '$acct_no', '$amt', '$date', '$balance')");
+query("INSERT INTO deposit (bank_teller, acct_type, teller_id, acct_no, amount, date, balance) VALUES('$bank_teller', '$type', '$teller_id', '$acct_no', '$amt', '$date', '$balance')");
 /*$rs = query("SELECT * FROM transaction WHERE date='$date' AND acct_no='$acct_no'");
 if(mysql_num_rows($result) > 0) {
   query("UPDATE transaction SET credit='$amt', balance='$balance'");
 }else{*/
-query("INSERT INTO transaction (description, acct_no, credit, date, balance) VALUES('deposit', '$acct_no', '$amt', '$date', '$balance')");
+query("INSERT INTO transaction (bank_teller, description, acct_no, credit, date, balance) VALUES('$bank_teller', 'deposit', '$acct_no', '$amt', '$date', '$balance')");
 //}$t_id = mysql_insert_id();
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($result);

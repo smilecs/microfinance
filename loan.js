@@ -11,6 +11,16 @@ $(document).ready(function(){
     });
   });
 
+$('#emp_id').keyup(function(){
+  var id = $('#emp_id').val();
+  $.post('../get_maximum.php', {
+    id: id
+  }, function(data){
+    //console.log(data);
+    //alert(data);
+    $('#loan').html(data);
+  });
+});
 
   $('#loan').keyup(function(){
     var loan_id = $('#loan').val();

@@ -7,6 +7,7 @@ $teller = $_SESSION['id'];
 $priv = $_SESSION['priv'];
 $acct_no = $_POST['acct'];
 $new_amt = $_POST['bal'];
+$voucher =$_POST['voucher'];
 $amount = $_POST['amount'];
 $rs = query("SELECT * FROM percent WHERE id='1'");
 $row = mysql_fetch_array($rs);
@@ -19,6 +20,7 @@ $emp_id = $row['emp_id'];
  $date = date('Y-m-d');
  $new_tmp_amt = $tmp - $new_amt;
  query("INSERT INTO withdraw (interest_amount, emp_id, balance, acct_no, amount, total_deduction, date, teller_id) VALUES('$new_amt1', '$emp_id', '$new_tmp_amt', '$acct_no', '$amount', '$new_amt', '$date', '$teller')");
+ query("INSERT INTO voucher (emp_id, amount, date, voucher_id, description) VALUES('$emp_id', '$amount', '$date', '$voucher', 'internal')");
  query("UPDATE account SET balance='$new_tmp_amt' WHERE acct_no='$acct_no'");
  $rs = query("SELECT * FROM transaction WHERE date='$date' AND acct_no='$acct_no'");
  /*if(mysql_num_rows($rs) > 0){

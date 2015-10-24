@@ -6,6 +6,9 @@ include('conf/db_connect.php');
 include('conf/misc.php');
 connect();
 $new_ans = '';
+$sure1 = $_POST['sure1'];
+$sure2 = $_POST['sure2'];
+//$result = query("SELECT * FROM customer WHERE")
 $p1 = $_POST['amt'];
 $duration = $_POST['duration'];
 $sm_amt = '';
@@ -54,7 +57,7 @@ $charge = (1/100) * $p;
 if($digit[2] != 0){
   query("UPDATE loan SET admin_charge='$charge', p_no='0', duration='$duration', amort_loan='$loan_amount1', amort_interest='$loan_amount2', interest_amount='$sm_amt', date_incured='$date', amount='$p1', amort='$loan_amount', interest='$tmp', total='$p' WHERE emp_no='$emp_id'");
 }else{
-query("INSERT INTO loan(admin_charge, p_no, duration, amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$charge', '0', '$duration', '$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
+query("INSERT INTO loan(sure1, sure2, admin_charge, p_no, duration, amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$sure1', '$sure2', '$charge', '0', '$duration', '$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
 }
 
 $rs = query("SELECT * FROM ad_income");

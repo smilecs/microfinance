@@ -1,10 +1,12 @@
 $(document).ready(function(){
   $('#sub').click(function(){
     var acct = $('#acct').val();
+    var bank_teller = $('#bank_teller');
     var amt = $('#amt').val();
     $.post('../deposit.php', {
       acct_no: acct,
-      amt: amt
+      amt: amt,
+      bank_teller: bank_teller
     }, function(data){
         $('#result').html(data);
         alert("Account Deposit Successful");
