@@ -168,8 +168,11 @@ if(isset($_GET['idd1'])){
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Loan Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
+                <li><a href="index.php?page=../view_loan">View Loan</a></li>
                 <li><a href="index.php?page=../loan_form">Loan</a></li>
+                <li><a href="index.php?page=../icas">Icas</a></li>
                 <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
+                <li><a href="index.php?page=../pay_icas_form">Pay Icas</a></li>
               </ul>
             </li>
 

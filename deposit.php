@@ -2,6 +2,7 @@
 include('conf/db_connect.php');
 connect();
 session_start();
+$shares = $_POST['shares'];
 $priv = $_SESSION['priv'];
 $teller_id = $_SESSION['id'];
 $acct_no = $_POST['acct_no'];
@@ -16,7 +17,16 @@ $date = date('y-m-d');
 $result = query("SELECT * FROM account WHERE acct_no='$acct_no'");
 $row = mysql_fetch_array($result);
 $balance = $row['balance'] + $amt;
+$share = $row['shares'];
+$no = $row['number'];
 $type = $row['acct_type'];
+if($shares == "shares"){
+  $share += $share;
+  $no += 1;
+
+query("UPDATE account SET shares='$share', number='$no' WHERE acct_no='$acct_no'");
+
+}
 query("INSERT INTO deposit (bank_teller, acct_type, teller_id, acct_no, amount, date, balance) VALUES('$bank_teller', '$type', '$teller_id', '$acct_no', '$amt', '$date', '$balance')");
 /*$rs = query("SELECT * FROM transaction WHERE date='$date' AND acct_no='$acct_no'");
 if(mysql_num_rows($result) > 0) {

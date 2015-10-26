@@ -66,9 +66,10 @@ $total += $amount;
 $acct_no = $row['acct_no'];
 $amt_todate = $row['amt_todate'];
 $amt_total += $amt_todate;
+$acct_type = $row['acct_type'];
 $balance = $row['balance'];
 $no = $row['number'];
-if($no == 5){
+if(($no == 5) || ($acct_type = 2)){
   $shares = "N/A";
 }else{
 $shares = $row['shares'];

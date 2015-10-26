@@ -1,10 +1,13 @@
 $(document).ready(function(){
+  var shares = 0;
   $('#sub').click(function(){
     var acct = $('#acct').val();
-    var bank_teller = $('#bank_teller');
+    shares = $('#shares').val();
+    var bank_teller = $('#bank_teller').val();
     var amt = $('#amt').val();
     $.post('../deposit.php', {
       acct_no: acct,
+      shares: shares,
       amt: amt,
       bank_teller: bank_teller
     }, function(data){

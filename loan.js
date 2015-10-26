@@ -37,4 +37,34 @@ $('#emp_id').keyup(function(){
 
     });
   });
+
+  $('#loans').keyup(function(){
+    var loan_id = $('#loans').val();
+    $.post('../pay_icas.php', {
+      id: loan_id
+    }, function(data){
+      $('#new_table').html(data);
+    });
+
+    $.post('../icas_js.php', {
+      loan: loan_id
+    }, function(data){
+      $("#con").html(data);
+
+    });
+  });
+
+  $('#loas').click(function(){
+  var amort = $('#amount').val();
+    var loan_id = $('#loan').val();
+    $.post('../icas_payment.php', {
+      loan_id:loan_id,
+      amount:amort
+    }, function(data){
+      $('#result').html(data);
+    });
+  });
+
+
+
 });
