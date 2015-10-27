@@ -12,8 +12,11 @@ echo $ImageName;
 if(move_uploaded_file($_FILES['voucher']['tmp_name'],
         $ImageName)){
 $new = $acct_no . time() .".jpg";
+
 query("INSERT INTO voucher(date, acct_no, voucher_id) VALUES('$date', '$acct_no', '$new')")
+if($acct_no != 'admin'){
 query("UPDATE transaction SET voucher_id='$new' WHERE acct_no='$acct_no' AND date='$date'");
+}
 $newfilename = $ImageDir . $new;
 echo $newfilename;
 $animage = imagecreatefromjpeg ($ImageName);

@@ -30,6 +30,11 @@ $('#pa').click(function(){
     desc:desc
   }, function(data){
     $('#new').html(data);
+    $.post('payment_voucher.php', {
+      acct_no:"admin"
+    }, function(data){
+      $('#content').html(data);
+    });
 
   });
 
