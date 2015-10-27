@@ -1,5 +1,7 @@
 <?php
 include_once('conf/db_connect.php');
+include('conf/misc.php');
+$priv = $_SESSION['priv'];
 connect();
 $acct_no = $_GET['acct_no'];
 $date = date('Y-m-d');

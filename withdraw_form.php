@@ -15,12 +15,7 @@
 
   </div>
   </div>
-  <div class="form-group">
-    <label for="voucher">Voucher ID</label>
-    <input type="number" id="voucher" name="voucher_no" class="form-control" placeholder="Voucher Number"/>
-
-  </div>
-  <div class="form-group">
+    <div class="form-group">
   <label for="amount">Withdrawal Amount</label>
   <input type="text" name="amount" class="form-control" id="amount" placeholder="1000">
   </div>
