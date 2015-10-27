@@ -7,6 +7,6 @@ $result = query("SELECT * FROM icas WHERE emp_no = '$loan_id'");
   $amort = $row['total'] + $row['charge'];
   $amount = $row['total'];
 
-  echo "<label for=amount>Amount</label><input type=Number name=amount class=form-control id=amount value=$amount HIDDEN/><input type=Number name=amount class=form-control id=amounts value=$amorts readonly/><br>";
+  echo "<label for=amount>Amount</label><input type=Number name=amount class=form-control id=amount value=$amount hidden=true /><input type=Number name=amount class=form-control id=amounts value=$amort readonly/><br>";
 
  ?>

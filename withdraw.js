@@ -11,6 +11,12 @@ $('#pay').click(function(){
     amount:amount
   }, function(data){
     $('#new_bal').html(data);
+    $.post('payment_voucher.php', {
+      acct_no:acct_no
+    }, function(data){
+      $('#content').html(data);
+    });
+
 
   });
 

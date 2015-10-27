@@ -183,6 +183,7 @@ if(isset($_GET['idd1'])){
                 <li><a href="index.php?page=../thrift_schedule&type=special">Special</a></li>
                 <li><a href="index.php?page=../schedule">Loan</a>
 </li>
+<li><a href="index.php?page=../icas_schedule">Icas</a></li>
 
               </ul>
             </li>
@@ -196,6 +197,7 @@ if(isset($_GET['idd1'])){
                 <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
                 <li><a href="index.php?page=../special_mnt">Special</a></li>
                 <li><a href="index.php?page=../loan_mnt">Loan</a></li>
+                <li><a href="index.php?page=../icas_report">Icas</a></li>
                 <li><a href="index.php?page=../transaction">Transaction</a></li>
                 <li><a href="index.php?page=../report">Detailed</a></li>
                 <li><a href="index.php?page=../grand_report">Grand Summary</a></li>
