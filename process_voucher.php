@@ -1,9 +1,10 @@
 <?php
+session_start();
 include_once('conf/db_connect.php');
 include('conf/misc.php');
 $priv = $_SESSION['priv'];
 connect();
-$acct_no = $_GET['acct_no'];
+$acct_no = $_GET['id'];
 $date = date('Y-m-d');
 $image_tempname = $_FILES['voucher']['name'];
 $ImageDir ="dist/img/";
@@ -13,9 +14,11 @@ if(move_uploaded_file($_FILES['voucher']['tmp_name'],
         $ImageName)){
 $new = $acct_no . time() .".jpg";
 
-query("INSERT INTO voucher(date, acct_no, voucher_id) VALUES('$date', '$acct_no', '$new')")
-if($acct_no != 'admin'){
+query("INSERT INTO voucher(date, acct_no, voucher_id) VALUES('$date', '$acct_no', '$new')");
+if($acct_no != "admin"){
 query("UPDATE transaction SET voucher_id='$new' WHERE acct_no='$acct_no' AND date='$date'");
+query("UPDATE withdraw SET voucher_id='$new' WHERE acct_no='$acct_no' AND date='$date'");
+
 }
 $newfilename = $ImageDir . $new;
 echo $newfilename;
@@ -29,6 +32,6 @@ imagecopyresized($nm, $animage, 0, 0, 0, 0, $ox, $oy, $ox, $oy );
 imagejpeg($nm, $newfilename);
 imagedestroy($animage);
 imagedestroy($nm);
-folder($priv);
-
- ?>
+folders($priv, " ");
+}
+?>

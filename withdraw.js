@@ -10,7 +10,7 @@ $('#pay').click(function(){
     amount:amount
   }, function(data){
     $('#new_bal').html(data);
-    $.post('payment_voucher.php', {
+    $.post('../payment_voucher.php', {
       acct_no:acct_no
     }, function(data){
       $('#content').html(data);
@@ -30,7 +30,7 @@ $('#pa').click(function(){
     desc:desc
   }, function(data){
     $('#new').html(data);
-    $.post('payment_voucher.php', {
+    $.post('../payment_voucher.php', {
       acct_no:"admin"
     }, function(data){
       $('#content').html(data);

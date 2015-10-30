@@ -16,20 +16,23 @@ $top = "
     <th>AMOUNT</th>
     <th>TOTAL DEDUCTION</th>
     <th>BALANCE</th>
+    <th>VOUCHER</th>
     <th>DATE</th>
   </tr>
 </thead>
 <tbody>";
 $body = ' ';
 $type = '';
-$result = query("SELECT * FROM withdraw");
+$result = query("SELECT * FROM withdraw ORDER BY id DESC");
  $i = 0;
  while($row = mysql_fetch_array($result)){
    ++$i;
    $t_id = $row['teller_id'];
    $name = get_teller_name($t_id);
    $date1 = $row['date'];
-
+$voucher = $row['voucher_id'];
+$vs = split(".jpg", $voucher);
+$vs = $vs[0];
    $date = strtotime($date1);
    $acct_no = $row['acct_no'];
    $bal = $row['balance'];
@@ -43,6 +46,7 @@ $body .= "<tr>
 <td>$amount</td>
 <td>$total_d</td>
 <td>$bal</td>
+<td><a href=index.php?page=../dep_witd&id=$acct_no>$acct_no</a></td>
 <td>$date1</td>
 </tr>";
    }

@@ -7,7 +7,7 @@ $teller = $_SESSION['id'];
 $priv = $_SESSION['priv'];
 $acct_no = $_POST['acct'];
 $new_amt = $_POST['bal'];
-$voucher =$_POST['voucher'];
+//$voucher =$_POST['voucher'];
 $amount = $_POST['amount'];
 $rs = query("SELECT * FROM percent WHERE id='1'");
 $row = mysql_fetch_array($rs);
