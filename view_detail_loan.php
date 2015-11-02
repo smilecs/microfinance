@@ -46,10 +46,7 @@ $phone2 = $row['phone'];
     <th>Duration</th>
     <td><?php echo $duration; ?></td>
     </tr>
-    <tr>
-    <th>Loan Collected</th>
-    <td><?php echo $amount; ?></td>
-    </tr>
+    
     <tr>
     <th>Suretie Name(1st)</th>
     <td><?php echo $s_name1; ?></td>

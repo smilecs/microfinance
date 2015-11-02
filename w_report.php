@@ -41,12 +41,12 @@ $vs = $vs[0];
    if(($date >= $start) && ($date <= $end)){
 $body .= "<tr>
 <td>$i</td>
-<td><a href="index.php?page=../dep_witd&id=<?php echo $acct_no; ?>"><?php echo $acct_no; ?></a></td>
+<td><a href=index.php?page=../dep_witd&id=$acct_no >$acct_no</a></td>
 <td>$name</td>
 <td>$amount</td>
 <td>$total_d</td>
 <td>$bal</td>
-<td><a href=index.php?page=../dep_witd&id=$acct_no>$acct_no</a></td>
+<td><a href=index.php?page=../voucher&id=$voucher >$vs</a></td>
 <td>$date1</td>
 </tr>";
    }

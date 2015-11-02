@@ -11,6 +11,7 @@ $top = "<div class=box>
     <th>PAID</th>
     <th>AMT_MNT</th>
     <th>INTEREST</th>
+    <th>VOUCHER</th>
     <th>DATE</th>
   </tr>
 </thead>
@@ -29,6 +30,9 @@ $result = query("SELECT * FROM loan ORDER BY date_incured");
    $name = get_teller_name($id);
    $date1 = $row['date_incured'];
    $paid = $row['paid'];
+   $voucher = $row['voucher_id'];
+   $vs = split(".jpg", $voucher);
+   $vs = $vs[0];
    $interest = $row['interest_amount'];
   $amt =$row['amort'];
 $body .= "<tr>
@@ -38,6 +42,7 @@ $body .= "<tr>
 <td>$paid</td>
 <td>$amt</td>
 <td>$interest</td>
+<td>$vs</td>
 <td>$date1</td>
 </tr>";
 

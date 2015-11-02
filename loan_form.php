@@ -40,14 +40,19 @@
 
 
 <div class="form-group">
+  <button class="btn btn-primary cs" id="calcs">Calculate</button>
+
   <input type="submit"  class="btn btn-primary" value="submit"/>
 </div>
 </div>
 </form>
-  <button class="btn btn-primary cs" id="calcs">Calculate</button>
 
 </div>
 </div>
+
+
+
+
 <div class="col-md-3">
   <div class="box box-primary">
     <div class="box-body" id="new_content">
