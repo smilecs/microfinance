@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 14, 2015 at 11:24 AM
+-- Generation Time: Nov 03, 2015 at 09:51 AM
 -- Server version: 5.6.25-0ubuntu0.15.04.1
 -- PHP Version: 5.6.4-4ubuntu6.2
 
@@ -37,22 +37,24 @@ CREATE TABLE IF NOT EXISTS `account` (
   `save_amt` float NOT NULL,
   `acct_name` varchar(124) NOT NULL,
   `amt_todate` float DEFAULT NULL,
-  `department` int(11) NOT NULL
+  `department` int(11) NOT NULL,
+  `shares` float NOT NULL,
+  `number` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`id`, `emp_id`, `balance`, `acct_type`, `d_opened`, `duration`, `acct_no`, `save_amt`, `acct_name`, `amt_todate`, `department`) VALUES
-(1, '5', 15310, 1, '2015-09-02', '2115-09-02', 'TSA6046007', 5000, 'smile mmumene', 31800, 1),
-(4, '5', 11510, 2, '2015-09-02', '1970-01-01', 'SSA0276544', 5000, 'smile mmumene', 10000, 0),
-(5, '5', 1510, 2, '2015-09-02', '2020-09-02', 'SSA4645268', 5000, 'smile mmumene', NULL, 0),
-(6, '5', 1510, 2, '2015-09-02', '2020-09-02', 'SSA3809260', 5000, 'smile mmumene', NULL, 0),
-(7, '5', 1510, 1, '2015-09-02', '2115-09-02', 'TSA3929672', 5000, 'smile mmumene', 10000, 0),
-(8, '5', 1510, 1, '2015-09-02', '2115-09-02', 'TSA8061204', 5000, 'smile mmumene', NULL, 0),
-(9, '5', 10510, 1, '2015-09-02', '2115-09-02', 'TSA8992366', 9000, 'jjjks jsjksjk', 9000, 0),
-(10, '5', 1510, 1, '2015-09-02', '2115-09-02', 'TSA7428188', 9000, 'jjjks jsjksjk', NULL, 0);
+INSERT INTO `account` (`id`, `emp_id`, `balance`, `acct_type`, `d_opened`, `duration`, `acct_no`, `save_amt`, `acct_name`, `amt_todate`, `department`, `shares`, `number`) VALUES
+(1, '5', 3210, 1, '2015-09-02', '2115-09-02', 'TSA6046007', 5000, 'smile mmumene', 31800, 1, 0, 5),
+(4, '5', 11510, 2, '2015-09-02', '1970-01-01', 'SSA0276544', 5000, 'smile mmumene', 10000, 0, 0, 5),
+(5, '5', 1510, 2, '2015-09-02', '2020-09-02', 'SSA4645268', 5000, 'smile mmumene', NULL, 0, 0, 5),
+(6, '5', 1510, 2, '2015-09-02', '2020-09-02', 'SSA3809260', 5000, 'smile mmumene', NULL, 0, 0, 5),
+(7, '5', 1400, 1, '2015-09-02', '2115-09-02', 'TSA3929672', 5000, 'smile mmumene', 10000, 0, 0, 5),
+(8, '5', 1510, 1, '2015-09-02', '2115-09-02', 'TSA8061204', 5000, 'smile mmumene', NULL, 0, 0, 5),
+(9, '5', 10510, 1, '2015-09-02', '2115-09-02', 'TSA8992366', 9000, 'jjjks jsjksjk', 9000, 0, 0, 5),
+(10, '5', 1510, 1, '2015-09-02', '2115-09-02', 'TSA7428188', 9000, 'jjjks jsjksjk', NULL, 0, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -77,6 +79,19 @@ INSERT INTO `acct_type` (`id`, `name`, `fixed_duration`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+`id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `desc` text NOT NULL,
+  `amount` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ad_income`
 --
 
@@ -89,20 +104,7 @@ CREATE TABLE IF NOT EXISTS `ad_income` (
 --
 
 INSERT INTO `ad_income` (`balance`) VALUES
-(68974.4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE IF NOT EXISTS `admin` (
-`id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `desc` text NOT NULL,
-  `amount` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(49584.4);
 
 -- --------------------------------------------------------
 
@@ -201,42 +203,43 @@ CREATE TABLE IF NOT EXISTS `deposit` (
   `acct_no` varchar(124) NOT NULL,
   `teller_id` int(30) NOT NULL,
   `balance` float NOT NULL,
-  `acct_type` int(11) NOT NULL
+  `acct_type` int(11) NOT NULL,
+  `bank_teller` varchar(124) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `deposit`
 --
 
-INSERT INTO `deposit` (`id`, `amount`, `date`, `acct_no`, `teller_id`, `balance`, `acct_type`) VALUES
-(1, 800, '2015-09-04', 'TSA6046007', 1, 0, 2),
-(2, 5000, '2015-09-16', 'TSA6046007', 1, 0, 2),
-(3, 5000, '2015-09-18', 'TSA6046007', 1, 0, 1),
-(4, 5000, '2015-09-18', 'TSA6046007', 1, 0, 1),
-(5, 800, '2015-09-04', 'TSA6046007', 0, 0, 2),
-(6, 5000, '2015-09-16', 'TSA6046007', 0, 0, 2),
-(7, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1),
-(8, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1),
-(9, 800, '2015-09-04', 'TSA6046007', 0, 0, 2),
-(10, 5000, '2015-09-16', 'TSA6046007', 0, 0, 2),
-(11, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1),
-(12, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1),
-(13, 800, '2015-09-04', 'TSA6046007', 0, 0, 2),
-(14, 5000, '2015-09-16', 'TSA6046007', 0, 0, 2),
-(15, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1),
-(16, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1),
-(17, 5000, '2015-09-28', 'TSA6046007', 1, 5000, 1),
-(18, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1),
-(19, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1),
-(20, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1),
-(21, 5000, '2015-09-28', 'TSA3929672', 1, 10000, 1),
-(22, 5000, '2015-10-01', 'TSA6046007', 1, 6510, 1),
-(23, 1000, '2015-10-01', 'TSA6046007', 1, 7510, 1),
-(24, 5000, '2015-10-14', 'SSA0276544', 1, 6510, 2),
-(25, 5000, '2015-10-14', 'SSA0276544', 1, 11510, 2),
-(26, 5000, '2015-10-14', 'TSA6046007', 1, 10310, 1),
-(27, 5000, '2015-10-14', 'TSA6046007', 1, 15310, 1),
-(28, 9000, '2015-10-14', 'TSA8992366', 1, 10510, 1);
+INSERT INTO `deposit` (`id`, `amount`, `date`, `acct_no`, `teller_id`, `balance`, `acct_type`, `bank_teller`) VALUES
+(1, 800, '2015-09-04', 'TSA6046007', 1, 0, 2, ''),
+(2, 5000, '2015-09-16', 'TSA6046007', 1, 0, 2, ''),
+(3, 5000, '2015-09-18', 'TSA6046007', 1, 0, 1, ''),
+(4, 5000, '2015-09-18', 'TSA6046007', 1, 0, 1, ''),
+(5, 800, '2015-09-04', 'TSA6046007', 0, 0, 2, ''),
+(6, 5000, '2015-09-16', 'TSA6046007', 0, 0, 2, ''),
+(7, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1, ''),
+(8, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1, ''),
+(9, 800, '2015-09-04', 'TSA6046007', 0, 0, 2, ''),
+(10, 5000, '2015-09-16', 'TSA6046007', 0, 0, 2, ''),
+(11, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1, ''),
+(12, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1, ''),
+(13, 800, '2015-09-04', 'TSA6046007', 0, 0, 2, ''),
+(14, 5000, '2015-09-16', 'TSA6046007', 0, 0, 2, ''),
+(15, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1, ''),
+(16, 5000, '2015-09-18', 'TSA6046007', 0, 0, 1, ''),
+(17, 5000, '2015-09-28', 'TSA6046007', 1, 5000, 1, ''),
+(18, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1, ''),
+(19, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1, ''),
+(20, 5000, '2015-09-28', 'TSA3929672', 1, 5000, 1, ''),
+(21, 5000, '2015-09-28', 'TSA3929672', 1, 10000, 1, ''),
+(22, 5000, '2015-10-01', 'TSA6046007', 1, 6510, 1, ''),
+(23, 1000, '2015-10-01', 'TSA6046007', 1, 7510, 1, ''),
+(24, 5000, '2015-10-14', 'SSA0276544', 1, 6510, 2, ''),
+(25, 5000, '2015-10-14', 'SSA0276544', 1, 11510, 2, ''),
+(26, 5000, '2015-10-14', 'TSA6046007', 1, 10310, 1, ''),
+(27, 5000, '2015-10-14', 'TSA6046007', 1, 15310, 1, ''),
+(28, 9000, '2015-10-14', 'TSA8992366', 1, 10510, 1, '');
 
 -- --------------------------------------------------------
 
@@ -259,6 +262,33 @@ INSERT INTO `faculty` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `icas`
+--
+
+CREATE TABLE IF NOT EXISTS `icas` (
+`id` int(11) NOT NULL,
+  `emp_no` int(11) NOT NULL,
+  `amount` float NOT NULL,
+  `interest` float NOT NULL,
+  `total` float NOT NULL,
+  `date` date NOT NULL,
+  `take_home` float NOT NULL,
+  `charge` float NOT NULL,
+  `paid` float NOT NULL,
+  `voucher_id` varchar(124) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `icas`
+--
+
+INSERT INTO `icas` (`id`, `emp_no`, `amount`, `interest`, `total`, `date`, `take_home`, `charge`, `paid`, `voucher_id`) VALUES
+(1, 9, 1000, 5.83333, 1005.83, '2015-10-26', 10000, 0, 0, NULL),
+(2, 5, 2000, 11.6667, 2011.67, '2015-11-03', 1000, 20.1167, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `income`
 --
 
@@ -268,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `income` (
   `balance` float NOT NULL,
   `date` date NOT NULL,
 `id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `income`
@@ -318,7 +348,20 @@ INSERT INTO `income` (`income_type`, `amount`, `balance`, `date`, `id`) VALUES
 (2, 200, 32844.4, '0000-00-00', 41),
 (3, 10310, 43154.4, '2015-10-14', 42),
 (3, 15310, 58464.4, '2015-10-14', 43),
-(3, 10510, 68974.4, '2015-10-14', 44);
+(3, 10510, 68974.4, '2015-10-14', 44),
+(4, 0, 67974.4, '0000-00-00', 45),
+(4, 0, 66974.4, '0000-00-00', 46),
+(2, 500, 62474.4, '0000-00-00', 47),
+(2, 500, 57974.4, '0000-00-00', 48),
+(2, 100, 57074.4, '0000-00-00', 49),
+(2, 100, 56174.4, '0000-00-00', 50),
+(2, 100, 55274.4, '0000-00-00', 51),
+(2, 100, 54374.4, '0000-00-00', 52),
+(2, 100, 53474.4, '0000-00-00', 53),
+(2, 100, 52574.4, '0000-00-00', 54),
+(2, 100, 51674.4, '0000-00-00', 55),
+(2, 10, 51584.4, '0000-00-00', 56),
+(4, 0, 49584.4, '0000-00-00', 57);
 
 -- --------------------------------------------------------
 
@@ -362,17 +405,22 @@ CREATE TABLE IF NOT EXISTS `loan` (
   `duration` int(11) NOT NULL,
   `admin_charge` float DEFAULT NULL,
   `p_no` int(11) DEFAULT NULL,
-  `balance` float DEFAULT NULL
+  `balance` float DEFAULT NULL,
+  `suretie1` varchar(124) DEFAULT NULL,
+  `suretie2` varchar(124) DEFAULT NULL,
+  `suretie_1fone` int(11) DEFAULT NULL,
+  `suretie2_fone` int(11) DEFAULT NULL,
+  `voucher_id` varchar(124) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `loan`
 --
 
-INSERT INTO `loan` (`id`, `emp_no`, `date_incured`, `amount`, `paid`, `interest`, `status`, `total`, `amort`, `interest_amount`, `amort_interest`, `amort_loan`, `duration`, `admin_charge`, `p_no`, `balance`) VALUES
-(11, '5', '2015-09-18', 6000, 746.8, 10, 0, 95800, 186.7, 1800, 43.1, 143.6, 36, NULL, NULL, 95053.2),
-(12, '6', '2015-09-16', 4000, 3700.9, 10, 0, 8800, 700.3, 4800, 382, 318.3, 12, 800, 1, 5099.1),
-(13, '7', '2015-10-02', 10000, 916.66, 10, 0, 11000, 916.66, 1000, 83.33, 833.33, 12, 110, 1, 10083.3);
+INSERT INTO `loan` (`id`, `emp_no`, `date_incured`, `amount`, `paid`, `interest`, `status`, `total`, `amort`, `interest_amount`, `amort_interest`, `amort_loan`, `duration`, `admin_charge`, `p_no`, `balance`, `suretie1`, `suretie2`, `suretie_1fone`, `suretie2_fone`, `voucher_id`) VALUES
+(11, '5', '2015-10-26', 1000, 746.8, 10, 0, 96353.2, 36.11, 300, 8.33333, 27.7778, 36, 963.532, 0, 95053.2, NULL, NULL, NULL, NULL, NULL),
+(12, '6', '2015-09-16', 4000, 3700.9, 10, 0, 8800, 700.3, 4800, 382, 318.3, 12, 800, 1, 5099.1, NULL, NULL, NULL, NULL, NULL),
+(13, '7', '2015-10-02', 10000, 916.66, 10, 0, 11000, 916.66, 1000, 83.33, 833.33, 12, 110, 1, 10083.3, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -466,49 +514,81 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `total_deduction` float DEFAULT NULL,
   `acct_no` varchar(124) NOT NULL,
   `interest_amount` float DEFAULT NULL,
-  `description` varchar(124) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+  `description` varchar(124) DEFAULT NULL,
+  `bank_teller` varchar(124) DEFAULT NULL,
+  `voucher_id` varchar(124) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`id`, `debit`, `credit`, `date`, `amount`, `emp_id`, `balance`, `total_deduction`, `acct_no`, `interest_amount`, `description`) VALUES
-(1, 4, NULL, '0000-00-00', 4, 5, -4.4, 4.4, 'TSA6046007', 0, NULL),
-(2, 100, NULL, '0000-00-00', 1000, 5, -100, 100, 'TSA6046007', 0, NULL),
-(3, 1100, NULL, '0000-00-00', 1000, 5, -1100, 1100, 'TSA6046007', 0, NULL),
-(4, 990, NULL, '2015-09-18', 900, 5, 2910, 990, 'TSA6046007', 90, NULL),
-(5, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, 'deposit'),
-(6, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(7, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(8, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(9, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(10, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(11, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(12, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(13, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(14, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(15, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(16, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(17, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(18, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(19, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(20, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL),
-(21, NULL, 5000, '2015-09-28', 0, 0, 5000, NULL, 'TSA3929672', NULL, NULL),
-(22, NULL, 5000, '2015-09-28', 0, 0, 10000, NULL, 'TSA3929672', NULL, NULL),
-(23, 4400, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL),
-(24, 0, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL),
-(25, 0, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL),
-(26, 440, NULL, '2015-09-28', 400, 5, 760, NULL, 'TSA3929672', 40, NULL),
-(27, 2000, NULL, '2015-09-30', 2000, 0, 1510, NULL, '', NULL, 'passbook'),
-(28, NULL, 5000, '2015-10-01', 0, 0, 6510, NULL, 'TSA6046007', NULL, 'deposit'),
-(29, NULL, 1000, '2015-10-01', 0, 0, 7510, NULL, 'TSA6046007', NULL, 'deposit'),
-(30, NULL, 5000, '2015-10-14', 0, 0, 6510, NULL, 'SSA0276544', NULL, 'deposit'),
-(31, NULL, 5000, '2015-10-14', 0, 0, 11510, NULL, 'SSA0276544', NULL, 'deposit'),
-(32, 2200, NULL, '2015-10-14', 2000, 5, 5310, NULL, 'TSA6046007', 200, 'withdrawal'),
-(33, NULL, 5000, '2015-10-14', 0, 0, 10310, NULL, 'TSA6046007', NULL, 'deposit'),
-(34, NULL, 5000, '2015-10-14', 0, 0, 15310, NULL, 'TSA6046007', NULL, 'deposit'),
-(35, NULL, 9000, '2015-10-14', 0, 0, 10510, NULL, 'TSA8992366', NULL, 'deposit');
+INSERT INTO `transaction` (`id`, `debit`, `credit`, `date`, `amount`, `emp_id`, `balance`, `total_deduction`, `acct_no`, `interest_amount`, `description`, `bank_teller`, `voucher_id`) VALUES
+(1, 4, NULL, '0000-00-00', 4, 5, -4.4, 4.4, 'TSA6046007', 0, NULL, '', NULL),
+(2, 100, NULL, '0000-00-00', 1000, 5, -100, 100, 'TSA6046007', 0, NULL, '', NULL),
+(3, 1100, NULL, '0000-00-00', 1000, 5, -1100, 1100, 'TSA6046007', 0, NULL, '', NULL),
+(4, 990, NULL, '2015-09-18', 900, 5, 2910, 990, 'TSA6046007', 90, NULL, '', NULL),
+(5, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, 'deposit', '', NULL),
+(6, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(7, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(8, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(9, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(10, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(11, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(12, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(13, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(14, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(15, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(16, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(17, NULL, 800, '2015-09-04', 800, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(18, NULL, 5000, '2015-09-16', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(19, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(20, NULL, 5000, '2015-09-18', 5000, 0, 0, NULL, 'TSA6046007', NULL, NULL, '', NULL),
+(21, NULL, 5000, '2015-09-28', 0, 0, 5000, NULL, 'TSA3929672', NULL, NULL, '', NULL),
+(22, NULL, 5000, '2015-09-28', 0, 0, 10000, NULL, 'TSA3929672', NULL, NULL, '', NULL),
+(23, 4400, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL, '', NULL),
+(24, 0, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL, '', NULL),
+(25, 0, NULL, '2015-09-28', 4000, 5, 1200, NULL, 'TSA3929672', 400, NULL, '', NULL),
+(26, 440, NULL, '2015-09-28', 400, 5, 760, NULL, 'TSA3929672', 40, NULL, '', NULL),
+(27, 2000, NULL, '2015-09-30', 2000, 0, 1510, NULL, '', NULL, 'passbook', '', NULL),
+(28, NULL, 5000, '2015-10-01', 0, 0, 6510, NULL, 'TSA6046007', NULL, 'deposit', '', NULL),
+(29, NULL, 1000, '2015-10-01', 0, 0, 7510, NULL, 'TSA6046007', NULL, 'deposit', '', NULL),
+(30, NULL, 5000, '2015-10-14', 0, 0, 6510, NULL, 'SSA0276544', NULL, 'deposit', '', NULL),
+(31, NULL, 5000, '2015-10-14', 0, 0, 11510, NULL, 'SSA0276544', NULL, 'deposit', '', NULL),
+(32, 2200, NULL, '2015-10-14', 2000, 5, 5310, NULL, 'TSA6046007', 200, 'withdrawal', '', NULL),
+(33, NULL, 5000, '2015-10-14', 0, 0, 10310, NULL, 'TSA6046007', NULL, 'deposit', '', NULL),
+(34, NULL, 5000, '2015-10-14', 0, 0, 15310, NULL, 'TSA6046007', NULL, 'deposit', '', NULL),
+(35, NULL, 9000, '2015-10-14', 0, 0, 10510, NULL, 'TSA8992366', NULL, 'deposit', '', NULL),
+(36, 5500, NULL, '2015-10-27', 5000, 5, 9810, NULL, 'TSA6046007', 500, 'withdrawal', NULL, NULL),
+(37, 5500, NULL, '2015-10-27', 5000, 5, 4310, NULL, 'TSA6046007', 500, 'withdrawal', NULL, NULL),
+(38, 1100, NULL, '2015-10-27', 1000, 5, 3210, NULL, 'TSA6046007', 100, 'withdrawal', NULL, NULL),
+(39, 0, NULL, '2015-10-27', 1000, 5, 3210, NULL, 'TSA6046007', 100, 'withdrawal', NULL, NULL),
+(40, 0, NULL, '2015-10-27', 1000, 5, 3210, NULL, 'TSA6046007', 100, 'withdrawal', NULL, NULL),
+(41, 0, NULL, '2015-10-27', 1000, 5, 3210, NULL, 'TSA6046007', 100, 'withdrawal', NULL, NULL),
+(42, 0, NULL, '2015-10-27', 1000, 5, 3210, NULL, 'TSA6046007', 100, 'withdrawal', NULL, NULL),
+(43, 0, NULL, '2015-10-27', 1000, 5, 3210, NULL, 'TSA6046007', 100, 'withdrawal', NULL, NULL),
+(44, 0, NULL, '2015-10-27', 1000, 5, 3210, NULL, 'TSA6046007', 100, 'withdrawal', NULL, NULL),
+(45, 110, NULL, '2015-10-27', 100, 5, 1400, NULL, 'TSA3929672', 10, 'withdrawal', NULL, 'TSA39296721445946852.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `voucher`
+--
+
+CREATE TABLE IF NOT EXISTS `voucher` (
+  `acct_no` varchar(124) NOT NULL,
+  `date` date DEFAULT NULL,
+  `voucher_id` varchar(124) NOT NULL,
+`id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `voucher`
+--
+
+INSERT INTO `voucher` (`acct_no`, `date`, `voucher_id`, `id`) VALUES
+('TSA3929672', '2015-10-27', 'TSA39296721445946852.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -525,25 +605,36 @@ CREATE TABLE IF NOT EXISTS `withdraw` (
   `teller_id` int(11) NOT NULL,
   `balance` float NOT NULL,
   `emp_id` int(11) NOT NULL,
-  `interest_amount` float NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `interest_amount` float NOT NULL,
+  `voucher_id` varchar(124) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `withdraw`
 --
 
-INSERT INTO `withdraw` (`id`, `acct_no`, `amount`, `total_deduction`, `date`, `teller_id`, `balance`, `emp_id`, `interest_amount`) VALUES
-(1, 'TSA6046007', 4, 4.4, '0000-00-00', 0, -4.4, 5, 0),
-(2, 'TSA6046007', 1000, 100, '0000-00-00', 0, -100, 5, 0),
-(3, 'TSA6046007', 1000, 1100, '0000-00-00', 1, -1100, 5, 0),
-(4, 'TSA6046007', 900, 990, '2015-09-18', 1, 2910, 5, 90),
-(5, 'TSA6046007', 4000, 4400, '2015-09-28', 1, 3510, 5, 400),
-(6, 'TSA3929672', 4000, 4400, '2015-09-28', 1, 5600, 5, 400),
-(7, 'TSA3929672', 4000, 4400, '2015-09-28', 1, 1200, 5, 400),
-(8, 'TSA3929672', 4000, 0, '2015-09-28', 1, 1200, 5, 400),
-(9, 'TSA3929672', 4000, 0, '2015-09-28', 1, 1200, 5, 400),
-(10, 'TSA3929672', 400, 440, '2015-09-28', 1, 760, 5, 40),
-(11, 'TSA6046007', 2000, 2200, '2015-10-14', 1, 5310, 5, 200);
+INSERT INTO `withdraw` (`id`, `acct_no`, `amount`, `total_deduction`, `date`, `teller_id`, `balance`, `emp_id`, `interest_amount`, `voucher_id`) VALUES
+(1, 'TSA6046007', 4, 4.4, '0000-00-00', 0, -4.4, 5, 0, NULL),
+(2, 'TSA6046007', 1000, 100, '0000-00-00', 0, -100, 5, 0, NULL),
+(3, 'TSA6046007', 1000, 1100, '0000-00-00', 1, -1100, 5, 0, NULL),
+(4, 'TSA6046007', 900, 990, '2015-09-18', 1, 2910, 5, 90, NULL),
+(5, 'TSA6046007', 4000, 4400, '2015-09-28', 1, 3510, 5, 400, NULL),
+(6, 'TSA3929672', 4000, 4400, '2015-09-28', 1, 5600, 5, 400, NULL),
+(7, 'TSA3929672', 4000, 4400, '2015-09-28', 1, 1200, 5, 400, NULL),
+(8, 'TSA3929672', 4000, 0, '2015-09-28', 1, 1200, 5, 400, NULL),
+(9, 'TSA3929672', 4000, 0, '2015-09-28', 1, 1200, 5, 400, NULL),
+(10, 'TSA3929672', 400, 440, '2015-09-28', 1, 760, 5, 40, NULL),
+(11, 'TSA6046007', 2000, 2200, '2015-10-14', 1, 5310, 5, 200, NULL),
+(12, 'TSA6046007', 5000, 5500, '2015-10-27', 1, 9810, 5, 500, NULL),
+(13, 'TSA6046007', 5000, 5500, '2015-10-27', 1, 4310, 5, 500, NULL),
+(14, 'TSA6046007', 1000, 1100, '2015-10-27', 1, 3210, 5, 100, NULL),
+(15, 'TSA6046007', 1000, 0, '2015-10-27', 1, 3210, 5, 100, NULL),
+(16, 'TSA6046007', 1000, 0, '2015-10-27', 1, 3210, 5, 100, NULL),
+(17, 'TSA6046007', 1000, 0, '2015-10-27', 1, 3210, 5, 100, NULL),
+(18, 'TSA6046007', 1000, 0, '2015-10-27', 1, 3210, 5, 100, NULL),
+(19, 'TSA6046007', 1000, 0, '2015-10-27', 1, 3210, 5, 100, NULL),
+(20, 'TSA6046007', 1000, 0, '2015-10-27', 1, 3210, 5, 100, NULL),
+(21, 'TSA3929672', 100, 110, '2015-10-27', 1, 1400, 5, 10, 'TSA39296721445946852.jpg');
 
 --
 -- Indexes for dumped tables
@@ -598,6 +689,12 @@ ALTER TABLE `faculty`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `icas`
+--
+ALTER TABLE `icas`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `income`
 --
 ALTER TABLE `income`
@@ -631,6 +728,12 @@ ALTER TABLE `percent`
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `voucher`
+--
+ALTER TABLE `voucher`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -684,10 +787,15 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 ALTER TABLE `faculty`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `icas`
+--
+ALTER TABLE `icas`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `income`
 --
 ALTER TABLE `income`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `income_type`
 --
@@ -712,12 +820,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+--
+-- AUTO_INCREMENT for table `voucher`
+--
+ALTER TABLE `voucher`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `withdraw`
 --
 ALTER TABLE `withdraw`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -7,6 +7,7 @@ connect();
 $loan = 2;
 $loan = $_GET['loan'];
 $acct_no = $_GET['id'];
+$type = $_GET['type'];
 $date = date('Y-m-d');
 $image_tempname = $_FILES['voucher']['name'];
 $ImageDir ="dist/img/";
@@ -17,12 +18,18 @@ if(move_uploaded_file($_FILES['voucher']['tmp_name'],
 $new = $acct_no . time() .".jpg";
 
 query("INSERT INTO voucher(date, acct_no, voucher_id) VALUES('$date', '$acct_no', '$new')");
+if($type == "icas"){
+  query("UPDATE icas SET voucher_id='$new' WHERE id='$acct_no'");  
+
+}else{
+
 if(($acct_no != "admin") ||  ($loan != 1)){
 query("UPDATE transaction SET voucher_id='$new' WHERE acct_no='$acct_no' AND date='$date'");
 query("UPDATE withdraw SET voucher_id='$new' WHERE acct_no='$acct_no' AND date='$date'");
 
 }else{
-query("UPDATE loan SET voucher_id='$new' WHERE id='$acct_no'");  
+query("UPDATE loan SET voucher_id='$new' WHERE id='$acct_no'");
+}
 }
 $newfilename = $ImageDir . $new;
 echo $newfilename;

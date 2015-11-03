@@ -32,7 +32,7 @@ $date = date('Y-m-d');
 $charge = (1/100) * $loan_amount;
 
 query("INSERT INTO icas(emp_no, charge, amount, interest, total, date, take_home) VALUES('$emp_id', '$charge', '$loan_amount1', '$loan_amount2', '$loan_amount', '$date', '$tk_home')");
-
+$insert_id = mysql_insert_id();
 
 $rs = query("SELECT * FROM ad_income");
 $row = mysql_fetch_array($rs);
@@ -42,6 +42,6 @@ query("INSERT INTO income(income_type, amount, balance) VALUES('4', '$new_amt1',
 query("UPDATE ad_income SET balance='$int1'");
 
 
-folders($priv, "page=../view_amort&amort=$loan_amount");
+folders($priv, "page=../view_amort&amort=$loan_amount&insert_id=$insert_id&type=icas");
 
  ?>
