@@ -7,7 +7,8 @@ $(document).ready(function(){
       loan_id:loan_id,
       amort:amort
     }, function(data){
-      $('#result').html(data);
+      //$('#result').html(data);
+      alert("Amount Paid");
     });
   });
 

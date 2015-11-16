@@ -12,8 +12,14 @@
      <div class="form-group">
          <label for="title">Tite</label>
          <select name="title" class="form-control" id="title"><option></option>
+         <option value="Miss">
+           Miss
+         </option>
          <option value="Mr">
            Mr
+         </option>
+         <option value="Mrs">
+           Mrs
          </option>
          <option value="Dr">
            Dr

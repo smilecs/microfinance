@@ -169,6 +169,7 @@ if(isset($_GET['idd1'])){
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Loan Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="index.php?page=../view_loan">View Loan</a></li>
+                <li><a href="index.php?page=../existing_loan">Existing Loan</a></li>
                 <li><a href="index.php?page=../loan_form">Loan</a></li>
                 <li><a href="index.php?page=../icas">Icas</a></li>
                 <li><a href="index.php?page=../pay_loan_form">Pay Loan</a></li>
@@ -192,7 +193,7 @@ if(isset($_GET['idd1'])){
               <a href="#"><i class="glyphicon glyphicon-tasks"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <!--<li><a href="index.php?page=../member">Member</a></li>-->
-                <li><a href="index.php?page=../interest_report">Interest</a></li>
+                <!--<li><a href="index.php?page=../interest_report">Interest</a></li>-->
                 <li><a href="index.php?page=../loan_allocated">Loan Allocated</a></li>
                 <li><a href="index.php?page=../thrift_mnt">Thrift</a></li>
                 <li><a href="index.php?page=../special_mnt">Special</a></li>

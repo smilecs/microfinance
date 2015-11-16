@@ -34,7 +34,7 @@
 </thead>
 <tbody>
 <?php
-$result = query("SELECT * FROM loan LEFT JOIN customer ON loan.emp_no=customer.id WHERE dept='$idd'");
+$result = query("SELECT * FROM loan LEFT JOIN customer ON loan.emp_no=customer.id WHERE dept='$idd' AND flag='0'");
 $i = 0;
 $sum = 0;
 while($row = mysql_fetch_array($result)){

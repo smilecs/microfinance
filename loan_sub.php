@@ -56,12 +56,11 @@ $date = date('Y-m-d');
 $charge = (1/100) * $p;
 
 if($digit[2] != 0){
-  query("UPDATE loan SET admin_charge='$charge', p_no='0', duration='$duration', amort_loan='$loan_amount1', amort_interest='$loan_amount2', interest_amount='$sm_amt', date_incured='$date', amount='$p1', amort='$loan_amount', interest='$tmp', total='$p' WHERE emp_no='$emp_id'");
-  $insert_id =$emp_id;
-}else{
-query("INSERT INTO loan(sure1, sure2, admin_charge, p_no, duration, amort_loan, amort_interest, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$sure1', '$sure2', '$charge', '0', '$duration', '$loan_amount1', '$loan_amount2', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
-$insert_id = mysql_insert_id();
+  query("UPDATE loan SET flag='1', status='1' WHERE emp_no='$emp_id'");
 }
+query("INSERT INTO loan(sure1, sure2, admin_charge, p_no, duration, interest_amount, emp_no, date_incured, amount, amort, interest, total) VALUES('$sure1', '$sure2', '$charge', '0', '$duration', '$sm_amt', '$emp_id', '$date', '$p1', '$loan_amount', '$tmp', '$p')");
+$insert_id = mysql_insert_id();
+
 
 $rs = query("SELECT * FROM ad_income");
 $row = mysql_fetch_array($rs);

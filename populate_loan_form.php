@@ -29,7 +29,7 @@ if($pay_no < 1){
   <strong><i></i>Balance</strong>
   <p class=text-muted>$balance</p>
   <hr>
-  <div id=result>
+  <div id=result >
 
   </div>
   </div></div>";
@@ -49,7 +49,7 @@ if($pay_no < 1){
   <strong><i></i>Balance</strong>
   <p class=text-muted>$balance</p>
   <hr>
-  <div id=result>
+  <div id=result >
 
   </div>
   </div></div>";

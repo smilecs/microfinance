@@ -8,8 +8,8 @@
                 </div>
   <div class="box-body">
     <div class="form-group">
-  <label for="acct">Account No</label>
-  <input type="text" name="acct_no" class="form-control"  id="passbook" placeholder="TSA/SSA">
+  <label for="acct">Member Id</label>
+  <input type="text" name="acct_no" class="form-control"  id="passbook" placeholder="Member Id">
   </div>
   <div class="form-group">
     <button class="btn btn-default" id="purchase">Purchase</button>

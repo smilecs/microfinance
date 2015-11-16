@@ -93,8 +93,8 @@
     <th>
       Total Interest Recieved
     </th>
-    <td>
-      <?php echo loan_report()[1]; ?>
+      <td>
+      <?php echo round(loan_report()[1], 2); ?>
     </td>
   </tr>
   <tr>
@@ -134,15 +134,6 @@
 
   </tr>
 
-<tr>
-  <th>
-    Total Interest Recovered
-  </th>
-  <td>
-    <?php echo withdraw_report()[2]; ?>
-  </td>
-
-</tr>
 </table>
 </div>
 </div>

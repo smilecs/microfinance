@@ -128,6 +128,11 @@ function expected(){
     $loan_int += $row['amort_interest'];
     $loan_rec += $row['amort_loan'];
   }
+  $rs = query("SELECT * FROM icas");
+  while($row = mysql_fetch_array($rs)){
+    $loan_int += $row['interest'];
+    $loan_rec += $row['amount'];
+  }
   $arr = [$loan_int, $loan_rec];
   return $arr;
 }

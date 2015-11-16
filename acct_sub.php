@@ -15,6 +15,9 @@ function acct($prefix){
     return $prefix;
   }
 }
+$bal = $_POST['bal'];
+$share = $_POST['share'];
+$value = $_POST['value'];
 $emp_id = $_POST['emp_id'];
 $acct_name = get_teller_name($emp_id);
 $save = $_POST['save_amt'];
@@ -36,6 +39,6 @@ $k = acct($prefix);
 $date = date('Y-m-d');
 
 $end = date('Y-m-d', strtotime('+'.$duration .'years'));
-query("INSERT INTO account(save_amt, duration, acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$save', '$end', '$acct_name', '$emp_id', '$acct_type', '$date', '$k')");
+query("INSERT INTO account(shares, balance, number, save_amt, duration, acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$value', '$bal', '$share', '$save', '$end', '$acct_name', '$emp_id', '$acct_type', '$date', '$k')");
 folders($priv, "page=../acct_suc&no=$k&type=$acct_type");
 ?>

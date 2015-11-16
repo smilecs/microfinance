@@ -12,7 +12,7 @@ if(mysql_num_rows($result) > 0){
 $charge = $row['admin_charge'];
   $amort = $row['amort'] + $charge;
 }
-  echo "<label for=amort>Amortisation</label><input type=Number name=amort class=form-control id=amort value=$amort readonly><br>";
+  echo "<label for=amort>Amortisation</label><input type=Number name=amort class=form-control id=amort value=$amort ><br>";
 }else{
   echo "<h3>No OutStanding Balance.</h3>";
 }

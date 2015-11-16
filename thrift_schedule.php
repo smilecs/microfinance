@@ -1,5 +1,7 @@
 <?php
 $type = $_GET['type'];
+$shares_no = 0;
+$grand_total = 0;
 $tp = '';
 $msg = '';
 switch ($type) {
@@ -56,7 +58,7 @@ $amt_total = 0;
 $bal_total = 0;
 $total = 0;
 
-$result = query("SELECT * FROM customer LEFT JOIN account ON customer.id=account.emp_id WHERE acct_type='$tp' AND department='$idd'");
+//$result = query("SELECT * FROM customer LEFT JOIN account ON customer.id=account.emp_id WHERE acct_type='$tp' AND department='$idd'");
 while($row = mysql_fetch_array($result)){
 $id = $row['emp_id'];
 $fullname = $row['firstname'] . " " . $row['surname'];
@@ -69,13 +71,12 @@ $amt_total += $amt_todate;
 $acct_type = $row['acct_type'];
 $balance = $row['balance'];
 $no = $row['number'];
-if(($no == 5) || ($acct_type = 2)){
+if(($no == 5) || ($acct_type == 2)){
   $shares = "N/A";
 }else{
 $shares = $row['shares'];
-$no +=1;
+$shares_no += $shares;
 
-query("UPDATE account set number='$no' WHERE emp_id='$id'");
 }
 $bal_total += $balance;
 ?>
@@ -106,8 +107,13 @@ $bal_total += $balance;
   </th>
   <td></td>
     <td></td>
+    <td></td>
+    <td></td>
   <th>
     <?php echo $total?>
+  </th>
+  <th>
+    <?php echo $shares_no;?>
   </th>
   <th>
     <?php echo $amt_total; ?>

@@ -128,13 +128,23 @@ function loan_report(){
   $result = query("SELECT * FROM payment");
   while($row = mysql_fetch_array($result)){
   $total_loan_recovered += $row['amount_pay'];
-  $total_interest += $row['amort_interest'];
+  //$total_interest += $row['amort_interest'];
   }
   $result = query("SELECT * FROM loan");
+
+  $result = query("SELECT * FROM income WHERE income_type ='1'");
+  while($row = mysql_fetch_array($result)){
+    $total_interest += $row['amount'];
+    }
 
   while($row = mysql_fetch_array($result)){
     $expected_loan += $row['amort'];
     ++$loan_count;
+  }
+  $rs = query("SELECT * FROM icas");
+  while($row = mysql_fetch_array($rs)){
+      $expected_loan += $row['total'];
+      ++$loan_count;
   }
   $arr = [$total_loan_recovered, $total_interest, $expected_loan, $loan_count];
   return $arr;
@@ -165,17 +175,15 @@ function loan_report_mnt(){
 
 
 function withdraw_report(){
-  $arr = [0, 0, 0];
+  $arr = [0, 0];
   $count = 0;
   $amount = 0;
-  $interest = 0;
   $result = query("SELECT * FROM withdraw");
   while($row = mysql_fetch_array($result)){
     $count +=1;
     $amount += $row['amount'];
-    $interest += $row['interest_amount'];
   }
-  $arr = [$count, $amount, $interest];
+  $arr = [$count, $amount];
   return $arr;
 }
 function revenue_type($type){
@@ -214,7 +222,7 @@ function revenue(){
   $result = query("SELECT * FROM ad_income");
   $row = mysql_fetch_array($result);
   $bal = $row['balance'] + $am;
-  $arr = [$bal, $amount];
+  $arr = [round($bal,2), round($amount, 2)];
   return $arr;
 }
 function member(){

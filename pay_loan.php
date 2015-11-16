@@ -7,7 +7,7 @@ $id = $_SESSION['id'];
 $priv = $_SESSION['priv'];
 $loaner_id = $_POST['loan_id'];
 $amort = $_POST['amort'];
-$charge = '';
+$charge = 0;
 $result = query("SELECT * FROM loan WHERE emp_no='$loaner_id'");
 $row= mysql_fetch_array($result);
 //$rs= query("SELECT * FROM payment WHERE emp_id='$loaner_id'");
@@ -24,38 +24,46 @@ $amort -= $charge;
 $total = $row['total'];
 $paid = $row['paid'];
 $date = date("y-m-d");
-$int = $row['amort_interest'];
-$loan = $row['amort_loan'];
+//$int = $row['amort_interest'];
+//$loan = $row['amort_loan'];
 
 $total_paid = $amort + $paid;
 query("UPDATE loan SET paid='$total_paid' WHERE emp_no='$loaner_id'");
 $bal = $total - $total_paid;
 $b4 = $bal;
 query("UPDATE loan SET balance='$bal' WHERE emp_no='$loaner_id'");
-
-query("INSERT INTO payment(amort_loan, amort_interest, l_id, balance, emp_id, amount_pay, date) VALUES('$loan', '$int', '$id', '$bal', '$loaner_id', '$amort', '$date')");
+query("INSERT INTO payment(l_id, balance, emp_id, amount_pay, date) VALUES('$id', '$bal', '$loaner_id', '$amort', '$date')");
+//query("INSERT INTO payment(amort_loan, amort_interest, l_id, balance, emp_id, amount_pay, date) VALUES('$loan', '$int', '$id', '$bal', '$loaner_id', '$amort', '$date')");
+pre_evaluate();
 $result = query("SELECT * FROM loan");
 while($row = mysql_fetch_array($result)){
   $id = $row['id'];
   $amount = $row['total'];
   $paid = $row['paid'];
-  if($paid >= $amount){
-    query("DELETE FROM loan WHERE id='$id'");
-  }
+  $interest = $row['interest_amount'];
+  $rs = query("SELECT * FROM ad_income");
+  $rw = mysql_fetch_array($rs);
+  $bal = $rw['balance'];
 
- $rs = query("SELECT * FROM ad_income");
- $row = mysql_fetch_array($rs);
- $bal = $row['balance'];
- $int1 = $bal + $loan;
- query("INSERT INTO income(income_type, amount, balance) VALUES('3', '$loan', '$int1')");
- query("UPDATE ad_income SET balance='$int1'");
- $int1 += $int;
- query("INSERT INTO income(income_type, amount, balance) VALUES('1', '$int', '$int1')");
- query("UPDATE ad_income SET balance='$int1'");
-$result = query("SELECT * FROM sub_income");
-$row = mysql_fetch_array($result);
-$ad_bal = $row['balance'] + $total_paid;
- query("UPDATE sub_income SET balance='$ad_bal'");
+  if($paid >= $amount){
+    $bal += $interest;
+    query("DELETE FROM loan WHERE id='$id'");
+    query("INSERT INTO income(income_type, amount, balance) VALUES('1', '$int', '$bal')");
+    query("UPDATE ad_income SET balance='$bal'");
+
+  }
+function pre_evaluate(){
+  $bal = $row['balance'];
+  $int1 = $bal + $amort;
+  query("INSERT INTO income(income_type, amount, balance) VALUES('3', '$amort', '$int1')");
+  query("UPDATE ad_income SET balance='$int1'");
+  //$int1 += $int;
+  $result = query("SELECT * FROM sub_income");
+ $row = mysql_fetch_array($result);
+ $ad_bal = $row['balance'] + $total_paid;
+  query("UPDATE sub_income SET balance='$ad_bal'");
+
+}
 
 }
 $res = "<strong><i></i>New Balance</strong>
