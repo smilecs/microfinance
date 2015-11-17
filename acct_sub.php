@@ -24,6 +24,9 @@ $save = $_POST['save_amt'];
 $acct_type = $_POST['acct_type'];
 $prefix = "TSA";
 $duration = '';
+$rs = query("SELECT * FROM customer WHERE id = '$emp_id'");
+$row = mysql_fetch_array($rs);
+$dept = $row['dept'];
 if($acct_type == 1){
   $result = query("SELECT value from percent WHERE p_name='duration'");
   $row = mysql_fetch_array($result);
@@ -37,8 +40,8 @@ $prefix = "SSA";
 $k = acct($prefix);
 
 $date = date('Y-m-d');
-
 $end = date('Y-m-d', strtotime('+'.$duration .'years'));
-query("INSERT INTO account(shares, balance, number, save_amt, duration, acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$value', '$bal', '$share', '$save', '$end', '$acct_name', '$emp_id', '$acct_type', '$date', '$k')");
+query("INSERT INTO account(department, shares, balance, number, save_amt, duration, acct_name, emp_id, acct_type, d_opened, acct_no) VALUES('$dept', '$value', '$bal', '$share', '$save', '$end', '$acct_name', '$emp_id', '$acct_type', '$date', '$k')");
 folders($priv, "page=../acct_suc&no=$k&type=$acct_type");
+
 ?>

@@ -53,6 +53,8 @@ while($row = mysql_fetch_array($result)){
 
   }
 function pre_evaluate(){
+  $rs = query("SELECT * FROM ad_income");
+  $row = mysql_fetch_array($rs);
   $bal = $row['balance'];
   $int1 = $bal + $amort;
   query("INSERT INTO income(income_type, amount, balance) VALUES('3', '$amort', '$int1')");
